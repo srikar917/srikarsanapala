@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sanapala Srikar | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.85);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .nav-left span {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      color: #38bdf8;
+    }
+
+    .nav-right a {
+      margin-left: 1.25rem;
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      opacity: 0.9;
+    }
+
+    .nav-right a:hover {
+      color: #f9fafb;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 3.5rem 1.5rem 2.5rem;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.75rem;
+      color: #e5e7eb;
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      margin-right: 0.4rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 3vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
+    }
+
+    .hero-role {
+      font-size: 1.1rem;
+      color: #cbd5f5;
+      margin-bottom: 1rem;
+    }
+
+    .hero-summary {
+      color: #9ca3af;
+      font-size: 0.98rem;
+      max-width: 36rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #0b1120;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    .hero-meta strong {
+      color: #e5e7eb;
+    }
+
+    .hero-card {
+      border-radius: 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent),
+                  radial-gradient(circle at bottom right, rgba(96, 165, 250, 0.15), #020617);
+      padding: 1.5rem;
+    }
+
+    .hero-card h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card p {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card small {
+      display: block;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-top: 1rem;
+    }
+
+    /* Sections */
+
+    section {
+      padding: 2rem 1.5rem;
+    }
+
+    section:nth-of-type(odd) {
+      background: #020617;
+    }
+
+    section:nth-of-type(even) {
+      background: #020617;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      font-weight: 600;
+    }
+
+    .section-title span {
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(to right, #38bdf8, transparent);
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+    }
+
+    .about-text {
+      color: #e5e7eb;
+      font-size: 0.95rem;
+    }
+
+    .about-text p + p {
+      margin-top: 0.9rem;
+    }
+
+    .about-list {
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .about-list li {
+      padding: 0.6rem 0.7rem;
+      border-radius: 0.9rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .about-list strong {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Skills */
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .skills-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .skills-col h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+      color: #cbd5f5;
+    }
+
+    .skills-col ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    .skills-col li {
+      margin-bottom: 0.3rem;
+    }
+
+    /* Experience */
+
+    .timeline {
+      border-left: 1px solid rgba(148, 163, 184, 0.5);
+      margin-left: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .timeline-item {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .timeline-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      border: 2px solid #0f172a;
+      background: #38bdf8;
+      position: absolute;
+      left: -1.1rem;
+      top: 0.3rem;
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+    }
+
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.25rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-role {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .timeline-company {
+      font-size: 0.88rem;
+      color: #9ca3af;
+    }
+
+    .timeline-meta {
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+
+    .timeline ul {
+      list-style: disc;
+      margin-left: 1rem;
+      font-size: 0.85rem;
+      color: #cbd5f5;
+      margin-top: 0.4rem;
+    }
+
+    .timeline li + li {
+      margin-top: 0.25rem;
+    }
+
+    /* Contact */
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+    }
+
+    .contact-details p {
+      font-size: 0.95rem;
+      color: #cbd5f5;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-details a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    .contact-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1.5rem;
+      background: rgba(15, 23, 42, 0.95);
+      font-size: 0.88rem;
+      color: #cbd5f5;
+    }
+
+    .contact-card label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: #9ca3af;
+    }
+
+    .contact-card input,
+    .contact-card textarea {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      margin: 0.35rem 0 0.9rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: #020617;
+      color: #e5e7eb;
+      font-family: inherit;
+      font-size: 0.88rem;
+    }
+
+    .contact-card button {
+      padding: 0.55rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+      background: #38bdf8;
+      color: #020617;
+    }
+
+    .contact-card button:hover {
+      filter: brightness(1.05);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      padding: 1rem 1.5rem 2rem;
+      color: #6b7280;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 840px) {
+      .hero-inner,
+      .about-grid,
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .nav-right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <span>S. Srikar</span>
+      </div>
+      <div class="nav-right">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Available for opportunities
+        </div>
+        <h1>Hi, I'm <span>Sanapala Srikar</span></h1>
+        <p class="hero-role">System Administrator & Technical Co-ordinator</p>
+        <p class="hero-summary">
+          System Administrator with 3+ years of hands-on experience managing and maintaining computer systems,
+          networks, and digital classrooms. Strong troubleshooting skills across hardware, software, and
+          networking with additional expertise in CCTV, RFID, and DTP/design tools.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Contact Me</a>
+          <a href="#experience" class="btn-outline">View Experience</a>
+        </div>
+        <p class="hero-meta">
+          <strong>Based in:</strong> Visakhapatnam, Andhra Pradesh<br />
+          <strong>Phone:</strong> <a href="tel:+916300860166">+91 63008 60166</a> &nbsp;|&nbsp;
+          <strong>Email:</strong> <a href="mailto:s.srikar8@gmail.com">s.srikar8@gmail.com</a>
+        </p>
+      </div>
+
+      <aside class="hero-card">
+        <h2>Snapshot</h2>
+        <p><strong>Current Role:</strong> Technical Co-ordinator at Tata ClassEdge (Navy Children School)</p>
+        <p><strong>Core Domains:</strong> System Administration, Hardware & Networking, School IT Support</p>
+        <p><strong>Extras:</strong> CCTV & RFID attendance systems, Video Editing, Graphic Designing, Telugu DTP</p>
+        <small>“Bridging technology and education through reliable IT support
+          and user-friendly digital systems.”</small>
+      </aside>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-inner">
+      <h2 class="section-title"><span></span> About</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I am an IT professional with experience across system administration, school IT infrastructure,
+            digital classrooms, and desktop publishing. Over the years, I have worked with education
+            institutions and IT service companies, handling everything from PC maintenance and networking
+            to biometric attendance systems and CCTV installations.
+          </p>
+          <p>
+            I am comfortable in both Windows and Linux environments and enjoy helping teachers, staff,
+            and clients use technology confidently and effectively. I also have creative skills in video
+            editing and graphic design, which I use for digital content and marketing.
+          </p>
+        </div>
+        <ul class="about-list">
+          <li>
+            <strong>Current Location</strong>
+            Visakhapatnam, Andhra Pradesh, India
+          </li>
+          <li>
+            <strong>Experience</strong>
+            System Administration, Technical Co-ordination, Hardware & Networking, DTP, Digital Marketing
+          </li>
+          <li>
+            <strong>Education & Courses</strong>
+            B.C.A (Madurai Kamaraj University), PGDCA, PGDAT, Diploma in Computer Hardware and other
+            computer courses.
+          </li>
+          <li>
+            <strong>Languages</strong>
+            Telugu, English, Hindi
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="section-inner">
+      <h2 class="section-title"><span></span> Skills</h2>
+
+      <div class="skill-tags">
+        <span class="tag">System Administration (Linux & Windows)</span>
+        <span class="tag">Network Configuration & Troubleshooting</span>
+        <span class="tag">Cisco Switches & Routers</span>
+        <span class="tag">Active Directory</span>
+        <span class="tag">Backup & Recovery</span>
+        <span class="tag">IT Helpdesk Support</span>
+        <span class="tag">CCTV Installation</span>
+        <span class="tag">RFID Attendance Systems</span>
+        <span class="tag">Hardware & Software Troubleshooting</span>
+        <span class="tag">Printer & Scanner Support</span>
+        <span class="tag">Filmora Video Editing</span>
+        <span class="tag">Photoshop / Illustrator / Corel Draw</span>
+        <span class="tag">DTP (Pagemaker, InDesign)</span>
+        <span class="tag">Telugu Typing (Anu Script Manager)</span>
+        <span class="tag">Digital Marketing & SEO</span>
+      </div>
+
+      <div class="skills-columns">
+        <div class="skills-col">
+          <h3>System & Network</h3>
+          <ul>
+            <li>Linux and Windows server administration</li>
+            <li>LAN setup, network installation and support</li>
+            <li>Cisco routers and switches configuration</li>
+            <li>Monitoring and performance optimization</li>
+            <li>Internet connectivity troubleshooting</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h3>Support & Infrastructure</h3>
+          <ul>
+            <li>Helpdesk ticket handling and client support</li>
+            <li>Hardware diagnostics and PC assembly</li>
+            <li>Printer & scanner driver installation and issues</li>
+            <li>CCTV installation & maintenance</li>
+            <li>RFID biometric attendance system setup</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h3>Creative & DTP</h3>
+          <ul>
+            <li>Video editing in Filmora</li>
+            <li>Graphic design (Photoshop, Illustrator, Corel Draw)</li>
+            <li>Desktop publishing (Pagemaker, InDesign)</li>
+            <li>Telugu and English typing for educational materials</li>
+            <li>Question paper and worksheet design</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h3>Digital Marketing</h3>
+          <ul>
+            <li>Social media management and content creation</li>
+            <li>SEO and basic analytics</li>
+            <li>Online advertising for small businesses</li>
+            <li>Branding and lead generation strategy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="section-inner">
+      <h2 class="section-title"><span></span> Experience</h2>
+      <div class="timeline">
+        <!-- Freelance Digital Marketer -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Freelance Digital Marketer</div>
+              <div class="timeline-company">Self-employed</div>
+            </div>
+            <div class="timeline-meta">2023 – Present | Visakhapatnam</div>
+          </div>
+          <ul>
+            <li>Plan and execute digital marketing campaigns for various clients and small businesses.</li>
+            <li>Manage social media accounts, content creation and online advertisements.</li>
+            <li>Design marketing materials using Photoshop, Corel Draw and Illustrator.</li>
+            <li>Improve online presence through SEO, content writing and analytics.</li>
+            <li>Consult on digital branding and lead generation strategies.</li>
+          </ul>
+        </article>
+
+        <!-- Technical Co-ordinator -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Technical Co-ordinator</div>
+              <div class="timeline-company">Tata ClassEdge (Deputed to Navy Children School)</div>
+            </div>
+            <div class="timeline-meta">Sep 2023 – Present | Visakhapatnam</div>
+          </div>
+          <ul>
+            <li>Act as on-site co-ordinator for Tata ClassEdge’s digital education platform.</li>
+            <li>Support implementation and maintenance of smart classroom technology and digital content.</li>
+            <li>Provide technical support and training for teachers and staff.</li>
+            <li>Troubleshoot hardware and networking issues and coordinate with central support teams.</li>
+            <li>Monitor system usage and help integrate digital tools into daily lesson planning.</li>
+          </ul>
+        </article>
+
+        <!-- System Administrator - ChanduSoft Solutions -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">System Administrator</div>
+              <div class="timeline-company">ChanduSoft Solutions</div>
+            </div>
+            <div class="timeline-meta">2018 – 2023 | Visakhapatnam</div>
+          </div>
+          <ul>
+            <li>Set up and configure computer systems including hardware components and peripherals.</li>
+            <li>Diagnose and resolve hardware/software issues for multiple clients.</li>
+            <li>Handle support requests via email, Skype and phone.</li>
+            <li>Resolve internet connectivity, email (POP/IMAP) and mailbox issues.</li>
+            <li>Monitor system performance and suggest improvements.</li>
+            <li>Install and configure printers, scanners and network printers.</li>
+          </ul>
+        </article>
+
+        <!-- Hardware & Networking - Universal Public School -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Hardware & Networking Support</div>
+              <div class="timeline-company">Universal Public School</div>
+            </div>
+            <div class="timeline-meta">2015 – 2016 | Visakhapatnam</div>
+          </div>
+          <ul>
+            <li>Installed and maintained CCTV systems across the school premises.</li>
+            <li>Performed preventive maintenance for computers, laptops, printers and peripherals.</li>
+            <li>Assisted in network troubleshooting, IP addressing and connectivity issues.</li>
+            <li>Supported configuration of routers and switches for seamless connectivity.</li>
+          </ul>
+        </article>
+
+        <!-- Hardware Engineer - Newton English Medium School -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Hardware Engineer</div>
+              <div class="timeline-company">Newton English Medium School</div>
+            </div>
+            <div class="timeline-meta">2013 – 2014 | Visakhapatnam</div>
+          </div>
+          <ul>
+            <li>Troubleshot PCs, installed software and printer drivers.</li>
+            <li>Ensured the smooth functioning of school IT infrastructure.</li>
+          </ul>
+        </article>
+
+        <!-- Database / DTP Operator - Vikas Educational Institution -->
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">Database & DTP Operator</div>
+              <div class="timeline-company">Vikas Educational Institution</div>
+            </div>
+            <div class="timeline-meta">2008 – 2011 | Visakhapatnam</div>
+          </div>
+          <ul>
+            <li>Managed databases ensuring accuracy and data integrity.</li>
+            <li>Operated OMR scanning equipment for examination answer sheets.</li>
+            <li>Prepared question papers and educational materials using Pagemaker and DTP tools.</li>
+            <li>Used Telugu typing (Anu Script Manager) for content creation.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-inner">
+      <h2 class="section-title"><span></span> Contact</h2>
+      <div class="contact-wrapper">
+        <div class="contact-details">
+          <p>If you’d like to discuss an opportunity, collaboration, or IT support requirement, feel free to reach out.</p>
+          <br />
+          <p><strong>Phone:</strong> <a href="tel:+916300860166">+91 63008 60166</a></p>
+          <p><strong>Email:</strong> <a href="mailto:s.srikar8@gmail.com">s.srikar8@gmail.com</a></p>
+          <p><strong>Location:</strong> 39-13-17, Harsha Enclave, Ramalayam Street, Murali Nagar, Visakhapatnam – 530007</p>
+          <br />
+          <p><strong>Languages:</strong> Telugu, English, Hindi</p>
+        </div>
+        <div class="contact-card">
+          <!-- NOTE: This is a static form. To make it work, connect it to a backend or service like Formspree. -->
+          <form>
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" />
+
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" />
+
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="How can I help you?"></textarea>
+
+            <button type="button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Sanapala Srikar. All rights reserved.
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
