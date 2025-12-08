@@ -28,8 +28,6 @@
       display: block;
     }
 
-    /* Layout */
-
     .container {
       width: 100%;
       max-width: 1100px;
@@ -211,10 +209,7 @@
       padding: 2rem 1.5rem;
     }
 
-    section:nth-of-type(odd) {
-      background: #020617;
-    }
-
+    section:nth-of-type(odd),
     section:nth-of-type(even) {
       background: #020617;
     }
@@ -326,6 +321,13 @@
 
     /* Experience */
 
+    .experience-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
     .timeline {
       border-left: 1px solid rgba(148, 163, 184, 0.5);
       margin-left: 0.5rem;
@@ -336,6 +338,23 @@
     .timeline-item {
       margin-bottom: 1.5rem;
       position: relative;
+      cursor: pointer;
+      padding: 0.35rem 0.75rem 0.4rem 0.75rem;
+      border-radius: 0.9rem;
+      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+      border: 1px solid transparent;
+    }
+
+    .timeline-item:hover {
+      background: rgba(15, 23, 42, 0.8);
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateX(2px);
+    }
+
+    .timeline-item.active {
+      background: rgba(15, 23, 42, 1);
+      border-color: rgba(56, 189, 248, 0.8);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 1), 0 0 0 4px rgba(56, 189, 248, 0.25);
     }
 
     .timeline-dot {
@@ -346,7 +365,7 @@
       background: #38bdf8;
       position: absolute;
       left: -1.1rem;
-      top: 0.3rem;
+      top: 0.9rem;
       box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
     }
 
@@ -373,16 +392,74 @@
       color: #9ca3af;
     }
 
-    .timeline ul {
-      list-style: disc;
-      margin-left: 1rem;
-      font-size: 0.85rem;
+    .timeline-short {
+      font-size: 0.82rem;
       color: #cbd5f5;
+      margin-top: 0.3rem;
+    }
+
+    /* Experience details panel */
+
+    .exp-details-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1.5rem;
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .exp-details-role {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-details-company {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-details-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 0.8rem;
+    }
+
+    .exp-details-desc {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      margin-bottom: 0.8rem;
+    }
+
+    .exp-details-list-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+      margin-top: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .exp-details-ul {
+      list-style: disc;
+      margin-left: 1.1rem;
+      font-size: 0.86rem;
+      color: #cbd5f5;
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
       margin-top: 0.4rem;
     }
 
-    .timeline li + li {
-      margin-top: 0.25rem;
+    .exp-skill-tag {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.75rem;
     }
 
     /* Contact */
@@ -460,7 +537,8 @@
     @media (max-width: 840px) {
       .hero-inner,
       .about-grid,
-      .contact-wrapper {
+      .contact-wrapper,
+      .experience-layout {
         grid-template-columns: 1fr;
       }
 
@@ -470,6 +548,10 @@
 
       .nav-right {
         display: none;
+      }
+
+      .experience-layout {
+        gap: 1.25rem;
       }
     }
   </style>
@@ -500,9 +582,9 @@
         <h1>Hi, I'm <span>Sanapala Srikar</span></h1>
         <p class="hero-role">System Administrator & Technical Co-ordinator</p>
         <p class="hero-summary">
-          System Administrator with 3+ years of hands-on experience managing and maintaining computer systems,
-          networks, and digital classrooms. Strong troubleshooting skills across hardware, software, and
-          networking with additional expertise in CCTV, RFID, and DTP/design tools.
+          System Administrator with hands-on experience managing and maintaining computer systems,
+          networks, and digital classrooms. Strong troubleshooting skills across hardware, software,
+          and networking with additional expertise in CCTV, RFID, and DTP/design tools.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn-primary">Contact Me</a>
@@ -534,9 +616,9 @@
         <div class="about-text">
           <p>
             I am an IT professional with experience across system administration, school IT infrastructure,
-            digital classrooms, and desktop publishing. Over the years, I have worked with education
-            institutions and IT service companies, handling everything from PC maintenance and networking
-            to biometric attendance systems and CCTV installations.
+            digital classrooms, and desktop publishing. I have worked with education institutions and IT
+            service companies, handling everything from PC maintenance and networking to biometric
+            attendance systems and CCTV installations.
           </p>
           <p>
             I am comfortable in both Windows and Linux environments and enjoy helping teachers, staff,
@@ -638,116 +720,113 @@
   <section id="experience">
     <div class="section-inner">
       <h2 class="section-title"><span></span> Experience</h2>
-      <div class="timeline">
-        <!-- Freelance Digital Marketer -->
-        <article class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-header">
-            <div>
-              <div class="timeline-role">Freelance Digital Marketer</div>
-              <div class="timeline-company">Self-employed</div>
-            </div>
-            <div class="timeline-meta">2023 – Present | Visakhapatnam</div>
-          </div>
-          <ul>
-            <li>Plan and execute digital marketing campaigns for various clients and small businesses.</li>
-            <li>Manage social media accounts, content creation and online advertisements.</li>
-            <li>Design marketing materials using Photoshop, Corel Draw and Illustrator.</li>
-            <li>Improve online presence through SEO, content writing and analytics.</li>
-            <li>Consult on digital branding and lead generation strategies.</li>
-          </ul>
-        </article>
 
-        <!-- Technical Co-ordinator -->
-        <article class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-header">
-            <div>
-              <div class="timeline-role">Technical Co-ordinator</div>
-              <div class="timeline-company">Tata ClassEdge (Deputed to Navy Children School)</div>
+      <div class="experience-layout">
+        <!-- LEFT: clickable timeline -->
+        <div class="timeline">
+          <article class="timeline-item active" data-exp-id="freelance">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Freelance Digital Marketer</div>
+                <div class="timeline-company">Self-employed</div>
+              </div>
+              <div class="timeline-meta">2023 – Present | Visakhapatnam</div>
             </div>
-            <div class="timeline-meta">Sep 2023 – Present | Visakhapatnam</div>
-          </div>
-          <ul>
-            <li>Act as on-site co-ordinator for Tata ClassEdge’s digital education platform.</li>
-            <li>Support implementation and maintenance of smart classroom technology and digital content.</li>
-            <li>Provide technical support and training for teachers and staff.</li>
-            <li>Troubleshoot hardware and networking issues and coordinate with central support teams.</li>
-            <li>Monitor system usage and help integrate digital tools into daily lesson planning.</li>
-          </ul>
-        </article>
+            <p class="timeline-short">
+              Managing online marketing, branding and content for small businesses.
+            </p>
+          </article>
 
-        <!-- System Administrator - ChanduSoft Solutions -->
-        <article class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-header">
-            <div>
-              <div class="timeline-role">System Administrator</div>
-              <div class="timeline-company">ChanduSoft Solutions</div>
+          <article class="timeline-item" data-exp-id="tce">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Technical Co-ordinator</div>
+                <div class="timeline-company">Tata ClassEdge (Navy Children School)</div>
+              </div>
+              <div class="timeline-meta">Sep 2023 – Present | Visakhapatnam</div>
             </div>
-            <div class="timeline-meta">2018 – 2023 | Visakhapatnam</div>
-          </div>
-          <ul>
-            <li>Set up and configure computer systems including hardware components and peripherals.</li>
-            <li>Diagnose and resolve hardware/software issues for multiple clients.</li>
-            <li>Handle support requests via email, Skype and phone.</li>
-            <li>Resolve internet connectivity, email (POP/IMAP) and mailbox issues.</li>
-            <li>Monitor system performance and suggest improvements.</li>
-            <li>Install and configure printers, scanners and network printers.</li>
-          </ul>
-        </article>
+            <p class="timeline-short">
+              Supporting smart classrooms, teacher training and IT infrastructure in school.
+            </p>
+          </article>
 
-        <!-- Hardware & Networking - Universal Public School -->
-        <article class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-header">
-            <div>
-              <div class="timeline-role">Hardware & Networking Support</div>
-              <div class="timeline-company">Universal Public School</div>
+          <article class="timeline-item" data-exp-id="chandusoft">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">System Administrator</div>
+                <div class="timeline-company">ChanduSoft Solutions</div>
+              </div>
+              <div class="timeline-meta">2018 – 2023 | Visakhapatnam</div>
             </div>
-            <div class="timeline-meta">2015 – 2016 | Visakhapatnam</div>
-          </div>
-          <ul>
-            <li>Installed and maintained CCTV systems across the school premises.</li>
-            <li>Performed preventive maintenance for computers, laptops, printers and peripherals.</li>
-            <li>Assisted in network troubleshooting, IP addressing and connectivity issues.</li>
-            <li>Supported configuration of routers and switches for seamless connectivity.</li>
-          </ul>
-        </article>
+            <p class="timeline-short">
+              End-to-end system administration, client support and network troubleshooting.
+            </p>
+          </article>
 
-        <!-- Hardware Engineer - Newton English Medium School -->
-        <article class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-header">
-            <div>
-              <div class="timeline-role">Hardware Engineer</div>
-              <div class="timeline-company">Newton English Medium School</div>
+          <article class="timeline-item" data-exp-id="universal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Hardware & Networking Support</div>
+                <div class="timeline-company">Universal Public School</div>
+              </div>
+              <div class="timeline-meta">2015 – 2016 | Visakhapatnam</div>
             </div>
-            <div class="timeline-meta">2013 – 2014 | Visakhapatnam</div>
-          </div>
-          <ul>
-            <li>Troubleshot PCs, installed software and printer drivers.</li>
-            <li>Ensured the smooth functioning of school IT infrastructure.</li>
-          </ul>
-        </article>
+            <p class="timeline-short">
+              Maintained CCTV, computers and network for the campus.
+            </p>
+          </article>
 
-        <!-- Database / DTP Operator - Vikas Educational Institution -->
-        <article class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-header">
-            <div>
-              <div class="timeline-role">Database & DTP Operator</div>
-              <div class="timeline-company">Vikas Educational Institution</div>
+          <article class="timeline-item" data-exp-id="newton">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Hardware Engineer</div>
+                <div class="timeline-company">Newton English Medium School</div>
+              </div>
+              <div class="timeline-meta">2013 – 2014 | Visakhapatnam</div>
             </div>
-            <div class="timeline-meta">2008 – 2011 | Visakhapatnam</div>
+            <p class="timeline-short">
+              Troubleshooting PCs, installing software and printers for staff.
+            </p>
+          </article>
+
+          <article class="timeline-item" data-exp-id="vikas">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Database & DTP Operator</div>
+                <div class="timeline-company">Vikas Educational Institution</div>
+              </div>
+              <div class="timeline-meta">2008 – 2011 | Visakhapatnam</div>
+            </div>
+            <p class="timeline-short">
+              Managed databases, OMR sheets and DTP for exams and study material.
+            </p>
+          </article>
+        </div>
+
+        <!-- RIGHT: details for selected experience -->
+        <aside class="exp-details-card" id="exp-details">
+          <div class="exp-details-role" id="exp-role"></div>
+          <div class="exp-details-company" id="exp-company"></div>
+          <div class="exp-details-meta" id="exp-meta"></div>
+
+          <p class="exp-details-desc" id="exp-desc"></p>
+
+          <div>
+            <div class="exp-details-list-title">Key Responsibilities</div>
+            <ul class="exp-details-ul" id="exp-resp"></ul>
           </div>
-          <ul>
-            <li>Managed databases ensuring accuracy and data integrity.</li>
-            <li>Operated OMR scanning equipment for examination answer sheets.</li>
-            <li>Prepared question papers and educational materials using Pagemaker and DTP tools.</li>
-            <li>Used Telugu typing (Anu Script Manager) for content creation.</li>
-          </ul>
-        </article>
+
+          <div>
+            <div class="exp-details-list-title">Skills Used</div>
+            <div class="exp-skill-tags" id="exp-skills"></div>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -767,7 +846,7 @@
           <p><strong>Languages:</strong> Telugu, English, Hindi</p>
         </div>
         <div class="contact-card">
-          <!-- NOTE: This is a static form. To make it work, connect it to a backend or service like Formspree. -->
+          <!-- Static form; connect to Formspree or backend to make it work -->
           <form>
             <label for="name">Name</label>
             <input id="name" type="text" placeholder="Your name" />
@@ -792,6 +871,184 @@
   <script>
     // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Experience data for the details panel
+    const experienceData = {
+      freelance: {
+        role: "Freelance Digital Marketer",
+        company: "Self-employed",
+        meta: "2023 – Present | Visakhapatnam",
+        desc: "Helping small businesses and individuals grow their online presence through branding, social media, and performance-based campaigns.",
+        responsibilities: [
+          "Plan and execute digital marketing campaigns for local businesses and clients.",
+          "Create social media posts, short videos and promotional graphics.",
+          "Run basic paid campaigns and monitor performance using analytics.",
+          "Advise clients on brand positioning, leads, and customer engagement."
+        ],
+        skills: [
+          "Digital Marketing",
+          "Social Media Management",
+          "SEO Basics",
+          "Canva / Photoshop",
+          "Content Writing",
+          "Analytics"
+        ]
+      },
+      tce: {
+        role: "Technical Co-ordinator",
+        company: "Tata ClassEdge (Navy Children School)",
+        meta: "Sep 2023 – Present | Visakhapatnam",
+        desc: "Responsible for smooth functioning of smart classrooms and ClassEdge digital content across the school.",
+        responsibilities: [
+          "Support teachers in using ClassEdge content and smart classroom tools.",
+          "Troubleshoot classroom PCs, projectors and network issues.",
+          "Coordinate with Tata ClassEdge support team for escalations.",
+          "Train staff on new features and ensure maximum usage of digital content.",
+          "Monitor system health and perform basic preventive maintenance."
+        ],
+        skills: [
+          "Smart Classroom Support",
+          "Windows Administration",
+          "Basic Networking",
+          "Projector & AV Setup",
+          "Teacher Training",
+          "Troubleshooting"
+        ]
+      },
+      chandusoft: {
+        role: "System Administrator",
+        company: "ChanduSoft Solutions",
+        meta: "2018 – 2023 | Visakhapatnam",
+        desc: "Handled system administration and IT support for multiple clients in and around Visakhapatnam.",
+        responsibilities: [
+          "Assembled and configured desktops, laptops and peripherals.",
+          "Installed and updated operating systems, antivirus and business applications.",
+          "Resolved internet connectivity, email (POP/IMAP) and mailbox issues.",
+          "Installed, configured and troubleshot printers and scanners.",
+          "Provided remote support through phone, email and tools like Skype/AnyDesk.",
+          "Monitored system performance and suggested upgrades where needed."
+        ],
+        skills: [
+          "System Administration",
+          "Windows OS",
+          "Basic Linux",
+          "LAN / WAN Troubleshooting",
+          "Email Configuration",
+          "Printer Support",
+          "Client Communication"
+        ]
+      },
+      universal: {
+        role: "Hardware & Networking Support",
+        company: "Universal Public School",
+        meta: "2015 – 2016 | Visakhapatnam",
+        desc: "Supported the school’s IT infrastructure including CCTV, labs and staff systems.",
+        responsibilities: [
+          "Installed and maintained CCTV cameras and DVR systems.",
+          "Performed regular maintenance of computers, laptops and peripherals.",
+          "Assisted with LAN cabling, IP addressing and network troubleshooting.",
+          "Helped teachers and staff resolve basic software and hardware issues."
+        ],
+        skills: [
+          "CCTV Installation",
+          "Network Basics",
+          "Hardware Maintenance",
+          "Windows Desktop Support",
+          "User Support"
+        ]
+      },
+      newton: {
+        role: "Hardware Engineer",
+        company: "Newton English Medium School",
+        meta: "2013 – 2014 | Visakhapatnam",
+        desc: "Provided hardware and basic software support for the school’s systems.",
+        responsibilities: [
+          "Installed and configured educational software and OS updates.",
+          "Fixed PC boot issues, performance problems and virus infections.",
+          "Installed printer drivers and managed basic printer troubleshooting.",
+          "Ensured smooth running of lab systems before exams and classes."
+        ],
+        skills: [
+          "PC Troubleshooting",
+          "Software Installation",
+          "Virus Removal",
+          "Printer Configuration",
+          "Basic Networking"
+        ]
+      },
+      vikas: {
+        role: "Database & DTP Operator",
+        company: "Vikas Educational Institution",
+        meta: "2008 – 2011 | Visakhapatnam",
+        desc: "Worked on exam processing, DTP and data management for the institution.",
+        responsibilities: [
+          "Prepared question papers, study material and handouts using DTP tools.",
+          "Handled OMR scanning and result processing for examinations.",
+          "Maintained student and exam databases with accuracy.",
+          "Typed Telugu and English content using Anu Script Manager."
+        ],
+        skills: [
+          "DTP (Pagemaker / InDesign)",
+          "OMR Processing",
+          "Database Handling",
+          "Telugu Typing",
+          "MS Office"
+        ]
+      }
+    };
+
+    const roleEl = document.getElementById("exp-role");
+    const companyEl = document.getElementById("exp-company");
+    const metaEl = document.getElementById("exp-meta");
+    const descEl = document.getElementById("exp-desc");
+    const respEl = document.getElementById("exp-resp");
+    const skillsEl = document.getElementById("exp-skills");
+    const timelineItems = document.querySelectorAll(".timeline-item");
+
+    function renderExperience(id) {
+      const data = experienceData[id];
+      if (!data) return;
+
+      roleEl.textContent = data.role;
+      companyEl.textContent = data.company;
+      metaEl.textContent = data.meta;
+      descEl.textContent = data.desc;
+
+      // Responsibilities
+      respEl.innerHTML = "";
+      data.responsibilities.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        respEl.appendChild(li);
+      });
+
+      // Skills
+      skillsEl.innerHTML = "";
+      data.skills.forEach((skill) => {
+        const span = document.createElement("span");
+        span.className = "exp-skill-tag";
+        span.textContent = skill;
+        skillsEl.appendChild(span);
+      });
+    }
+
+    // Set up click handlers
+    timelineItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const id = item.getAttribute("data-exp-id");
+        // active state
+        timelineItems.forEach((i) => i.classList.remove("active"));
+        item.classList.add("active");
+        renderExperience(id);
+        // scroll into view on small screens
+        if (window.innerWidth < 840) {
+          document.getElementById("exp-details").scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    // Initial load: show first experience (freelance)
+    renderExperience("freelance");
   </script>
 </body>
 </html>
