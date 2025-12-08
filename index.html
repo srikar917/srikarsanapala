@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sanapala  | Portfolio</title>
+  <title>Sanapala Srikar | Animated Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     * {
@@ -13,9 +13,10 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f172a;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #020617 100%);
       color: #e5e7eb;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -26,6 +27,29 @@
     img {
       max-width: 100%;
       display: block;
+    }
+
+    /* Simple animated background glow */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.16) 0, transparent 40%),
+        radial-gradient(circle at 80% 0%, rgba(129, 140, 248, 0.18) 0, transparent 45%),
+        radial-gradient(circle at 50% 100%, rgba(34, 197, 94, 0.12) 0, transparent 50%);
+      opacity: 0.9;
+      z-index: -1;
+      animation: bgFloat 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgFloat {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      100% {
+        transform: translate3d(0, -20px, 0) scale(1.05);
+      }
     }
 
     .container {
@@ -39,9 +63,10 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: blur(12px);
-      background: rgba(15, 23, 42, 0.85);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.7));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      animation: slideDown 0.7s ease-out;
     }
 
     .nav {
@@ -55,9 +80,9 @@
 
     .nav-left span {
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: #38bdf8;
     }
 
@@ -66,10 +91,68 @@
       font-size: 0.9rem;
       color: #cbd5f5;
       opacity: 0.9;
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-right a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #22c55e);
+      transition: width 0.2s ease-out;
     }
 
     .nav-right a:hover {
       color: #f9fafb;
+    }
+
+    .nav-right a:hover::after {
+      width: 100%;
+    }
+
+    /* Animations */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 32px, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes softGlow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.25);
+      }
+      100% {
+        box-shadow: 0 0 0 16px rgba(56, 189, 248, 0);
+      }
+    }
+
+    /* Reveal-on-scroll base */
+
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 26px, 0);
+      transition:
+        opacity 0.7s ease-out,
+        transform 0.7s ease-out,
+        filter 0.7s ease-out;
+      filter: blur(4px);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      filter: blur(0);
     }
 
     /* Hero */
@@ -85,6 +168,7 @@
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
       gap: 2rem;
       align-items: center;
+      animation: fadeUp 0.9s ease-out 0.05s both;
     }
 
     .badge {
@@ -96,6 +180,8 @@
       font-size: 0.75rem;
       color: #e5e7eb;
       margin-bottom: 0.75rem;
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.9);
     }
 
     .badge-dot {
@@ -104,6 +190,8 @@
       border-radius: 999px;
       background: #22c55e;
       margin-right: 0.4rem;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.3);
+      animation: softGlow 1.8s ease-out infinite alternate;
     }
 
     .hero h1 {
@@ -113,7 +201,9 @@
     }
 
     .hero h1 span {
-      color: #38bdf8;
+      background: linear-gradient(120deg, #38bdf8, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     .hero-role {
@@ -138,31 +228,47 @@
 
     .btn-primary,
     .btn-outline {
-      padding: 0.6rem 1.2rem;
+      padding: 0.65rem 1.35rem;
       border-radius: 999px;
       font-size: 0.9rem;
       cursor: pointer;
       border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      transition:
+        transform 0.1s ease-out,
+        box-shadow 0.15s ease-out,
+        background 0.15s ease-out,
+        border-color 0.15s ease-out;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, #0ea5e9, #22c55e);
       color: #0b1120;
       font-weight: 600;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.8);
     }
 
     .btn-primary:hover {
-      filter: brightness(1.05);
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 22px 45px rgba(15, 23, 42, 0.95);
     }
 
     .btn-outline {
-      background: transparent;
-      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.7);
       color: #e5e7eb;
     }
 
     .btn-outline:hover {
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 1);
+      border-color: rgba(56, 189, 248, 0.7);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.9);
     }
 
     .hero-meta {
@@ -177,9 +283,22 @@
     .hero-card {
       border-radius: 1.5rem;
       border: 1px solid rgba(148, 163, 184, 0.4);
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent),
-                  radial-gradient(circle at bottom right, rgba(96, 165, 250, 0.15), #020617);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(96, 165, 250, 0.2), #020617);
       padding: 1.5rem;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 1);
+      transform-origin: center;
+      animation: floatCard 7s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatCard {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(0, -8px, 0);
+      }
     }
 
     .hero-card h2 {
@@ -206,12 +325,12 @@
     /* Sections */
 
     section {
-      padding: 2rem 1.5rem;
+      padding: 2.5rem 1.5rem;
     }
 
     section:nth-of-type(odd),
     section:nth-of-type(even) {
-      background: #020617;
+      background: rgba(2, 6, 23, 0.95);
     }
 
     .section-inner {
@@ -264,10 +383,11 @@
     }
 
     .about-list li {
-      padding: 0.6rem 0.7rem;
+      padding: 0.7rem 0.75rem;
       border-radius: 0.9rem;
       background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      backdrop-filter: blur(8px);
     }
 
     .about-list strong {
@@ -293,7 +413,21 @@
       border: 1px solid rgba(148, 163, 184, 0.4);
       font-size: 0.8rem;
       color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.9);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 1));
+      cursor: pointer;
+      transition:
+        background 0.15s,
+        border-color 0.15s,
+        transform 0.12s,
+        box-shadow 0.15s;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.9);
+    }
+
+    .tag:hover {
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 1), rgba(15, 23, 42, 1));
+      border-color: rgba(56, 189, 248, 0.8);
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 1);
     }
 
     .skills-columns {
@@ -335,26 +469,46 @@
       position: relative;
     }
 
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: 0;
+      width: 3px;
+      height: 70px;
+      background: linear-gradient(to bottom, #38bdf8, transparent);
+      opacity: 0.8;
+    }
+
     .timeline-item {
       margin-bottom: 1.5rem;
       position: relative;
       cursor: pointer;
-      padding: 0.35rem 0.75rem 0.4rem 0.75rem;
+      padding: 0.5rem 0.75rem 0.55rem 0.75rem;
       border-radius: 0.9rem;
-      transition: background 0.2s, border-color 0.2s, transform 0.1s;
+      transition:
+        background 0.2s,
+        border-color 0.2s,
+        transform 0.12s,
+        box-shadow 0.2s;
       border: 1px solid transparent;
+      backdrop-filter: blur(6px);
     }
 
     .timeline-item:hover {
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.9);
       border-color: rgba(56, 189, 248, 0.4);
-      transform: translateX(2px);
+      transform: translateX(3px);
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.9);
     }
 
     .timeline-item.active {
       background: rgba(15, 23, 42, 1);
-      border-color: rgba(56, 189, 248, 0.8);
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 1), 0 0 0 4px rgba(56, 189, 248, 0.25);
+      border-color: rgba(56, 189, 248, 0.9);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 1),
+        0 0 0 4px rgba(56, 189, 248, 0.25),
+        0 18px 40px rgba(15, 23, 42, 1);
     }
 
     .timeline-dot {
@@ -404,7 +558,8 @@
       border-radius: 1.2rem;
       border: 1px solid rgba(148, 163, 184, 0.4);
       padding: 1.5rem;
-      background: rgba(15, 23, 42, 0.95);
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.4), rgba(15, 23, 42, 1));
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 1);
     }
 
     .exp-details-role {
@@ -460,6 +615,21 @@
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.5);
       font-size: 0.75rem;
+      cursor: pointer;
+      transition:
+        background 0.15s,
+        border-color 0.15s,
+        transform 0.12s,
+        box-shadow 0.15s;
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.9);
+    }
+
+    .exp-skill-tag:hover {
+      background: rgba(30, 64, 175, 0.9);
+      border-color: rgba(56, 189, 248, 0.6);
+      transform: translateY(-1px) scale(1.03);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 1);
     }
 
     /* Contact */
@@ -488,6 +658,7 @@
       background: rgba(15, 23, 42, 0.95);
       font-size: 0.88rem;
       color: #cbd5f5;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 1);
     }
 
     .contact-card label {
@@ -519,10 +690,17 @@
       font-weight: 600;
       background: #38bdf8;
       color: #020617;
+      transition:
+        transform 0.12s,
+        box-shadow 0.15s,
+        background 0.15s;
+      box-shadow: 0 12px 34px rgba(15, 23, 42, 1);
     }
 
     .contact-card button:hover {
-      filter: brightness(1.05);
+      transform: translateY(-1px);
+      background: #0ea5e9;
+      box-shadow: 0 18px 46px rgba(15, 23, 42, 1);
     }
 
     footer {
@@ -553,6 +731,21 @@
       .experience-layout {
         gap: 1.25rem;
       }
+
+      .hero-card {
+        animation: floatCard 10s ease-in-out infinite alternate;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translate3d(0, -24px, 0);
+        opacity: 0;
+      }
+      to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -574,7 +767,7 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
-      <div>
+      <div class="reveal">
         <div class="badge">
           <span class="badge-dot"></span>
           Available for opportunities
@@ -597,7 +790,7 @@
         </p>
       </div>
 
-      <aside class="hero-card">
+      <aside class="hero-card reveal">
         <h2>Snapshot</h2>
         <p><strong>Current Role:</strong> Technical Co-ordinator at Tata ClassEdge (Navy Children School)</p>
         <p><strong>Core Domains:</strong> System Administration, Hardware & Networking, School IT Support</p>
@@ -611,8 +804,8 @@
   <!-- About -->
   <section id="about">
     <div class="section-inner">
-      <h2 class="section-title"><span></span> About</h2>
-      <div class="about-grid">
+      <h2 class="section-title reveal"><span></span> About</h2>
+      <div class="about-grid reveal">
         <div class="about-text">
           <p>
             I am an IT professional with experience across system administration, school IT infrastructure,
@@ -652,27 +845,27 @@
   <!-- Skills -->
   <section id="skills">
     <div class="section-inner">
-      <h2 class="section-title"><span></span> Skills</h2>
+      <h2 class="section-title reveal"><span></span> Skills</h2>
 
-      <div class="skill-tags">
-        <span class="tag">System Administration (Linux & Windows)</span>
-        <span class="tag">Network Configuration & Troubleshooting</span>
-        <span class="tag">Cisco Switches & Routers</span>
-        <span class="tag">Active Directory</span>
-        <span class="tag">Backup & Recovery</span>
-        <span class="tag">IT Helpdesk Support</span>
-        <span class="tag">CCTV Installation</span>
-        <span class="tag">RFID Attendance Systems</span>
-        <span class="tag">Hardware & Software Troubleshooting</span>
-        <span class="tag">Printer & Scanner Support</span>
-        <span class="tag">Filmora Video Editing</span>
-        <span class="tag">Photoshop / Illustrator / Corel Draw</span>
-        <span class="tag">DTP (Pagemaker, InDesign)</span>
-        <span class="tag">Telugu Typing (Anu Script Manager)</span>
-        <span class="tag">Digital Marketing & SEO</span>
+      <div class="skill-tags reveal">
+        <span class="tag skill-clickable" data-skill="System Administration">System Administration (Linux & Windows)</span>
+        <span class="tag skill-clickable" data-skill="Network">Network Configuration & Troubleshooting</span>
+        <span class="tag skill-clickable" data-skill="Cisco">Cisco Switches & Routers</span>
+        <span class="tag skill-clickable" data-skill="Active Directory">Active Directory</span>
+        <span class="tag skill-clickable" data-skill="Backup">Backup & Recovery</span>
+        <span class="tag skill-clickable" data-skill="Helpdesk">IT Helpdesk Support</span>
+        <span class="tag skill-clickable" data-skill="CCTV">CCTV Installation</span>
+        <span class="tag skill-clickable" data-skill="RFID">RFID Attendance Systems</span>
+        <span class="tag skill-clickable" data-skill="Troubleshooting">Hardware & Software Troubleshooting</span>
+        <span class="tag skill-clickable" data-skill="Printer">Printer & Scanner Support</span>
+        <span class="tag skill-clickable" data-skill="Filmora">Filmora Video Editing</span>
+        <span class="tag skill-clickable" data-skill="Photoshop">Photoshop / Illustrator / Corel Draw</span>
+        <span class="tag skill-clickable" data-skill="DTP">DTP (Pagemaker, InDesign)</span>
+        <span class="tag skill-clickable" data-skill="Telugu Typing">Telugu Typing (Anu Script Manager)</span>
+        <span class="tag skill-clickable" data-skill="Digital Marketing">Digital Marketing & SEO</span>
       </div>
 
-      <div class="skills-columns">
+      <div class="skills-columns reveal">
         <div class="skills-col">
           <h3>System & Network</h3>
           <ul>
@@ -719,9 +912,9 @@
   <!-- Experience -->
   <section id="experience">
     <div class="section-inner">
-      <h2 class="section-title"><span></span> Experience</h2>
+      <h2 class="section-title reveal"><span></span> Experience</h2>
 
-      <div class="experience-layout">
+      <div class="experience-layout reveal">
         <!-- LEFT: clickable timeline -->
         <div class="timeline">
           <article class="timeline-item active" data-exp-id="freelance">
@@ -834,8 +1027,8 @@
   <!-- Contact -->
   <section id="contact">
     <div class="section-inner">
-      <h2 class="section-title"><span></span> Contact</h2>
-      <div class="contact-wrapper">
+      <h2 class="section-title reveal"><span></span> Contact</h2>
+      <div class="contact-wrapper reveal">
         <div class="contact-details">
           <p>If you’d like to discuss an opportunity, collaboration, or IT support requirement, feel free to reach out.</p>
           <br />
@@ -1026,30 +1219,82 @@
       skillsEl.innerHTML = "";
       data.skills.forEach((skill) => {
         const span = document.createElement("span");
-        span.className = "exp-skill-tag";
+        span.className = "exp-skill-tag skill-clickable";
         span.textContent = skill;
         skillsEl.appendChild(span);
       });
     }
 
-    // Set up click handlers
+    function setActiveTimelineItem(id) {
+      timelineItems.forEach((item) => {
+        if (item.getAttribute("data-exp-id") === id) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+      });
+    }
+
+    function selectExperience(id) {
+      if (!experienceData[id]) return;
+      setActiveTimelineItem(id);
+      renderExperience(id);
+    }
+
+    // Set up click handlers for timeline items
     timelineItems.forEach((item) => {
       item.addEventListener("click", () => {
         const id = item.getAttribute("data-exp-id");
-        // active state
-        timelineItems.forEach((i) => i.classList.remove("active"));
-        item.classList.add("active");
-        renderExperience(id);
-        // scroll into view on small screens
+        selectExperience(id);
         if (window.innerWidth < 840) {
           document.getElementById("exp-details").scrollIntoView({ behavior: "smooth", block: "start" });
         }
       });
     });
 
+    // Find first experience that uses a skill (by name)
+    function findExperienceBySkill(skillName) {
+      const skillLower = skillName.toLowerCase();
+      for (const [id, data] of Object.entries(experienceData)) {
+        if (data.skills.some((s) => s.toLowerCase().includes(skillLower))) {
+          return id;
+        }
+      }
+      return null;
+    }
+
+    // Event delegation for all skill-clickable elements (main skills + exp skills)
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("skill-clickable")) {
+        const skill = e.target.dataset.skill || e.target.textContent.trim();
+        const expId = findExperienceBySkill(skill);
+        if (expId) {
+          document.getElementById("experience").scrollIntoView({ behavior: "smooth", block: "start" });
+          selectExperience(expId);
+        }
+      }
+    });
+
+    // Scroll reveal logic
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.18
+      }
+    );
+
+    revealEls.forEach((el) => observer.observe(el));
+
     // Initial load: show first experience (freelance)
-    renderExperience("freelance");
+    selectExperience("freelance");
   </script>
 </body>
 </html>
-
