@@ -24,7 +24,6 @@
       text-decoration: none;
     }
 
-    /* animated background glow */
     body::before {
       content: "";
       position: fixed;
@@ -47,13 +46,6 @@
       }
     }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1.5rem;
-    }
-
-    /* header */
     header {
       position: sticky;
       top: 0;
@@ -120,7 +112,6 @@
       }
     }
 
-    /* reveal */
     .reveal {
       opacity: 0;
       transform: translate3d(0, 26px, 0);
@@ -133,7 +124,6 @@
       filter: blur(0);
     }
 
-    /* hero */
     .hero {
       padding: 3.5rem 1.5rem 2.5rem;
     }
@@ -272,7 +262,6 @@
       margin-bottom: 0.75rem;
     }
 
-    /* sections */
     section {
       padding: 2.5rem 1.5rem;
     }
@@ -301,7 +290,6 @@
       background: linear-gradient(to right, #38bdf8, transparent);
     }
 
-    /* about */
     .about-grid {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -311,7 +299,7 @@
       color: #e5e7eb;
       font-size: 0.95rem;
     }
-    .about-text p + p {
+    .about-text p+p {
       margin-top: 0.9rem;
     }
     .about-list {
@@ -338,7 +326,6 @@
       margin-bottom: 0.2rem;
     }
 
-    /* skills tags */
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
@@ -382,7 +369,6 @@
       margin-bottom: 0.3rem;
     }
 
-    /* experience */
     .experience-layout {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -528,7 +514,6 @@
       box-shadow: 0 14px 28px rgba(15, 23, 42, 1);
     }
 
-    /* Certificates grid */
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -553,7 +538,7 @@
     }
     .cert-item .cert-thumb {
       width: 100%;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 4/3;
       object-fit: cover;
       border-radius: 0.7rem;
       background: #1e293b;
@@ -574,7 +559,6 @@
       color: #9ca3af;
     }
 
-    /* Modal / Image viewer */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -639,7 +623,6 @@
       border-color: #38bdf8;
     }
 
-    /* contact */
     .contact-wrapper {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -738,13 +721,12 @@
     </nav>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
       <div class="reveal">
         <div class="badge"><span class="badge-dot"></span>Available for opportunities</div>
         <h1>Hi, I'm <span>Sanapala Srikar</span></h1>
-        <p class="hero-role">System Administrator &amp; Technical Co-ordinator</p>
+        <p class="hero-role">System Administrator &amp; Technical Coordinator</p>
         <p class="hero-summary">
           System Administrator with hands-on experience managing and maintaining computer systems,
           networks, and digital classrooms. Strong troubleshooting skills across hardware, software,
@@ -762,74 +744,69 @@
       </div>
       <aside class="hero-card reveal">
         <h2>Snapshot</h2>
-        <p><strong>Current Role:</strong> Technical Co-ordinator at Tata ClassEdge (Navy Children School)</p>
+        <p><strong>Current Role:</strong> Technical Coordinator at Tata ClassEdge (Navy Children School)</p>
         <p><strong>Core Domains:</strong> System Administration, Hardware &amp; Networking, School IT Support</p>
-        <p><strong>Extras:</strong> CCTV &amp; RFID attendance systems, Video Editing, Graphic Designing, Telugu DTP</p>
-        <small>“Bridging technology and education through reliable IT support and user-friendly digital systems.”</small>
+        <p><strong>Extras:</strong> Interactive Flat Panels, Smart Boards, Projectors, LMS Admin, CCTV &amp; RFID</p>
+        <small>"Bridging technology and education through reliable IT support and user-friendly digital systems."</small>
       </aside>
     </div>
   </section>
 
-  <!-- About -->
   <section id="about">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> About</h2>
       <div class="about-grid reveal">
         <div class="about-text">
           <p>I am an IT professional with experience across system administration, school IT infrastructure, digital classrooms, and desktop publishing. I have worked with education institutions and IT service companies, handling everything from PC maintenance and networking to biometric attendance systems and CCTV installations.</p>
-          <p>I am comfortable in both Windows and Linux environments and enjoy helping teachers, staff, and clients use technology confidently and effectively. I also have creative skills in video editing and graphic design, which I use for digital content and marketing.</p>
+          <p>I specialize in maintaining smart classrooms including Interactive Flat Panels (IFPs), Smart Boards, projectors, and AV equipment. I also have experience with LMS administration, teacher training, and coordinating with vendors for warranty and AMC support.</p>
         </div>
         <ul class="about-list">
           <li><strong>Current Location</strong>Visakhapatnam, Andhra Pradesh, India</li>
-          <li><strong>Experience</strong>System Administration, Technical Co-ordination, Hardware &amp; Networking, DTP, Digital Marketing</li>
-          <li><strong>Education &amp; Courses</strong>B.C.A (Madurai Kamaraj University), PGDCA, PGDAT, Diploma in Computer Hardware and other computer courses.</li>
+          <li><strong>Experience</strong>System Administration, Technical Coordination, Hardware &amp; Networking, DTP, Digital Marketing</li>
+          <li><strong>Education &amp; Courses</strong>B.C.A (Madurai Kamaraj University), PGDCA, PGDAT, Diploma in Computer Hardware</li>
           <li><strong>Languages</strong>Telugu, English, Hindi</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
   <section id="skills">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Skills</h2>
       <div class="skill-tags reveal">
-        <span class="tag skill-clickable" data-skill="System Administration">System Administration (Linux &amp; Windows)</span>
-        <span class="tag skill-clickable" data-skill="Network">Network Configuration &amp; Troubleshooting</span>
-        <span class="tag skill-clickable" data-skill="Cisco">Cisco Switches &amp; Routers</span>
-        <span class="tag skill-clickable" data-skill="Active Directory">Active Directory</span>
-        <span class="tag skill-clickable" data-skill="Backup">Backup &amp; Recovery</span>
-        <span class="tag skill-clickable" data-skill="Helpdesk">IT Helpdesk Support</span>
+        <span class="tag skill-clickable" data-skill="IFP">Interactive Flat Panels (IFPs)</span>
+        <span class="tag skill-clickable" data-skill="Smart Boards">Smart Boards</span>
+        <span class="tag skill-clickable" data-skill="Projectors">Projectors &amp; Visualizers</span>
+        <span class="tag skill-clickable" data-skill="AV Equipment">AV Equipment &amp; Audio Systems</span>
+        <span class="tag skill-clickable" data-skill="LMS">LMS Administration</span>
+        <span class="tag skill-clickable" data-skill="Networking">LAN, Wi-Fi, IP Configuration</span>
+        <span class="tag skill-clickable" data-skill="Windows">Windows OS Troubleshooting</span>
+        <span class="tag skill-clickable" data-skill="Android">Android OS Troubleshooting</span>
+        <span class="tag skill-clickable" data-skill="HDMI">HDMI, VGA, USB, Wireless Casting</span>
         <span class="tag skill-clickable" data-skill="CCTV">CCTV Installation</span>
         <span class="tag skill-clickable" data-skill="RFID">RFID Attendance Systems</span>
-        <span class="tag skill-clickable" data-skill="Troubleshooting">Hardware &amp; Software Troubleshooting</span>
-        <span class="tag skill-clickable" data-skill="Printer">Printer &amp; Scanner Support</span>
-        <span class="tag skill-clickable" data-skill="Filmora">Filmora Video Editing</span>
-        <span class="tag skill-clickable" data-skill="Photoshop">Photoshop / Illustrator / Corel Draw</span>
+        <span class="tag skill-clickable" data-skill="Hardware">Hardware &amp; Software Troubleshooting</span>
         <span class="tag skill-clickable" data-skill="DTP">DTP (Pagemaker, InDesign)</span>
-        <span class="tag skill-clickable" data-skill="Telugu Typing">Telugu Typing (Anu Script Manager)</span>
         <span class="tag skill-clickable" data-skill="Digital Marketing">Digital Marketing &amp; SEO</span>
       </div>
-
       <div class="skills-columns reveal">
-        <div class="skills-col"><h3>System &amp; Network</h3><ul><li>Linux and Windows server administration</li><li>LAN setup, network installation and support</li><li>Cisco routers and switches configuration</li><li>Monitoring and performance optimization</li><li>Internet connectivity troubleshooting</li></ul></div>
-        <div class="skills-col"><h3>Support &amp; Infrastructure</h3><ul><li>Helpdesk ticket handling and client support</li><li>Hardware diagnostics and PC assembly</li><li>Printer &amp; scanner driver installation and issues</li><li>CCTV installation &amp; maintenance</li><li>RFID biometric attendance system setup</li></ul></div>
-        <div class="skills-col"><h3>Creative &amp; DTP</h3><ul><li>Video editing in Filmora</li><li>Graphic design (Photoshop, Illustrator, Corel Draw)</li><li>Desktop publishing (Pagemaker, InDesign)</li><li>Telugu and English typing for educational materials</li><li>Question paper and worksheet design</li></ul></div>
-        <div class="skills-col"><h3>Digital Marketing</h3><ul><li>Social media management and content creation</li><li>SEO and basic analytics</li><li>Online advertising for small businesses</li><li>Branding and lead generation strategy</li></ul></div>
+        <div class="skills-col"><h3>Smart Classroom &amp; AV</h3><ul><li>Interactive Flat Panels (IFPs) installation &amp; configuration</li><li>Smart Boards &amp; projectors troubleshooting</li><li>Visualizers, audio systems &amp; microphones setup</li><li>HDMI, VGA, USB &amp; wireless casting technologies</li><li>Preventive maintenance &amp; fault diagnosis</li></ul></div>
+        <div class="skills-col"><h3>System &amp; Network</h3><ul><li>Windows &amp; Android OS troubleshooting</li><li>LAN, Wi-Fi, IP configuration</li><li>Hardware diagnostics &amp; PC assembly</li><li>Printer &amp; scanner support</li><li>Backup &amp; recovery</li></ul></div>
+        <div class="skills-col"><h3>LMS &amp; Support</h3><ul><li>LMS user account creation &amp; management</li><li>Content upload &amp; course management</li><li>First-level LMS user support</li><li>Teacher training on smartboard &amp; LMS usage</li><li>Asset &amp; maintenance record keeping</li></ul></div>
+        <div class="skills-col"><h3>Creative &amp; DTP</h3><ul><li>Video editing in Filmora</li><li>Graphic design (Photoshop, Illustrator, Corel Draw)</li><li>Desktop publishing (Pagemaker, InDesign)</li><li>Telugu and English typing</li><li>Digital marketing &amp; SEO</li></ul></div>
       </div>
     </div>
   </section>
 
-  <!-- Experience (Newton removed) -->
   <section id="experience">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Experience</h2>
       <div class="experience-layout reveal">
         <div class="timeline">
           <article class="timeline-item active" data-exp-id="freelance"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Freelance Digital Marketer</div><div class="timeline-company">Self-employed</div></div><div class="timeline-meta">2023 – Present | Visakhapatnam</div></div><p class="timeline-short">Managing online marketing, branding and content for small businesses.</p></article>
-          <article class="timeline-item" data-exp-id="tce"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Technical Co-ordinator</div><div class="timeline-company">Tata ClassEdge (Navy Children School)</div></div><div class="timeline-meta">Sep 2023 – Present | Visakhapatnam</div></div><p class="timeline-short">Supporting smart classrooms, teacher training and IT infrastructure in school.</p></article>
+          <article class="timeline-item" data-exp-id="tce"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Technical Coordinator</div><div class="timeline-company">Tata ClassEdge (Navy Children School)</div></div><div class="timeline-meta">Sep 2023 – Present | Visakhapatnam</div></div><p class="timeline-short">Smart classroom support, LMS administration &amp; teacher training.</p></article>
           <article class="timeline-item" data-exp-id="chandusoft"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">System Administrator</div><div class="timeline-company">ChanduSoft Solutions</div></div><div class="timeline-meta">2018 – 2023 | Visakhapatnam</div></div><p class="timeline-short">End-to-end system administration, client support and network troubleshooting.</p></article>
-          <article class="timeline-item" data-exp-id="universal"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Hardware &amp; Networking Support</div><div class="timeline-company">Universal Public School</div></div><div class="timeline-meta">2015 – 2016 | Visakhapatnam</div></div><p class="timeline-short">Maintained CCTV, computers and network for the campus.</p></article>
+          <article class="timeline-item" data-exp-id="universal"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Hardware &amp; Networking Support</div><div class="timeline-company">Universal Public School</div></div><div class="timeline-meta">2015 – 2016 | Visakhapatnam</div></div><p class="timeline-short">Maintained CCTV, computers, smartboards and network for the campus.</p></article>
           <article class="timeline-item" data-exp-id="vikas"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Database &amp; DTP Operator</div><div class="timeline-company">Vikas Educational Institution</div></div><div class="timeline-meta">2008 – 2011 | Visakhapatnam</div></div><p class="timeline-short">Managed databases, OMR sheets and DTP for exams and study material.</p></article>
         </div>
 
@@ -851,12 +828,10 @@
     </div>
   </section>
 
-  <!-- Certificates with image viewer -->
   <section id="certificates">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Certificates</h2>
       <div class="cert-grid reveal" id="certGrid">
-        <!-- each cert-item has data-img (path/url) and data-name, data-issuer -->
         <div class="cert-item" data-img="https://picsum.photos/id/1/600/400" data-name="CCNA (Routing & Switching)" data-issuer="Cisco">
           <img class="cert-thumb" src="https://picsum.photos/id/1/400/300" alt="CCNA" loading="lazy" />
           <div class="name">CCNA (Routing & Switching)</div>
@@ -891,7 +866,6 @@
     </div>
   </section>
 
-  <!-- Modal / Image viewer -->
   <div class="modal-overlay" id="certModal">
     <div class="modal-box">
       <img class="modal-img" id="modalImg" src="" alt="Certificate" />
@@ -901,13 +875,12 @@
     </div>
   </div>
 
-  <!-- Contact -->
   <section id="contact">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Contact</h2>
       <div class="contact-wrapper reveal">
         <div class="contact-details">
-          <p>If you’d like to discuss an opportunity, collaboration, or IT support requirement, feel free to reach out.</p>
+          <p>If you'd like to discuss an opportunity, collaboration, or IT support requirement, feel free to reach out.</p>
           <br />
           <p><strong>Phone:</strong> <a href="tel:+916300860166">+91 63008 60166</a></p>
           <p><strong>Email:</strong> <a href="mailto:s.srikar8@gmail.com">s.srikar8@gmail.com</a></p>
@@ -931,14 +904,12 @@
   </section>
 
   <footer>
-    © <span id="year"></span> Sanapala Srikar. All rights reserved.
+    &copy; <span id="year"></span> Sanapala Srikar. All rights reserved.
   </footer>
 
   <script>
-    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Experience data (Newton removed)
     const experienceData = {
       freelance: {
         role: "Freelance Digital Marketer",
@@ -954,18 +925,22 @@
         skills: ["Digital Marketing", "Social Media Management", "SEO Basics", "Canva / Photoshop", "Content Writing", "Analytics"]
       },
       tce: {
-        role: "Technical Co-ordinator",
+        role: "Technical Coordinator",
         company: "Tata ClassEdge (Navy Children School)",
         meta: "Sep 2023 – Present | Visakhapatnam",
-        desc: "Responsible for smooth functioning of smart classrooms and ClassEdge digital content across the school.",
+        desc: "Responsible for smooth functioning of smart classrooms, Interactive Flat Panels, and ClassEdge digital content across the school.",
         responsibilities: [
-          "Support teachers in using ClassEdge content and smart classroom tools.",
-          "Troubleshoot classroom PCs, projectors and network issues.",
-          "Coordinate with Tata ClassEdge support team for escalations.",
-          "Train staff on new features and ensure maximum usage of digital content.",
-          "Monitor system health and perform basic preventive maintenance."
+          "Maintain and troubleshoot Interactive Flat Panels (IFPs), smartboards, projectors, and classroom AV equipment.",
+          "Provide first-level support for LMS users and create/manage LMS user accounts.",
+          "Train teachers on smartboard and LMS usage.",
+          "Coordinate with OEM vendors for warranty and AMC support.",
+          "Maintain asset and maintenance records.",
+          "Generate monthly support and usage reports.",
+          "LMS content upload and course management.",
+          "Ensure smooth operation of digital classrooms and online learning platforms.",
+          "Provision of efficient data management support through accurate data entry, record keeping, and reporting."
         ],
-        skills: ["Smart Classroom Support", "Windows Administration", "Basic Networking", "Projector & AV Setup", "Teacher Training", "Troubleshooting"]
+        skills: ["Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors", "Visualizers", "Audio Systems", "LMS Administration", "Teacher Training", "AV Equipment", "Windows OS", "Android OS", "HDMI/VGA/USB", "Wireless Casting", "Preventive Maintenance", "Vendor Coordination", "Asset Management"]
       },
       chandusoft: {
         role: "System Administrator",
@@ -986,14 +961,19 @@
         role: "Hardware & Networking Support",
         company: "Universal Public School",
         meta: "2015 – 2016 | Visakhapatnam",
-        desc: "Supported the school’s IT infrastructure including CCTV, labs and staff systems.",
+        desc: "Supported the school's IT infrastructure including CCTV, smart classrooms, labs and staff systems.",
         responsibilities: [
+          "Installation, configuration, and troubleshooting of Interactive Flat Panels (IFPs), smartboards, projectors, and visualizers.",
           "Installed and maintained CCTV cameras and DVR systems.",
           "Performed regular maintenance of computers, laptops and peripherals.",
           "Assisted with LAN cabling, IP addressing and network troubleshooting.",
-          "Helped teachers and staff resolve basic software and hardware issues."
+          "Troubleshot audio systems, microphones, and classroom AV equipment.",
+          "Helped teachers and staff resolve basic software and hardware issues.",
+          "Basic networking knowledge (LAN, Wi-Fi, IP configuration).",
+          "Windows and Android OS troubleshooting.",
+          "Knowledge of HDMI, VGA, USB, and wireless casting technologies."
         ],
-        skills: ["CCTV Installation", "Network Basics", "Hardware Maintenance", "Windows Desktop Support", "User Support"]
+        skills: ["Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors", "Visualizers", "Audio Systems", "CCTV Installation", "Network Basics", "Hardware Maintenance", "Windows Desktop Support", "Android OS", "HDMI/VGA/USB", "Wireless Casting", "User Support", "Preventive Maintenance"]
       },
       vikas: {
         role: "Database & DTP Operator",
@@ -1010,7 +990,6 @@
       }
     };
 
-    // DOM refs for experience
     const roleEl = document.getElementById("exp-role");
     const companyEl = document.getElementById("exp-company");
     const metaEl = document.getElementById("exp-meta");
@@ -1082,7 +1061,6 @@
       }
     });
 
-    // Scroll reveal
     const revealEls = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -1092,15 +1070,13 @@
             observer.unobserve(entry.target);
           }
         });
-      },
-      { threshold: 0.18 }
+      }, { threshold: 0.18 }
     );
     revealEls.forEach((el) => observer.observe(el));
 
-    // Initial load
     selectExperience("freelance");
 
-    // ----- Certificate Image Viewer Modal -----
+    // Certificate Modal
     const modalOverlay = document.getElementById("certModal");
     const modalImg = document.getElementById("modalImg");
     const modalName = document.getElementById("modalName");
