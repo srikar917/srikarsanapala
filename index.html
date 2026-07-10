@@ -528,18 +528,18 @@
       box-shadow: 0 14px 28px rgba(15, 23, 42, 1);
     }
 
-    /* Certificates */
+    /* Certificates grid */
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1.5rem;
       margin-top: 1.2rem;
     }
     .cert-item {
-      border-radius: 1rem;
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
       background: rgba(15, 23, 42, 0.8);
-      padding: 1rem 0.75rem;
+      padding: 1.2rem 0.8rem;
       text-align: center;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
@@ -547,14 +547,22 @@
       box-shadow: 0 12px 28px rgba(15, 23, 42, 0.9);
     }
     .cert-item:hover {
-      transform: translateY(-4px) scale(1.02);
+      transform: translateY(-6px) scale(1.02);
       border-color: #38bdf8;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 1);
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 1);
     }
-    .cert-item .icon {
-      font-size: 2.6rem;
-      margin-bottom: 0.2rem;
-      display: block;
+    .cert-item .cert-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 0.7rem;
+      background: #1e293b;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      margin-bottom: 0.6rem;
+      transition: transform 0.2s;
+    }
+    .cert-item:hover .cert-thumb {
+      transform: scale(1.02);
     }
     .cert-item .name {
       font-weight: 600;
@@ -566,13 +574,13 @@
       color: #9ca3af;
     }
 
-    /* modal overlay */
+    /* Modal / Image viewer */
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(14px);
       z-index: 999;
       justify-content: center;
       align-items: center;
@@ -582,47 +590,48 @@
       display: flex;
     }
     .modal-box {
-      max-width: 700px;
+      max-width: 780px;
       width: 100%;
       background: #0b1120;
       border-radius: 2rem;
-      padding: 2rem 2rem 1.8rem;
+      padding: 1.8rem 1.8rem 1.5rem;
       border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95);
       position: relative;
       text-align: center;
       transform: scale(0.94);
-      transition: transform 0.2s ease-out;
+      transition: transform 0.25s ease-out;
     }
     .modal-overlay.open .modal-box {
       transform: scale(1);
     }
-    .modal-box .icon {
-      font-size: 4rem;
-      margin-bottom: 0.5rem;
+    .modal-box .modal-img {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      border-radius: 1rem;
+      background: #0f172a;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      margin-bottom: 0.8rem;
     }
     .modal-box h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.2rem;
+      font-size: 1.3rem;
+      margin-bottom: 0.1rem;
       color: #e5e7eb;
     }
     .modal-box .issuer {
       color: #9ca3af;
-      margin-bottom: 1rem;
-    }
-    .modal-box .desc {
-      color: #cbd5f5;
-      font-size: 0.95rem;
-      margin-bottom: 1.2rem;
+      font-size: 0.9rem;
     }
     .modal-close {
       background: transparent;
       border: 1px solid rgba(148, 163, 184, 0.5);
       color: #e5e7eb;
-      padding: 0.5rem 1.4rem;
+      padding: 0.4rem 1.4rem;
       border-radius: 999px;
       font-size: 0.85rem;
       cursor: pointer;
+      margin-top: 0.6rem;
       transition: background 0.15s, border-color 0.15s;
     }
     .modal-close:hover {
@@ -723,6 +732,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
+        <a href="#certificates">Certificates</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -810,7 +820,7 @@
     </div>
   </section>
 
-  <!-- Experience (Newton English Medium School removed) -->
+  <!-- Experience (Newton removed) -->
   <section id="experience">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Experience</h2>
@@ -841,28 +851,52 @@
     </div>
   </section>
 
-  <!-- Certificates (click to enlarge) -->
-  <section id="certificates" style="background: rgba(2,6,23,0.6);">
+  <!-- Certificates with image viewer -->
+  <section id="certificates">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Certificates</h2>
-      <div class="cert-grid reveal">
-        <div class="cert-item" data-cert="ccna"><span class="icon">📡</span><div class="name">CCNA (Routing & Switching)</div><div class="issuer">Cisco</div></div>
-        <div class="cert-item" data-cert="rhcsa"><span class="icon">🐧</span><div class="name">RHCSA</div><div class="issuer">Red Hat</div></div>
-        <div class="cert-item" data-cert="google-it"><span class="icon">🔧</span><div class="name">Google IT Support</div><div class="issuer">Google</div></div>
-        <div class="cert-item" data-cert="microsoft-az"><span class="icon">☁️</span><div class="name">Azure Fundamentals</div><div class="issuer">Microsoft</div></div>
-        <div class="cert-item" data-cert="comptia"><span class="icon">🖥️</span><div class="name">CompTIA A+</div><div class="issuer">CompTIA</div></div>
-        <div class="cert-item" data-cert="dtp"><span class="icon">📐</span><div class="name">DTP & Publishing</div><div class="issuer">APTECH</div></div>
+      <div class="cert-grid reveal" id="certGrid">
+        <!-- each cert-item has data-img (path/url) and data-name, data-issuer -->
+        <div class="cert-item" data-img="https://picsum.photos/id/1/600/400" data-name="CCNA (Routing & Switching)" data-issuer="Cisco">
+          <img class="cert-thumb" src="https://picsum.photos/id/1/400/300" alt="CCNA" loading="lazy" />
+          <div class="name">CCNA (Routing & Switching)</div>
+          <div class="issuer">Cisco</div>
+        </div>
+        <div class="cert-item" data-img="https://picsum.photos/id/26/600/400" data-name="RHCSA" data-issuer="Red Hat">
+          <img class="cert-thumb" src="https://picsum.photos/id/26/400/300" alt="RHCSA" loading="lazy" />
+          <div class="name">RHCSA</div>
+          <div class="issuer">Red Hat</div>
+        </div>
+        <div class="cert-item" data-img="https://picsum.photos/id/42/600/400" data-name="Google IT Support" data-issuer="Google">
+          <img class="cert-thumb" src="https://picsum.photos/id/42/400/300" alt="Google IT Support" loading="lazy" />
+          <div class="name">Google IT Support</div>
+          <div class="issuer">Google</div>
+        </div>
+        <div class="cert-item" data-img="https://picsum.photos/id/48/600/400" data-name="Azure Fundamentals" data-issuer="Microsoft">
+          <img class="cert-thumb" src="https://picsum.photos/id/48/400/300" alt="Azure" loading="lazy" />
+          <div class="name">Azure Fundamentals</div>
+          <div class="issuer">Microsoft</div>
+        </div>
+        <div class="cert-item" data-img="https://picsum.photos/id/60/600/400" data-name="CompTIA A+" data-issuer="CompTIA">
+          <img class="cert-thumb" src="https://picsum.photos/id/60/400/300" alt="CompTIA A+" loading="lazy" />
+          <div class="name">CompTIA A+</div>
+          <div class="issuer">CompTIA</div>
+        </div>
+        <div class="cert-item" data-img="https://picsum.photos/id/66/600/400" data-name="DTP & Publishing" data-issuer="APTECH">
+          <img class="cert-thumb" src="https://picsum.photos/id/66/400/300" alt="DTP" loading="lazy" />
+          <div class="name">DTP &amp; Publishing</div>
+          <div class="issuer">APTECH</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Modal for certificate enlargement -->
+  <!-- Modal / Image viewer -->
   <div class="modal-overlay" id="certModal">
     <div class="modal-box">
-      <div class="icon" id="modalIcon">📡</div>
-      <h3 id="modalName">CCNA</h3>
-      <div class="issuer" id="modalIssuer">Cisco</div>
-      <div class="desc" id="modalDesc">Comprehensive training in routing, switching, and network fundamentals.</div>
+      <img class="modal-img" id="modalImg" src="" alt="Certificate" />
+      <h3 id="modalName">Certificate</h3>
+      <div class="issuer" id="modalIssuer">Issuer</div>
       <button class="modal-close" id="closeModal">Close</button>
     </div>
   </div>
@@ -901,10 +935,10 @@
   </footer>
 
   <script>
-    // year
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Experience data (Newton entry removed)
+    // Experience data (Newton removed)
     const experienceData = {
       freelance: {
         role: "Freelance Digital Marketer",
@@ -976,7 +1010,7 @@
       }
     };
 
-    // DOM refs
+    // DOM refs for experience
     const roleEl = document.getElementById("exp-role");
     const companyEl = document.getElementById("exp-company");
     const metaEl = document.getElementById("exp-meta");
@@ -1066,44 +1100,38 @@
     // Initial load
     selectExperience("freelance");
 
-    // ---- Certificate Modal ----
-    const certData = {
-      ccna:   { icon: "📡", name: "CCNA (Routing & Switching)", issuer: "Cisco", desc: "Routing, switching, and network fundamentals." },
-      rhcsa:  { icon: "🐧", name: "RHCSA", issuer: "Red Hat", desc: "Essential Linux system administration skills." },
-      "google-it": { icon: "🔧", name: "Google IT Support", issuer: "Google", desc: "IT support, troubleshooting, and customer service." },
-      "microsoft-az": { icon: "☁️", name: "Azure Fundamentals", issuer: "Microsoft", desc: "Cloud concepts, core services, and Azure solutions." },
-      comptia: { icon: "🖥️", name: "CompTIA A+", issuer: "CompTIA", desc: "Hardware, software, and networking fundamentals." },
-      dtp:    { icon: "📐", name: "DTP & Publishing", issuer: "APTECH", desc: "Desktop publishing, Pagemaker, InDesign, and layout design." }
-    };
-
+    // ----- Certificate Image Viewer Modal -----
     const modalOverlay = document.getElementById("certModal");
-    const modalIcon = document.getElementById("modalIcon");
+    const modalImg = document.getElementById("modalImg");
     const modalName = document.getElementById("modalName");
     const modalIssuer = document.getElementById("modalIssuer");
-    const modalDesc = document.getElementById("modalDesc");
-    const closeModal = document.getElementById("closeModal");
+    const closeModalBtn = document.getElementById("closeModal");
 
-    document.querySelectorAll(".cert-item").forEach((el) => {
-      el.addEventListener("click", () => {
-        const key = el.dataset.cert;
-        const data = certData[key];
-        if (data) {
-          modalIcon.textContent = data.icon;
-          modalName.textContent = data.name;
-          modalIssuer.textContent = data.issuer;
-          modalDesc.textContent = data.desc;
+    document.querySelectorAll(".cert-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        const imgSrc = item.dataset.img;
+        const name = item.dataset.name;
+        const issuer = item.dataset.issuer;
+        if (imgSrc) {
+          modalImg.src = imgSrc;
+          modalImg.alt = name || "Certificate";
+          modalName.textContent = name || "Certificate";
+          modalIssuer.textContent = issuer || "";
           modalOverlay.classList.add("open");
         }
       });
     });
 
-    const closeModalFn = () => modalOverlay.classList.remove("open");
-    closeModal.addEventListener("click", closeModalFn);
+    function closeModal() {
+      modalOverlay.classList.remove("open");
+    }
+
+    closeModalBtn.addEventListener("click", closeModal);
     modalOverlay.addEventListener("click", (e) => {
-      if (e.target === modalOverlay) closeModalFn();
+      if (e.target === modalOverlay) closeModal();
     });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModalFn();
+      if (e.key === "Escape") closeModal();
     });
   </script>
 </body>
