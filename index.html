@@ -636,49 +636,24 @@
     .contact-details a {
       text-decoration: underline dotted;
     }
-    .contact-card {
-      border-radius: 1.2rem;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 1.5rem;
-      background: rgba(15, 23, 42, 0.95);
-      font-size: 0.88rem;
-      color: #cbd5f5;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 1);
-    }
-    .contact-card label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      color: #9ca3af;
-    }
-    .contact-card input,
-    .contact-card textarea {
-      width: 100%;
-      padding: 0.5rem 0.6rem;
-      margin: 0.35rem 0 0.9rem;
-      border-radius: 0.6rem;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: #020617;
-      color: #e5e7eb;
-      font-family: inherit;
-      font-size: 0.88rem;
-    }
-    .contact-card button {
-      padding: 0.55rem 1.4rem;
+    .contact-details .btn-contact {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.65rem 1.8rem;
       border-radius: 999px;
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #0b1120;
+      font-weight: 600;
+      font-size: 0.9rem;
       border: none;
       cursor: pointer;
-      font-size: 0.88rem;
-      font-weight: 600;
-      background: #38bdf8;
-      color: #020617;
-      transition: transform 0.12s, box-shadow 0.15s, background 0.15s;
-      box-shadow: 0 12px 34px rgba(15, 23, 42, 1);
+      transition: transform 0.1s, box-shadow 0.15s;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.8);
+      text-decoration: none;
     }
-    .contact-card button:hover {
-      transform: translateY(-1px);
-      background: #0ea5e9;
-      box-shadow: 0 18px 46px rgba(15, 23, 42, 1);
+    .contact-details .btn-contact:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 22px 45px rgba(15, 23, 42, 0.95);
     }
 
     footer {
@@ -745,7 +720,7 @@
       </div>
       <aside class="hero-card reveal">
         <h2>Snapshot</h2>
-        <p><strong>Current Role:</strong> Technical Coordinator at Navy Children School (Tata ClassEdge)</p>
+        <p><strong>Current Role:</strong> Technical Coordinator at Navy Children School</p>
         <p><strong>Core Domains:</strong> System Administration, Hardware &amp; Networking, School IT Support</p>
         <p><strong>Extras:</strong> Interactive Flat Panels, Smart Boards, Projectors, LMS Admin, CCTV &amp; RFID</p>
         <small>"Bridging technology and education through reliable IT support and user-friendly digital systems."</small>
@@ -804,7 +779,6 @@
       <h2 class="section-title reveal"><span></span> Experience</h2>
       <div class="experience-layout reveal">
         <div class="timeline">
-          <!-- Experience entries in chronological order (newest first) -->
           <article class="timeline-item active" data-exp-id="navy">
             <div class="timeline-dot"></div>
             <div class="timeline-header">
@@ -943,17 +917,20 @@
           <p><strong>Location:</strong> 39-13-17, Harsha Enclave, Ramalayam Street, Murali Nagar, Visakhapatnam – 530007</p>
           <br />
           <p><strong>Languages:</strong> Telugu, English, Hindi</p>
+          <br />
+          <a href="mailto:s.srikar8@gmail.com" class="btn-contact">📧 Send Email</a>
+          <a href="tel:+916300860166" class="btn-contact" style="margin-left: 0.75rem;">📞 Call Me</a>
         </div>
-        <div class="contact-card">
-          <form>
-            <label for="name">Name</label>
-            <input id="name" type="text" placeholder="Your name" />
-            <label for="email">Email</label>
-            <input id="email" type="email" placeholder="you@example.com" />
-            <label for="message">Message</label>
-            <textarea id="message" rows="4" placeholder="How can I help you?"></textarea>
-            <button type="button">Send Message</button>
-          </form>
+        <div class="contact-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 200px;">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">📬</div>
+          <h3 style="color: #e5e7eb; margin-bottom: 0.3rem;">Let's Connect</h3>
+          <p style="color: #9ca3af; font-size: 0.9rem; max-width: 280px;">
+            I'm always open to new opportunities and collaborations. Reach out to me via phone or email.
+          </p>
+          <div style="margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
+            <a href="mailto:s.srikar8@gmail.com" style="padding: 0.5rem 1.2rem; border-radius: 999px; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); color: #e5e7eb; font-size: 0.85rem; text-decoration: none; transition: 0.2s;">✉️ Email</a>
+            <a href="tel:+916300860166" style="padding: 0.5rem 1.2rem; border-radius: 999px; background: rgba(34, 197, 94, 0.2); border: 1px solid rgba(34, 197, 94, 0.4); color: #e5e7eb; font-size: 0.85rem; text-decoration: none; transition: 0.2s;">📞 Phone</a>
+          </div>
         </div>
       </div>
     </div>
@@ -967,10 +944,9 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // ============================================
-    // EXPERIENCE DATA - UPDATED WITH CORRECT DATES
+    // EXPERIENCE DATA
     // ============================================
     const experienceData = {
-      // Navy Children School - Current (2023 - Till Date)
       navy: {
         role: "Technical Coordinator",
         company: "Navy Children School, SVN Colony",
@@ -999,8 +975,6 @@
           "Asset Management", "Reporting"
         ]
       },
-
-      // Chandu Soft (2018 - 2023)
       chandusoft: {
         role: "System Administrator",
         company: "Chandu Soft, Duvvada",
@@ -1016,8 +990,6 @@
         ],
         skills: ["System Administration", "Windows OS", "Basic Linux", "LAN / WAN Troubleshooting", "Email Configuration", "Printer Support", "Client Communication"]
       },
-
-      // Universal Public School (2015 - 2017)
       universal: {
         role: "Hardware Engineer",
         company: "Universal Public School, Town Kotha Road",
@@ -1045,8 +1017,6 @@
           "CCTV Installation", "Hardware Maintenance", "User Support"
         ]
       },
-
-      // Lotus Wireless Technologies (2009 - 2013)
       lotus: {
         role: "Jr Executive",
         company: "Lotus Wireless Technologies India Pvt Ltd",
@@ -1060,8 +1030,6 @@
         ],
         skills: ["Wireless Networking", "Network Troubleshooting", "Client Support", "Installation", "Documentation"]
       },
-
-      // Vikas Educational Institution (2006 - 2008)
       vikas: {
         role: "Database Operator",
         company: "Vikas Educational Institution, Asilmetta",
