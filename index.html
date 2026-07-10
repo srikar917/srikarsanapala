@@ -810,11 +810,301 @@
     </div>
   </section>
 
-  <!-- Experience -->
+  <!-- Experience (Newton English Medium School removed) -->
   <section id="experience">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Experience</h2>
       <div class="experience-layout reveal">
         <div class="timeline">
           <article class="timeline-item active" data-exp-id="freelance"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Freelance Digital Marketer</div><div class="timeline-company">Self-employed</div></div><div class="timeline-meta">2023 – Present | Visakhapatnam</div></div><p class="timeline-short">Managing online marketing, branding and content for small businesses.</p></article>
-          <article class="timeline-item" data-exp-id="tce"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Technical Co-ordinator</div><div class="timeline-company">Tata ClassEdge (Navy Children School)</div></div><div class="timeline
+          <article class="timeline-item" data-exp-id="tce"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Technical Co-ordinator</div><div class="timeline-company">Tata ClassEdge (Navy Children School)</div></div><div class="timeline-meta">Sep 2023 – Present | Visakhapatnam</div></div><p class="timeline-short">Supporting smart classrooms, teacher training and IT infrastructure in school.</p></article>
+          <article class="timeline-item" data-exp-id="chandusoft"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">System Administrator</div><div class="timeline-company">ChanduSoft Solutions</div></div><div class="timeline-meta">2018 – 2023 | Visakhapatnam</div></div><p class="timeline-short">End-to-end system administration, client support and network troubleshooting.</p></article>
+          <article class="timeline-item" data-exp-id="universal"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Hardware &amp; Networking Support</div><div class="timeline-company">Universal Public School</div></div><div class="timeline-meta">2015 – 2016 | Visakhapatnam</div></div><p class="timeline-short">Maintained CCTV, computers and network for the campus.</p></article>
+          <article class="timeline-item" data-exp-id="vikas"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Database &amp; DTP Operator</div><div class="timeline-company">Vikas Educational Institution</div></div><div class="timeline-meta">2008 – 2011 | Visakhapatnam</div></div><p class="timeline-short">Managed databases, OMR sheets and DTP for exams and study material.</p></article>
+        </div>
+
+        <aside class="exp-details-card" id="exp-details">
+          <div class="exp-details-role" id="exp-role"></div>
+          <div class="exp-details-company" id="exp-company"></div>
+          <div class="exp-details-meta" id="exp-meta"></div>
+          <p class="exp-details-desc" id="exp-desc"></p>
+          <div>
+            <div class="exp-details-list-title">Key Responsibilities</div>
+            <ul class="exp-details-ul" id="exp-resp"></ul>
+          </div>
+          <div>
+            <div class="exp-details-list-title">Skills Used</div>
+            <div class="exp-skill-tags" id="exp-skills"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates (click to enlarge) -->
+  <section id="certificates" style="background: rgba(2,6,23,0.6);">
+    <div class="section-inner">
+      <h2 class="section-title reveal"><span></span> Certificates</h2>
+      <div class="cert-grid reveal">
+        <div class="cert-item" data-cert="ccna"><span class="icon">📡</span><div class="name">CCNA (Routing & Switching)</div><div class="issuer">Cisco</div></div>
+        <div class="cert-item" data-cert="rhcsa"><span class="icon">🐧</span><div class="name">RHCSA</div><div class="issuer">Red Hat</div></div>
+        <div class="cert-item" data-cert="google-it"><span class="icon">🔧</span><div class="name">Google IT Support</div><div class="issuer">Google</div></div>
+        <div class="cert-item" data-cert="microsoft-az"><span class="icon">☁️</span><div class="name">Azure Fundamentals</div><div class="issuer">Microsoft</div></div>
+        <div class="cert-item" data-cert="comptia"><span class="icon">🖥️</span><div class="name">CompTIA A+</div><div class="issuer">CompTIA</div></div>
+        <div class="cert-item" data-cert="dtp"><span class="icon">📐</span><div class="name">DTP & Publishing</div><div class="issuer">APTECH</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for certificate enlargement -->
+  <div class="modal-overlay" id="certModal">
+    <div class="modal-box">
+      <div class="icon" id="modalIcon">📡</div>
+      <h3 id="modalName">CCNA</h3>
+      <div class="issuer" id="modalIssuer">Cisco</div>
+      <div class="desc" id="modalDesc">Comprehensive training in routing, switching, and network fundamentals.</div>
+      <button class="modal-close" id="closeModal">Close</button>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-inner">
+      <h2 class="section-title reveal"><span></span> Contact</h2>
+      <div class="contact-wrapper reveal">
+        <div class="contact-details">
+          <p>If you’d like to discuss an opportunity, collaboration, or IT support requirement, feel free to reach out.</p>
+          <br />
+          <p><strong>Phone:</strong> <a href="tel:+916300860166">+91 63008 60166</a></p>
+          <p><strong>Email:</strong> <a href="mailto:s.srikar8@gmail.com">s.srikar8@gmail.com</a></p>
+          <p><strong>Location:</strong> 39-13-17, Harsha Enclave, Ramalayam Street, Murali Nagar, Visakhapatnam – 530007</p>
+          <br />
+          <p><strong>Languages:</strong> Telugu, English, Hindi</p>
+        </div>
+        <div class="contact-card">
+          <form>
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" />
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" />
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="How can I help you?"></textarea>
+            <button type="button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Sanapala Srikar. All rights reserved.
+  </footer>
+
+  <script>
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Experience data (Newton entry removed)
+    const experienceData = {
+      freelance: {
+        role: "Freelance Digital Marketer",
+        company: "Self-employed",
+        meta: "2023 – Present | Visakhapatnam",
+        desc: "Helping small businesses and individuals grow their online presence through branding, social media, and performance-based campaigns.",
+        responsibilities: [
+          "Plan and execute digital marketing campaigns for local businesses and clients.",
+          "Create social media posts, short videos and promotional graphics.",
+          "Run basic paid campaigns and monitor performance using analytics.",
+          "Advise clients on brand positioning, leads, and customer engagement."
+        ],
+        skills: ["Digital Marketing", "Social Media Management", "SEO Basics", "Canva / Photoshop", "Content Writing", "Analytics"]
+      },
+      tce: {
+        role: "Technical Co-ordinator",
+        company: "Tata ClassEdge (Navy Children School)",
+        meta: "Sep 2023 – Present | Visakhapatnam",
+        desc: "Responsible for smooth functioning of smart classrooms and ClassEdge digital content across the school.",
+        responsibilities: [
+          "Support teachers in using ClassEdge content and smart classroom tools.",
+          "Troubleshoot classroom PCs, projectors and network issues.",
+          "Coordinate with Tata ClassEdge support team for escalations.",
+          "Train staff on new features and ensure maximum usage of digital content.",
+          "Monitor system health and perform basic preventive maintenance."
+        ],
+        skills: ["Smart Classroom Support", "Windows Administration", "Basic Networking", "Projector & AV Setup", "Teacher Training", "Troubleshooting"]
+      },
+      chandusoft: {
+        role: "System Administrator",
+        company: "ChanduSoft Solutions",
+        meta: "2018 – 2023 | Visakhapatnam",
+        desc: "Handled system administration and IT support for multiple clients in and around Visakhapatnam.",
+        responsibilities: [
+          "Assembled and configured desktops, laptops and peripherals.",
+          "Installed and updated operating systems, antivirus and business applications.",
+          "Resolved internet connectivity, email (POP/IMAP) and mailbox issues.",
+          "Installed, configured and troubleshot printers and scanners.",
+          "Provided remote support through phone, email and tools like Skype/AnyDesk.",
+          "Monitored system performance and suggested upgrades where needed."
+        ],
+        skills: ["System Administration", "Windows OS", "Basic Linux", "LAN / WAN Troubleshooting", "Email Configuration", "Printer Support", "Client Communication"]
+      },
+      universal: {
+        role: "Hardware & Networking Support",
+        company: "Universal Public School",
+        meta: "2015 – 2016 | Visakhapatnam",
+        desc: "Supported the school’s IT infrastructure including CCTV, labs and staff systems.",
+        responsibilities: [
+          "Installed and maintained CCTV cameras and DVR systems.",
+          "Performed regular maintenance of computers, laptops and peripherals.",
+          "Assisted with LAN cabling, IP addressing and network troubleshooting.",
+          "Helped teachers and staff resolve basic software and hardware issues."
+        ],
+        skills: ["CCTV Installation", "Network Basics", "Hardware Maintenance", "Windows Desktop Support", "User Support"]
+      },
+      vikas: {
+        role: "Database & DTP Operator",
+        company: "Vikas Educational Institution",
+        meta: "2008 – 2011 | Visakhapatnam",
+        desc: "Worked on exam processing, DTP and data management for the institution.",
+        responsibilities: [
+          "Prepared question papers, study material and handouts using DTP tools.",
+          "Handled OMR scanning and result processing for examinations.",
+          "Maintained student and exam databases with accuracy.",
+          "Typed Telugu and English content using Anu Script Manager."
+        ],
+        skills: ["DTP (Pagemaker / InDesign)", "OMR Processing", "Database Handling", "Telugu Typing", "MS Office"]
+      }
+    };
+
+    // DOM refs
+    const roleEl = document.getElementById("exp-role");
+    const companyEl = document.getElementById("exp-company");
+    const metaEl = document.getElementById("exp-meta");
+    const descEl = document.getElementById("exp-desc");
+    const respEl = document.getElementById("exp-resp");
+    const skillsEl = document.getElementById("exp-skills");
+    const timelineItems = document.querySelectorAll(".timeline-item");
+
+    function renderExperience(id) {
+      const data = experienceData[id];
+      if (!data) return;
+      roleEl.textContent = data.role;
+      companyEl.textContent = data.company;
+      metaEl.textContent = data.meta;
+      descEl.textContent = data.desc;
+      respEl.innerHTML = "";
+      data.responsibilities.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        respEl.appendChild(li);
+      });
+      skillsEl.innerHTML = "";
+      data.skills.forEach((skill) => {
+        const span = document.createElement("span");
+        span.className = "exp-skill-tag skill-clickable";
+        span.textContent = skill;
+        skillsEl.appendChild(span);
+      });
+    }
+
+    function setActiveTimelineItem(id) {
+      timelineItems.forEach((item) => {
+        item.classList.toggle("active", item.getAttribute("data-exp-id") === id);
+      });
+    }
+
+    function selectExperience(id) {
+      if (!experienceData[id]) return;
+      setActiveTimelineItem(id);
+      renderExperience(id);
+    }
+
+    timelineItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const id = item.getAttribute("data-exp-id");
+        selectExperience(id);
+        if (window.innerWidth < 840) {
+          document.getElementById("exp-details").scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    function findExperienceBySkill(skillName) {
+      const skillLower = skillName.toLowerCase();
+      for (const [id, data] of Object.entries(experienceData)) {
+        if (data.skills.some((s) => s.toLowerCase().includes(skillLower))) return id;
+      }
+      return null;
+    }
+
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("skill-clickable")) {
+        const skill = e.target.dataset.skill || e.target.textContent.trim();
+        const expId = findExperienceBySkill(skill);
+        if (expId) {
+          document.getElementById("experience").scrollIntoView({ behavior: "smooth", block: "start" });
+          selectExperience(expId);
+        }
+      }
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
+    revealEls.forEach((el) => observer.observe(el));
+
+    // Initial load
+    selectExperience("freelance");
+
+    // ---- Certificate Modal ----
+    const certData = {
+      ccna:   { icon: "📡", name: "CCNA (Routing & Switching)", issuer: "Cisco", desc: "Routing, switching, and network fundamentals." },
+      rhcsa:  { icon: "🐧", name: "RHCSA", issuer: "Red Hat", desc: "Essential Linux system administration skills." },
+      "google-it": { icon: "🔧", name: "Google IT Support", issuer: "Google", desc: "IT support, troubleshooting, and customer service." },
+      "microsoft-az": { icon: "☁️", name: "Azure Fundamentals", issuer: "Microsoft", desc: "Cloud concepts, core services, and Azure solutions." },
+      comptia: { icon: "🖥️", name: "CompTIA A+", issuer: "CompTIA", desc: "Hardware, software, and networking fundamentals." },
+      dtp:    { icon: "📐", name: "DTP & Publishing", issuer: "APTECH", desc: "Desktop publishing, Pagemaker, InDesign, and layout design." }
+    };
+
+    const modalOverlay = document.getElementById("certModal");
+    const modalIcon = document.getElementById("modalIcon");
+    const modalName = document.getElementById("modalName");
+    const modalIssuer = document.getElementById("modalIssuer");
+    const modalDesc = document.getElementById("modalDesc");
+    const closeModal = document.getElementById("closeModal");
+
+    document.querySelectorAll(".cert-item").forEach((el) => {
+      el.addEventListener("click", () => {
+        const key = el.dataset.cert;
+        const data = certData[key];
+        if (data) {
+          modalIcon.textContent = data.icon;
+          modalName.textContent = data.name;
+          modalIssuer.textContent = data.issuer;
+          modalDesc.textContent = data.desc;
+          modalOverlay.classList.add("open");
+        }
+      });
+    });
+
+    const closeModalFn = () => modalOverlay.classList.remove("open");
+    closeModal.addEventListener("click", closeModalFn);
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) closeModalFn();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModalFn();
+    });
+  </script>
+</body>
+</html>
