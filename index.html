@@ -124,6 +124,7 @@
       filter: blur(0);
     }
 
+    /* ===== HERO ===== */
     .hero {
       padding: 3.5rem 1.5rem 2.5rem;
     }
@@ -262,6 +263,7 @@
       margin-bottom: 0.75rem;
     }
 
+    /* ===== SECTIONS ===== */
     section {
       padding: 2.5rem 1.5rem;
     }
@@ -290,6 +292,7 @@
       background: linear-gradient(to right, #38bdf8, transparent);
     }
 
+    /* ===== ABOUT ===== */
     .about-grid {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -326,6 +329,7 @@
       margin-bottom: 0.2rem;
     }
 
+    /* ===== SKILLS ===== */
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
@@ -369,6 +373,7 @@
       margin-bottom: 0.3rem;
     }
 
+    /* ===== EXPERIENCE ===== */
     .experience-layout {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -514,6 +519,7 @@
       box-shadow: 0 14px 28px rgba(15, 23, 42, 1);
     }
 
+    /* ===== CERTIFICATES ===== */
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -559,6 +565,7 @@
       color: #9ca3af;
     }
 
+    /* ===== MODAL ===== */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -623,37 +630,210 @@
       border-color: #38bdf8;
     }
 
-    .contact-wrapper {
+    /* ===== RESUME / CONTACT LAYOUT ===== */
+    .resume-wrapper {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
       gap: 2rem;
     }
-    .contact-details p {
-      font-size: 0.95rem;
+
+    /* Left column - Resume Details */
+    .resume-main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .resume-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1.5rem;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .resume-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
+    }
+
+    .resume-card h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #38bdf8;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .resume-card h3 .icon {
+      font-size: 1.1rem;
+    }
+
+    .resume-card .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    }
+    .resume-card .item:last-child {
+      border-bottom: none;
+    }
+    .resume-card .item .label {
+      color: #9ca3af;
+      font-size: 0.8rem;
+    }
+    .resume-card .item .value {
+      color: #e5e7eb;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .resume-card .skill-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.25);
       color: #cbd5f5;
-      margin-bottom: 0.4rem;
+      margin: 0.15rem;
     }
-    .contact-details a {
-      text-decoration: underline dotted;
+
+    .resume-card .exp-item {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
     }
-    .contact-details .btn-contact {
+    .resume-card .exp-item:last-child {
+      border-bottom: none;
+    }
+    .resume-card .exp-item .role {
+      color: #e5e7eb;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .resume-card .exp-item .company {
+      color: #9ca3af;
+      font-size: 0.8rem;
+    }
+    .resume-card .exp-item .period {
+      color: #6b7280;
+      font-size: 0.7rem;
+      float: right;
+    }
+
+    /* Right column - Contact Card */
+    .resume-contact {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1.8rem 1.5rem;
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.5), rgba(15, 23, 42, 1));
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      text-align: center;
+      height: fit-content;
+      position: sticky;
+      top: 5rem;
+    }
+
+    .resume-contact .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.8rem;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0b1120;
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.3);
+    }
+
+    .resume-contact h2 {
+      font-size: 1.3rem;
+      color: #e5e7eb;
+      margin-bottom: 0.1rem;
+    }
+    .resume-contact .title {
+      color: #9ca3af;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .resume-contact .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+      color: #cbd5f5;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    .resume-contact .contact-item:last-child {
+      border-bottom: none;
+    }
+    .resume-contact .contact-item .icon {
+      font-size: 1.1rem;
+      width: 24px;
+      text-align: center;
+    }
+    .resume-contact .contact-item a {
+      color: #cbd5f5;
+      transition: color 0.2s;
+    }
+    .resume-contact .contact-item a:hover {
+      color: #38bdf8;
+    }
+
+    .resume-contact .btn-resume {
       display: inline-block;
       margin-top: 1rem;
-      padding: 0.65rem 1.8rem;
+      padding: 0.6rem 1.8rem;
       border-radius: 999px;
       background: linear-gradient(135deg, #0ea5e9, #22c55e);
       color: #0b1120;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       border: none;
       cursor: pointer;
       transition: transform 0.1s, box-shadow 0.15s;
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.8);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.6);
       text-decoration: none;
     }
-    .contact-details .btn-contact:hover {
-      transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 22px 45px rgba(15, 23, 42, 0.95);
+    .resume-contact .btn-resume:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .resume-contact .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .resume-contact .social-links a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    .resume-contact .social-links a:hover {
+      border-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      transform: translateY(-2px);
     }
 
     footer {
@@ -663,10 +843,11 @@
       color: #6b7280;
     }
 
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 840px) {
       .hero-inner,
       .about-grid,
-      .contact-wrapper,
+      .resume-wrapper,
       .experience-layout {
         grid-template-columns: 1fr;
       }
@@ -678,6 +859,9 @@
       }
       .hero-card {
         animation: floatCard 10s ease-in-out infinite alternate;
+      }
+      .resume-contact {
+        position: static;
       }
     }
   </style>
@@ -691,11 +875,12 @@
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#certificates">Certificates</a>
-        <a href="#contact">Contact</a>
+        <a href="#resume">Resume</a>
       </div>
     </nav>
   </header>
 
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-inner">
       <div class="reveal">
@@ -709,7 +894,7 @@
           Projectors, LMS Administration, CCTV, RFID, and DTP/design tools.
         </p>
         <div class="hero-actions">
-          <a href="#contact" class="btn-primary">Contact Me</a>
+          <a href="#resume" class="btn-primary">View Resume</a>
           <a href="#experience" class="btn-outline">View Experience</a>
         </div>
         <p class="hero-meta">
@@ -728,6 +913,7 @@
     </div>
   </section>
 
+  <!-- ===== ABOUT ===== -->
   <section id="about">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> About</h2>
@@ -746,6 +932,7 @@
     </div>
   </section>
 
+  <!-- ===== SKILLS ===== -->
   <section id="skills">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Skills</h2>
@@ -774,6 +961,7 @@
     </div>
   </section>
 
+  <!-- ===== EXPERIENCE ===== -->
   <section id="experience">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Experience</h2>
@@ -786,7 +974,7 @@
                 <div class="timeline-role">Technical Coordinator</div>
                 <div class="timeline-company">Navy Children School, SVN Colony</div>
               </div>
-              <div class="timeline-meta">2023 – Till Date | Visakhapatnam</div>
+              <div class="timeline-meta">2023 – Till Date</div>
             </div>
             <p class="timeline-short">Smart classroom support, LMS administration &amp; teacher training.</p>
           </article>
@@ -798,7 +986,7 @@
                 <div class="timeline-role">System Administrator</div>
                 <div class="timeline-company">Chandu Soft, Duvvada</div>
               </div>
-              <div class="timeline-meta">2018 – 2023 | Visakhapatnam</div>
+              <div class="timeline-meta">2018 – 2023</div>
             </div>
             <p class="timeline-short">End-to-end system administration, client support and network troubleshooting.</p>
           </article>
@@ -810,7 +998,7 @@
                 <div class="timeline-role">Hardware Engineer</div>
                 <div class="timeline-company">Universal Public School, Town Kotha Road</div>
               </div>
-              <div class="timeline-meta">2015 – 2017 | Visakhapatnam</div>
+              <div class="timeline-meta">2015 – 2017</div>
             </div>
             <p class="timeline-short">Maintained CCTV, computers, smartboards and network for the campus.</p>
           </article>
@@ -822,7 +1010,7 @@
                 <div class="timeline-role">Jr Executive</div>
                 <div class="timeline-company">Lotus Wireless Technologies India Pvt Ltd</div>
               </div>
-              <div class="timeline-meta">2009 – 2013 | Visakhapatnam</div>
+              <div class="timeline-meta">2009 – 2013</div>
             </div>
             <p class="timeline-short">Wireless network support and client management.</p>
           </article>
@@ -834,7 +1022,7 @@
                 <div class="timeline-role">Database Operator</div>
                 <div class="timeline-company">Vikas Educational Institution, Asilmetta</div>
               </div>
-              <div class="timeline-meta">2006 – 2008 | Visakhapatnam</div>
+              <div class="timeline-meta">2006 – 2008</div>
             </div>
             <p class="timeline-short">Managed databases, OMR sheets and DTP for exams and study material.</p>
           </article>
@@ -858,6 +1046,7 @@
     </div>
   </section>
 
+  <!-- ===== CERTIFICATES ===== -->
   <section id="certificates">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Certificates</h2>
@@ -896,6 +1085,7 @@
     </div>
   </section>
 
+  <!-- ===== MODAL ===== -->
   <div class="modal-overlay" id="certModal">
     <div class="modal-box">
       <img class="modal-img" id="modalImg" src="" alt="Certificate" />
@@ -905,31 +1095,91 @@
     </div>
   </div>
 
-  <section id="contact">
+  <!-- ===== RESUME / CONTACT (NEW LAYOUT) ===== -->
+  <section id="resume">
     <div class="section-inner">
-      <h2 class="section-title reveal"><span></span> Contact</h2>
-      <div class="contact-wrapper reveal">
-        <div class="contact-details">
-          <p>If you'd like to discuss an opportunity, collaboration, or IT support requirement, feel free to reach out.</p>
-          <br />
-          <p><strong>Phone:</strong> <a href="tel:+916300860166">+91 63008 60166</a></p>
-          <p><strong>Email:</strong> <a href="mailto:s.srikar8@gmail.com">s.srikar8@gmail.com</a></p>
-          <p><strong>Location:</strong> 39-13-17, Harsha Enclave, Ramalayam Street, Murali Nagar, Visakhapatnam – 530007</p>
-          <br />
-          <p><strong>Languages:</strong> Telugu, English, Hindi</p>
-          <br />
-          <a href="mailto:s.srikar8@gmail.com" class="btn-contact">📧 Send Email</a>
-          <a href="tel:+916300860166" class="btn-contact" style="margin-left: 0.75rem;">📞 Call Me</a>
+      <h2 class="section-title reveal"><span></span> Resume</h2>
+      <div class="resume-wrapper reveal">
+        <!-- Left Column: Resume Details -->
+        <div class="resume-main">
+          <!-- Personal Info -->
+          <div class="resume-card">
+            <h3><span class="icon">👤</span> Personal Information</h3>
+            <div class="item"><span class="label">Full Name</span><span class="value">Sanapala Srikar</span></div>
+            <div class="item"><span class="label">Location</span><span class="value">Visakhapatnam, Andhra Pradesh</span></div>
+            <div class="item"><span class="label">Languages</span><span class="value">Telugu, English, Hindi</span></div>
+            <div class="item"><span class="label">Availability</span><span class="value" style="color: #22c55e;">● Open to opportunities</span></div>
+          </div>
+
+          <!-- Education -->
+          <div class="resume-card">
+            <h3><span class="icon">🎓</span> Education</h3>
+            <div class="item"><span class="label">B.C.A</span><span class="value">Madurai Kamaraj University</span></div>
+            <div class="item"><span class="label">PGDCA</span><span class="value">Andhra University</span></div>
+            <div class="item"><span class="label">PGDAT</span><span class="value">Andhra University</span></div>
+            <div class="item"><span class="label">Diploma</span><span class="value">Computer Hardware</span></div>
+          </div>
+
+          <!-- Technical Skills Summary -->
+          <div class="resume-card">
+            <h3><span class="icon">⚡</span> Technical Skills</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.3rem;">
+              <span class="skill-badge">Interactive Flat Panels</span>
+              <span class="skill-badge">Smart Boards</span>
+              <span class="skill-badge">Projectors</span>
+              <span class="skill-badge">AV Equipment</span>
+              <span class="skill-badge">LMS Administration</span>
+              <span class="skill-badge">Windows OS</span>
+              <span class="skill-badge">Android OS</span>
+              <span class="skill-badge">LAN / Wi-Fi</span>
+              <span class="skill-badge">CCTV</span>
+              <span class="skill-badge">RFID</span>
+              <span class="skill-badge">DTP</span>
+              <span class="skill-badge">Digital Marketing</span>
+            </div>
+          </div>
+
+          <!-- Experience Summary -->
+          <div class="resume-card">
+            <h3><span class="icon">💼</span> Experience Summary</h3>
+            <div class="exp-item"><span class="period">2023 – Till Date</span><div class="role">Technical Coordinator</div><div class="company">Navy Children School, SVN Colony</div></div>
+            <div class="exp-item"><span class="period">2018 – 2023</span><div class="role">System Administrator</div><div class="company">Chandu Soft, Duvvada</div></div>
+            <div class="exp-item"><span class="period">2015 – 2017</span><div class="role">Hardware Engineer</div><div class="company">Universal Public School, Town Kotha Road</div></div>
+            <div class="exp-item"><span class="period">2009 – 2013</span><div class="role">Jr Executive</div><div class="company">Lotus Wireless Technologies India Pvt Ltd</div></div>
+            <div class="exp-item"><span class="period">2006 – 2008</span><div class="role">Database Operator</div><div class="company">Vikas Educational Institution, Asilmetta</div></div>
+          </div>
         </div>
-        <div class="contact-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 200px;">
-          <div style="font-size: 3rem; margin-bottom: 0.5rem;">📬</div>
-          <h3 style="color: #e5e7eb; margin-bottom: 0.3rem;">Let's Connect</h3>
-          <p style="color: #9ca3af; font-size: 0.9rem; max-width: 280px;">
-            I'm always open to new opportunities and collaborations. Reach out to me via phone or email.
-          </p>
-          <div style="margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
-            <a href="mailto:s.srikar8@gmail.com" style="padding: 0.5rem 1.2rem; border-radius: 999px; background: rgba(56, 189, 248, 0.2); border: 1px solid rgba(56, 189, 248, 0.4); color: #e5e7eb; font-size: 0.85rem; text-decoration: none; transition: 0.2s;">✉️ Email</a>
-            <a href="tel:+916300860166" style="padding: 0.5rem 1.2rem; border-radius: 999px; background: rgba(34, 197, 94, 0.2); border: 1px solid rgba(34, 197, 94, 0.4); color: #e5e7eb; font-size: 0.85rem; text-decoration: none; transition: 0.2s;">📞 Phone</a>
+
+        <!-- Right Column: Contact Card -->
+        <div class="resume-contact">
+          <div class="avatar">SS</div>
+          <h2>Sanapala Srikar</h2>
+          <p class="title">System Administrator &amp; Technical Coordinator</p>
+
+          <div class="contact-item">
+            <span class="icon">📞</span>
+            <a href="tel:+916300860166">+91 63008 60166</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon">✉️</span>
+            <a href="mailto:s.srikar8@gmail.com">s.srikar8@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon">📍</span>
+            <span>Visakhapatnam, Andhra Pradesh</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">🌐</span>
+            <span>Portfolio · GitHub Pages</span>
+          </div>
+
+          <a href="mailto:s.srikar8@gmail.com" class="btn-resume">📧 Send Email</a>
+
+          <div class="social-links">
+            <a href="#" title="LinkedIn">🔗</a>
+            <a href="#" title="GitHub">🐙</a>
+            <a href="#" title="Twitter">🐦</a>
+            <a href="#" title="YouTube">▶️</a>
           </div>
         </div>
       </div>
