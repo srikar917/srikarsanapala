@@ -804,11 +804,66 @@
       <h2 class="section-title reveal"><span></span> Experience</h2>
       <div class="experience-layout reveal">
         <div class="timeline">
-          <!-- Freelance Digital Marketer REMOVED -->
-          <article class="timeline-item active" data-exp-id="tce"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Technical Coordinator</div><div class="timeline-company">Tata ClassEdge (Navy Children School)</div></div><div class="timeline-meta">Sep 2023 – Present | Visakhapatnam</div></div><p class="timeline-short">Smart classroom support, LMS administration &amp; teacher training.</p></article>
-          <article class="timeline-item" data-exp-id="chandusoft"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">System Administrator</div><div class="timeline-company">ChanduSoft Solutions</div></div><div class="timeline-meta">2018 – 2023 | Visakhapatnam</div></div><p class="timeline-short">End-to-end system administration, client support and network troubleshooting.</p></article>
-          <article class="timeline-item" data-exp-id="universal"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Hardware &amp; Networking Support</div><div class="timeline-company">Universal Public School</div></div><div class="timeline-meta">2015 – 2016 | Visakhapatnam</div></div><p class="timeline-short">Maintained CCTV, computers, smartboards and network for the campus.</p></article>
-          <article class="timeline-item" data-exp-id="vikas"><div class="timeline-dot"></div><div class="timeline-header"><div><div class="timeline-role">Database &amp; DTP Operator</div><div class="timeline-company">Vikas Educational Institution</div></div><div class="timeline-meta">2008 – 2011 | Visakhapatnam</div></div><p class="timeline-short">Managed databases, OMR sheets and DTP for exams and study material.</p></article>
+          <!-- Experience entries in chronological order (newest first) -->
+          <article class="timeline-item active" data-exp-id="navy">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Technical Coordinator</div>
+                <div class="timeline-company">Navy Children School, SVN Colony</div>
+              </div>
+              <div class="timeline-meta">2023 – Till Date | Visakhapatnam</div>
+            </div>
+            <p class="timeline-short">Smart classroom support, LMS administration &amp; teacher training.</p>
+          </article>
+
+          <article class="timeline-item" data-exp-id="chandusoft">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">System Administrator</div>
+                <div class="timeline-company">Chandu Soft, Duvvada</div>
+              </div>
+              <div class="timeline-meta">2018 – 2023 | Visakhapatnam</div>
+            </div>
+            <p class="timeline-short">End-to-end system administration, client support and network troubleshooting.</p>
+          </article>
+
+          <article class="timeline-item" data-exp-id="universal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Hardware Engineer</div>
+                <div class="timeline-company">Universal Public School, Town Kotha Road</div>
+              </div>
+              <div class="timeline-meta">2015 – 2017 | Visakhapatnam</div>
+            </div>
+            <p class="timeline-short">Maintained CCTV, computers, smartboards and network for the campus.</p>
+          </article>
+
+          <article class="timeline-item" data-exp-id="lotus">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Jr Executive</div>
+                <div class="timeline-company">Lotus Wireless Technologies India Pvt Ltd</div>
+              </div>
+              <div class="timeline-meta">2009 – 2013 | Visakhapatnam</div>
+            </div>
+            <p class="timeline-short">Wireless network support and client management.</p>
+          </article>
+
+          <article class="timeline-item" data-exp-id="vikas">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Database Operator</div>
+                <div class="timeline-company">Vikas Educational Institution, Asilmetta</div>
+              </div>
+              <div class="timeline-meta">2006 – 2008 | Visakhapatnam</div>
+            </div>
+            <p class="timeline-short">Managed databases, OMR sheets and DTP for exams and study material.</p>
+          </article>
         </div>
 
         <aside class="exp-details-card" id="exp-details">
@@ -912,19 +967,15 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // ============================================
-    // EXPERIENCE DATA - Freelance REMOVED
+    // EXPERIENCE DATA - UPDATED WITH CORRECT DATES
     // ============================================
     const experienceData = {
-      // Freelance Digital Marketer - REMOVED
-
-      // ==========================================
-      // NAVY CHILDREN SCHOOL (TATA CLASSEdge)
-      // ==========================================
-      tce: {
+      // Navy Children School - Current (2023 - Till Date)
+      navy: {
         role: "Technical Coordinator",
-        company: "Tata ClassEdge (Navy Children School)",
-        meta: "Sep 2023 – Present | Visakhapatnam",
-        desc: "Responsible for smooth functioning of smart classrooms, Interactive Flat Panels, and ClassEdge digital content across the school.",
+        company: "Navy Children School, SVN Colony",
+        meta: "2023 – Till Date | Visakhapatnam",
+        desc: "Responsible for smooth functioning of smart classrooms, Interactive Flat Panels, and digital content across the school.",
         responsibilities: [
           "Maintain and troubleshoot Interactive Flat Panels (IFPs), smartboards, projectors, visualizers, and classroom AV equipment.",
           "Provide first-level support for LMS users.",
@@ -949,9 +1000,10 @@
         ]
       },
 
+      // Chandu Soft (2018 - 2023)
       chandusoft: {
         role: "System Administrator",
-        company: "ChanduSoft Solutions",
+        company: "Chandu Soft, Duvvada",
         meta: "2018 – 2023 | Visakhapatnam",
         desc: "Handled system administration and IT support for multiple clients in and around Visakhapatnam.",
         responsibilities: [
@@ -965,13 +1017,11 @@
         skills: ["System Administration", "Windows OS", "Basic Linux", "LAN / WAN Troubleshooting", "Email Configuration", "Printer Support", "Client Communication"]
       },
 
-      // ==========================================
-      // UNIVERSAL PUBLIC SCHOOL
-      // ==========================================
+      // Universal Public School (2015 - 2017)
       universal: {
-        role: "Hardware & Networking Support",
-        company: "Universal Public School",
-        meta: "2015 – 2016 | Visakhapatnam",
+        role: "Hardware Engineer",
+        company: "Universal Public School, Town Kotha Road",
+        meta: "2015 – 2017 | Visakhapatnam",
         desc: "Supported the school's IT infrastructure including CCTV, smart classrooms, labs and staff systems.",
         responsibilities: [
           "Installation, configuration, and troubleshooting of Interactive Flat Panels (IFPs), smartboards, projectors, and visualizers.",
@@ -996,10 +1046,26 @@
         ]
       },
 
+      // Lotus Wireless Technologies (2009 - 2013)
+      lotus: {
+        role: "Jr Executive",
+        company: "Lotus Wireless Technologies India Pvt Ltd",
+        meta: "2009 – 2013 | Visakhapatnam",
+        desc: "Worked on wireless network support and client management for the company.",
+        responsibilities: [
+          "Provided wireless network installation and configuration support.",
+          "Troubleshot network connectivity issues for clients.",
+          "Assisted in client onboarding and technical support.",
+          "Maintained network equipment and documentation."
+        ],
+        skills: ["Wireless Networking", "Network Troubleshooting", "Client Support", "Installation", "Documentation"]
+      },
+
+      // Vikas Educational Institution (2006 - 2008)
       vikas: {
-        role: "Database & DTP Operator",
-        company: "Vikas Educational Institution",
-        meta: "2008 – 2011 | Visakhapatnam",
+        role: "Database Operator",
+        company: "Vikas Educational Institution, Asilmetta",
+        meta: "2006 – 2008 | Visakhapatnam",
         desc: "Worked on exam processing, DTP and data management for the institution.",
         responsibilities: [
           "Prepared question papers, study material and handouts using DTP tools.",
@@ -1097,8 +1163,8 @@
     );
     revealEls.forEach((el) => observer.observe(el));
 
-    // Initial load - now shows Tata ClassEdge (Navy Children School) first
-    selectExperience("tce");
+    // Initial load - shows Navy Children School first
+    selectExperience("navy");
 
     // Certificate Modal
     const modalOverlay = document.getElementById("certModal");
