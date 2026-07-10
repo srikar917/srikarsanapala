@@ -730,7 +730,8 @@
         <p class="hero-summary">
           System Administrator with hands-on experience managing and maintaining computer systems,
           networks, and digital classrooms. Strong troubleshooting skills across hardware, software,
-          and networking with additional expertise in CCTV, RFID, and DTP/design tools.
+          and networking with additional expertise in Interactive Flat Panels, Smart Boards,
+          Projectors, LMS Administration, CCTV, RFID, and DTP/design tools.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn-primary">Contact Me</a>
@@ -910,6 +911,9 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // ============================================
+    // EXPERIENCE DATA WITH UPDATED SKILLS
+    // ============================================
     const experienceData = {
       freelance: {
         role: "Freelance Digital Marketer",
@@ -924,24 +928,55 @@
         ],
         skills: ["Digital Marketing", "Social Media Management", "SEO Basics", "Canva / Photoshop", "Content Writing", "Analytics"]
       },
+
+      // ==========================================
+      // NAVY CHILDREN SCHOOL (TATA CLASSEdge) - UPDATED
+      // ==========================================
       tce: {
         role: "Technical Coordinator",
         company: "Tata ClassEdge (Navy Children School)",
         meta: "Sep 2023 – Present | Visakhapatnam",
         desc: "Responsible for smooth functioning of smart classrooms, Interactive Flat Panels, and ClassEdge digital content across the school.",
         responsibilities: [
-          "Maintain and troubleshoot Interactive Flat Panels (IFPs), smartboards, projectors, and classroom AV equipment.",
-          "Provide first-level support for LMS users and create/manage LMS user accounts.",
+          // From notification: 1.4.1
+          "Maintain and troubleshoot Interactive Flat Panels (IFPs), smartboards, projectors, visualizers, and classroom AV equipment.",
+          // From notification: 1.4.2
+          "Provide first-level support for LMS users.",
+          // From notification: 1.4.3
+          "Create and manage LMS user accounts.",
+          // From notification: 1.4.4
           "Train teachers on smartboard and LMS usage.",
+          // From notification: 1.4.5
           "Coordinate with OEM vendors for warranty and AMC support.",
+          // From notification: 1.4.6
           "Maintain asset and maintenance records.",
+          // From notification: 1.4.7
           "Generate monthly support and usage reports.",
+          // From notification: 1.4.8
           "LMS content upload and course management.",
+          // From notification: 1.3.7
           "Ensure smooth operation of digital classrooms and online learning platforms.",
+          // From notification: 1.3.8
           "Provision of efficient data management support through accurate data entry, record keeping, and reporting."
         ],
-        skills: ["Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors", "Visualizers", "Audio Systems", "LMS Administration", "Teacher Training", "AV Equipment", "Windows OS", "Android OS", "HDMI/VGA/USB", "Wireless Casting", "Preventive Maintenance", "Vendor Coordination", "Asset Management"]
+        skills: [
+          // From notification: 1.3.1
+          "Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors", "Visualizers",
+          "Audio Systems", "Microphones", "Classroom AV Equipment",
+          // From notification: 1.3.2
+          "LAN", "Wi-Fi", "IP Configuration",
+          // From notification: 1.3.3
+          "Windows OS Troubleshooting", "Android OS Troubleshooting",
+          // From notification: 1.3.4
+          "HDMI", "VGA", "USB", "Wireless Casting",
+          // From notification: 1.3.5
+          "Preventive Maintenance", "Fault Diagnosis",
+          // LMS & Support
+          "LMS Administration", "Teacher Training", "Vendor Coordination",
+          "Asset Management", "Reporting"
+        ]
       },
+
       chandusoft: {
         role: "System Administrator",
         company: "ChanduSoft Solutions",
@@ -957,24 +992,50 @@
         ],
         skills: ["System Administration", "Windows OS", "Basic Linux", "LAN / WAN Troubleshooting", "Email Configuration", "Printer Support", "Client Communication"]
       },
+
+      // ==========================================
+      // UNIVERSAL PUBLIC SCHOOL - UPDATED
+      // ==========================================
       universal: {
         role: "Hardware & Networking Support",
         company: "Universal Public School",
         meta: "2015 – 2016 | Visakhapatnam",
         desc: "Supported the school's IT infrastructure including CCTV, smart classrooms, labs and staff systems.",
         responsibilities: [
+          // From notification: 1.3.1.1 - 1.3.1.6
           "Installation, configuration, and troubleshooting of Interactive Flat Panels (IFPs), smartboards, projectors, and visualizers.",
+          "Troubleshot audio systems, microphones, and classroom AV equipment.",
+          // From notification: 1.3.2
+          "Basic networking knowledge (LAN, Wi-Fi, IP configuration).",
+          // From notification: 1.3.3
+          "Windows and Android OS troubleshooting.",
+          // From notification: 1.3.4
+          "Knowledge of HDMI, VGA, USB, and wireless casting technologies.",
+          // From notification: 1.3.5
+          "Preventive maintenance and fault diagnosis.",
+          // Additional responsibilities
           "Installed and maintained CCTV cameras and DVR systems.",
           "Performed regular maintenance of computers, laptops and peripherals.",
           "Assisted with LAN cabling, IP addressing and network troubleshooting.",
-          "Troubleshot audio systems, microphones, and classroom AV equipment.",
-          "Helped teachers and staff resolve basic software and hardware issues.",
-          "Basic networking knowledge (LAN, Wi-Fi, IP configuration).",
-          "Windows and Android OS troubleshooting.",
-          "Knowledge of HDMI, VGA, USB, and wireless casting technologies."
+          "Helped teachers and staff resolve basic software and hardware issues."
         ],
-        skills: ["Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors", "Visualizers", "Audio Systems", "CCTV Installation", "Network Basics", "Hardware Maintenance", "Windows Desktop Support", "Android OS", "HDMI/VGA/USB", "Wireless Casting", "User Support", "Preventive Maintenance"]
+        skills: [
+          // From notification: 1.3.1
+          "Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors",
+          "Visualizers", "Audio Systems", "Microphones", "Classroom AV Equipment",
+          // From notification: 1.3.2
+          "LAN", "Wi-Fi", "IP Configuration",
+          // From notification: 1.3.3
+          "Windows OS Troubleshooting", "Android OS Troubleshooting",
+          // From notification: 1.3.4
+          "HDMI", "VGA", "USB", "Wireless Casting",
+          // From notification: 1.3.5
+          "Preventive Maintenance", "Fault Diagnosis",
+          // Additional
+          "CCTV Installation", "Hardware Maintenance", "User Support"
+        ]
       },
+
       vikas: {
         role: "Database & DTP Operator",
         company: "Vikas Educational Institution",
@@ -990,6 +1051,7 @@
       }
     };
 
+    // DOM refs for experience
     const roleEl = document.getElementById("exp-role");
     const companyEl = document.getElementById("exp-company");
     const metaEl = document.getElementById("exp-meta");
@@ -1061,6 +1123,7 @@
       }
     });
 
+    // Scroll reveal
     const revealEls = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -1074,6 +1137,7 @@
     );
     revealEls.forEach((el) => observer.observe(el));
 
+    // Initial load - show freelance
     selectExperience("freelance");
 
     // Certificate Modal
