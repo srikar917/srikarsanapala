@@ -124,7 +124,6 @@
       filter: blur(0);
     }
 
-    /* ===== HERO ===== */
     .hero {
       padding: 3.5rem 1.5rem 2.5rem;
     }
@@ -263,7 +262,6 @@
       margin-bottom: 0.75rem;
     }
 
-    /* ===== SECTIONS ===== */
     section {
       padding: 2.5rem 1.5rem;
     }
@@ -292,7 +290,6 @@
       background: linear-gradient(to right, #38bdf8, transparent);
     }
 
-    /* ===== ABOUT ===== */
     .about-grid {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -329,7 +326,6 @@
       margin-bottom: 0.2rem;
     }
 
-    /* ===== SKILLS ===== */
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
@@ -373,7 +369,6 @@
       margin-bottom: 0.3rem;
     }
 
-    /* ===== EXPERIENCE ===== */
     .experience-layout {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -519,7 +514,6 @@
       box-shadow: 0 14px 28px rgba(15, 23, 42, 1);
     }
 
-    /* ===== CERTIFICATES ===== */
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -565,7 +559,6 @@
       color: #9ca3af;
     }
 
-    /* ===== MODAL ===== */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -637,7 +630,6 @@
       gap: 2rem;
     }
 
-    /* Left column - Resume Details */
     .resume-main {
       display: flex;
       flex-direction: column;
@@ -685,6 +677,7 @@
     .resume-card .item .label {
       color: #9ca3af;
       font-size: 0.8rem;
+      min-width: 100px;
     }
     .resume-card .item .value {
       color: #e5e7eb;
@@ -726,7 +719,7 @@
       float: right;
     }
 
-    /* Right column - Contact Card */
+    /* Right column - Contact Card with Photo */
     .resume-contact {
       border-radius: 1.2rem;
       border: 1px solid rgba(148, 163, 184, 0.3);
@@ -740,19 +733,20 @@
       top: 5rem;
     }
 
-    .resume-contact .avatar {
-      width: 80px;
-      height: 80px;
+    .resume-contact .profile-img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #0ea5e9, #22c55e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      object-fit: cover;
+      border: 4px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.9), 0 0 0 8px rgba(56, 189, 248, 0.15);
       margin: 0 auto 0.8rem;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #0b1120;
-      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.3);
+      display: block;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .resume-contact .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.9), 0 0 0 12px rgba(56, 189, 248, 0.25);
     }
 
     .resume-contact h2 {
@@ -843,7 +837,6 @@
       color: #6b7280;
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 840px) {
       .hero-inner,
       .about-grid,
@@ -862,6 +855,18 @@
       }
       .resume-contact {
         position: static;
+      }
+      .resume-card .item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.1rem;
+      }
+      .resume-card .item .value {
+        text-align: left;
+      }
+      .resume-contact .profile-img {
+        width: 100px;
+        height: 100px;
       }
     }
   </style>
@@ -1095,20 +1100,30 @@
     </div>
   </div>
 
-  <!-- ===== RESUME / CONTACT (NEW LAYOUT) ===== -->
+  <!-- ===== RESUME WITH PERSONAL PROFILE & PHOTO ===== -->
   <section id="resume">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Resume</h2>
       <div class="resume-wrapper reveal">
         <!-- Left Column: Resume Details -->
         <div class="resume-main">
-          <!-- Personal Info -->
+          <!-- Personal Profile -->
           <div class="resume-card">
-            <h3><span class="icon">👤</span> Personal Information</h3>
-            <div class="item"><span class="label">Full Name</span><span class="value">Sanapala Srikar</span></div>
-            <div class="item"><span class="label">Location</span><span class="value">Visakhapatnam, Andhra Pradesh</span></div>
-            <div class="item"><span class="label">Languages</span><span class="value">Telugu, English, Hindi</span></div>
-            <div class="item"><span class="label">Availability</span><span class="value" style="color: #22c55e;">● Open to opportunities</span></div>
+            <h3><span class="icon">👤</span> Personal Profile</h3>
+            <div class="item"><span class="label">Name</span><span class="value">SANAPALA SRIKAR</span></div>
+            <div class="item"><span class="label">Father's Name</span><span class="value">S S R MOHAN RAO</span></div>
+            <div class="item"><span class="label">Date of Birth</span><span class="value">26-04-1983</span></div>
+            <div class="item"><span class="label">Sex</span><span class="value">Male</span></div>
+            <div class="item"><span class="label">Marital Status</span><span class="value">Married</span></div>
+            <div class="item"><span class="label">Caste</span><span class="value">BCA</span></div>
+            <div class="item"><span class="label">Languages Known</span><span class="value">English, Telugu</span></div>
+            <div class="item" style="flex-direction: column; align-items: flex-start; gap: 0.1rem; border-bottom: none; padding-bottom: 0;">
+              <span class="label">Permanent Address</span>
+              <span class="value" style="text-align: left; font-size: 0.85rem; line-height: 1.5; margin-top: 0.1rem;">
+                39-13-17, Harsha Enclave, Murali Nagar<br />
+                Visakhapatnam - 530007
+              </span>
+            </div>
           </div>
 
           <!-- Education -->
@@ -1120,7 +1135,7 @@
             <div class="item"><span class="label">Diploma</span><span class="value">Computer Hardware</span></div>
           </div>
 
-          <!-- Technical Skills Summary -->
+          <!-- Technical Skills -->
           <div class="resume-card">
             <h3><span class="icon">⚡</span> Technical Skills</h3>
             <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.3rem;">
@@ -1150,9 +1165,10 @@
           </div>
         </div>
 
-        <!-- Right Column: Contact Card -->
+        <!-- Right Column: Contact Card with Photo -->
         <div class="resume-contact">
-          <div class="avatar">SS</div>
+          <!-- REPLACE the src with your actual image URL -->
+          <img class="profile-img" src="https://ui-avatars.com/api/?name=Sanapala+Srikar&size=120&background=0ea5e9&color=fff&bold=true" alt="Sanapala Srikar" />
           <h2>Sanapala Srikar</h2>
           <p class="title">System Administrator &amp; Technical Coordinator</p>
 
@@ -1168,11 +1184,18 @@
             <span class="icon">📍</span>
             <span>Visakhapatnam, Andhra Pradesh</span>
           </div>
-          
+          <div class="contact-item">
+            <span class="icon">🎂</span>
+            <span>26-04-1983</span>
+          </div>
 
-         
+          <a href="mailto:s.srikar8@gmail.com" class="btn-resume">📧 Send Email</a>
 
-         
+          <div class="social-links">
+            <a href="#" title="LinkedIn">🔗</a>
+            <a href="#" title="GitHub">🐙</a>
+            <a href="#" title="Twitter">🐦</a>
+            <a href="#" title="YouTube">▶️</a>
           </div>
         </div>
       </div>
