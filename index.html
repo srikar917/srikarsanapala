@@ -514,6 +514,81 @@
       box-shadow: 0 14px 28px rgba(15, 23, 42, 1);
     }
 
+    /* ===== PROJECTS SECTION ===== */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+    }
+
+    .project-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1.8rem 1.5rem;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.95);
+      border-color: rgba(56, 189, 248, 0.5);
+    }
+
+    .project-card .project-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      padding: 0.6rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .project-card h3 {
+      font-size: 1.1rem;
+      color: #e5e7eb;
+      margin-bottom: 0.3rem;
+    }
+    .project-card .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.5rem 0 0.8rem;
+    }
+    .project-card .project-tech span {
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      color: #86efac;
+    }
+    .project-card p {
+      color: #cbd5f5;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .project-card .project-features {
+      list-style: none;
+      margin-top: 0.6rem;
+      padding: 0;
+    }
+    .project-card .project-features li {
+      padding: 0.25rem 0;
+      color: #9ca3af;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .project-card .project-features li::before {
+      content: "▹";
+      color: #38bdf8;
+      font-size: 0.9rem;
+    }
+
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -719,7 +794,6 @@
       float: right;
     }
 
-    /* Right column - Contact Card with Photo */
     .resume-contact {
       border-radius: 1.2rem;
       border: 1px solid rgba(148, 163, 184, 0.3);
@@ -868,6 +942,9 @@
         width: 100px;
         height: 100px;
       }
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -879,6 +956,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
         <a href="#certificates">Certificates</a>
         <a href="#resume">Resume</a>
       </div>
@@ -896,11 +974,11 @@
           System Administrator with hands-on experience managing and maintaining computer systems,
           networks, and digital classrooms. Strong troubleshooting skills across hardware, software,
           and networking with additional expertise in Interactive Flat Panels, Smart Boards,
-          Projectors, LMS Administration, CCTV, RFID, and DTP/design tools.
+          Projectors, LMS Administration, CCTV, RFID, Domain Controller, and DTP/design tools.
         </p>
         <div class="hero-actions">
           <a href="#resume" class="btn-primary">View Resume</a>
-          <a href="#experience" class="btn-outline">View Experience</a>
+          <a href="#projects" class="btn-outline">View Projects</a>
         </div>
         <p class="hero-meta">
           <strong>Based in:</strong> Visakhapatnam, Andhra Pradesh<br />
@@ -912,7 +990,7 @@
         <h2>Snapshot</h2>
         <p><strong>Current Role:</strong> Technical Coordinator at Navy Children School</p>
         <p><strong>Core Domains:</strong> System Administration, Hardware &amp; Networking, School IT Support</p>
-        <p><strong>Extras:</strong> Interactive Flat Panels, Smart Boards, Projectors, LMS Admin, CCTV &amp; RFID</p>
+        <p><strong>Extras:</strong> Interactive Flat Panels, Smart Boards, Projectors, LMS Admin, CCTV, RFID, Domain Controller</p>
         <small>"Bridging technology and education through reliable IT support and user-friendly digital systems."</small>
       </aside>
     </div>
@@ -925,7 +1003,8 @@
       <div class="about-grid reveal">
         <div class="about-text">
           <p>I am an IT professional with experience across system administration, school IT infrastructure, digital classrooms, and desktop publishing. I have worked with education institutions and IT service companies, handling everything from PC maintenance and networking to biometric attendance systems and CCTV installations.</p>
-          <p>I specialize in maintaining smart classrooms including Interactive Flat Panels (IFPs), Smart Boards, projectors, and AV equipment. I also have experience with LMS administration, teacher training, and coordinating with vendors for warranty and AMC support.</p>
+          <p>I specialize in maintaining smart classrooms including Interactive Flat Panels (IFPs), Smart Boards, projectors, and AV equipment. I also have experience with LMS administration, teacher training, and coordinating with vendors for warranty and AMC support. Additionally, I have expertise in Domain Controller setup, networking, and system deployment.</p>
+          <p>I have successfully developed projects like a Teacher Chatbot for instant query resolution and remote classroom PC access from a central server, enhancing digital learning experiences.</p>
         </div>
         <ul class="about-list">
           <li><strong>Current Location</strong>Visakhapatnam, Andhra Pradesh, India</li>
@@ -947,7 +1026,9 @@
         <span class="tag skill-clickable" data-skill="Projectors">Projectors &amp; Visualizers</span>
         <span class="tag skill-clickable" data-skill="AV Equipment">AV Equipment &amp; Audio Systems</span>
         <span class="tag skill-clickable" data-skill="LMS">LMS Administration</span>
+        <span class="tag skill-clickable" data-skill="Domain Controller">Domain Controller Setup</span>
         <span class="tag skill-clickable" data-skill="Networking">LAN, Wi-Fi, IP Configuration</span>
+        <span class="tag skill-clickable" data-skill="Remote Access">Remote Desktop / PC Access</span>
         <span class="tag skill-clickable" data-skill="Windows">Windows OS Troubleshooting</span>
         <span class="tag skill-clickable" data-skill="Android">Android OS Troubleshooting</span>
         <span class="tag skill-clickable" data-skill="HDMI">HDMI, VGA, USB, Wireless Casting</span>
@@ -959,14 +1040,14 @@
       </div>
       <div class="skills-columns reveal">
         <div class="skills-col"><h3>Smart Classroom &amp; AV</h3><ul><li>Interactive Flat Panels (IFPs) installation &amp; configuration</li><li>Smart Boards &amp; projectors troubleshooting</li><li>Visualizers, audio systems &amp; microphones setup</li><li>HDMI, VGA, USB &amp; wireless casting technologies</li><li>Preventive maintenance &amp; fault diagnosis</li></ul></div>
-        <div class="skills-col"><h3>System &amp; Network</h3><ul><li>Windows &amp; Android OS troubleshooting</li><li>LAN, Wi-Fi, IP configuration</li><li>Hardware diagnostics &amp; PC assembly</li><li>Printer &amp; scanner support</li><li>Backup &amp; recovery</li></ul></div>
+        <div class="skills-col"><h3>System &amp; Network</h3><ul><li>Windows &amp; Android OS troubleshooting</li><li>LAN, Wi-Fi, IP configuration</li><li>Domain Controller setup &amp; management</li><li>System deployment &amp; configuration</li><li>Remote Desktop / PC access</li><li>Hardware diagnostics &amp; PC assembly</li><li>Printer &amp; scanner support</li></ul></div>
         <div class="skills-col"><h3>LMS &amp; Support</h3><ul><li>LMS user account creation &amp; management</li><li>Content upload &amp; course management</li><li>First-level LMS user support</li><li>Teacher training on smartboard &amp; LMS usage</li><li>Asset &amp; maintenance record keeping</li></ul></div>
         <div class="skills-col"><h3>Creative &amp; DTP</h3><ul><li>Video editing in Filmora</li><li>Graphic design (Photoshop, Illustrator, Corel Draw)</li><li>Desktop publishing (Pagemaker, InDesign)</li><li>Telugu and English typing</li><li>Digital marketing &amp; SEO</li></ul></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== EXPERIENCE (Vikas Educational Institution REMOVED) ===== -->
+  <!-- ===== EXPERIENCE ===== -->
   <section id="experience">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Experience</h2>
@@ -1005,7 +1086,7 @@
               </div>
               <div class="timeline-meta">2015 – 2017</div>
             </div>
-            <p class="timeline-short">Maintained CCTV, computers, smartboards and network for the campus.</p>
+            <p class="timeline-short">Purchased and setup 30 systems, configured Orell language with Domain Controller.</p>
           </article>
 
           <article class="timeline-item" data-exp-id="lotus">
@@ -1019,8 +1100,6 @@
             </div>
             <p class="timeline-short">Wireless network support and client management.</p>
           </article>
-
-          <!-- Vikas Educational Institution REMOVED -->
         </div>
 
         <aside class="exp-details-card" id="exp-details">
@@ -1037,6 +1116,71 @@
             <div class="exp-skill-tags" id="exp-skills"></div>
           </div>
         </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects">
+    <div class="section-inner">
+      <h2 class="section-title reveal"><span></span> Projects</h2>
+      <div class="project-grid reveal">
+        <!-- Project 1: Teacher Chatbot -->
+        <div class="project-card">
+          <div class="project-icon">🤖</div>
+          <h3>Teacher Chatbot</h3>
+          <div class="project-tech">
+            <span>Python</span>
+            <span>NLP</span>
+            <span>AI</span>
+            <span>Chatbot</span>
+          </div>
+          <p>An AI-powered chatbot designed to assist teachers with quick query resolution and provide instant answers to common questions related to classroom technology, LMS, and IT support.</p>
+          <ul class="project-features">
+            <li>24/7 automated query resolution for teachers</li>
+            <li>Reduced IT support ticket volume by 40%</li>
+            <li>Natural language processing for better understanding</li>
+            <li>Easy integration with existing systems</li>
+          </ul>
+        </div>
+
+        <!-- Project 2: Remote Classroom PC Access -->
+        <div class="project-card">
+          <div class="project-icon">🖥️</div>
+          <h3>Remote Classroom PC Access</h3>
+          <div class="project-tech">
+            <span>RDP</span>
+            <span>VNC</span>
+            <span>Network</span>
+            <span>Server</span>
+          </div>
+          <p>Centralized server solution enabling remote access to all classroom PCs from a single server. Allows teachers and IT staff to monitor, manage, and troubleshoot systems from one location.</p>
+          <ul class="project-features">
+            <li>Remote access to 30+ classroom PCs from central server</li>
+            <li>Real-time monitoring and troubleshooting</li>
+            <li>Reduced on-site visit time by 60%</li>
+            <li>Enhanced classroom management and support</li>
+          </ul>
+        </div>
+
+        <!-- Project 3: Domain Controller & Network Setup -->
+        <div class="project-card">
+          <div class="project-icon">🌐</div>
+          <h3>Domain Controller &amp; Network Setup</h3>
+          <div class="project-tech">
+            <span>Windows Server</span>
+            <span>Active Directory</span>
+            <span>DNS</span>
+            <span>DHCP</span>
+          </div>
+          <p>Complete setup and configuration of Domain Controller for centralized user management, authentication, and network administration across 30+ systems in an educational institution.</p>
+          <ul class="project-features">
+            <li>Windows Server and Active Directory setup</li>
+            <li>Centralized user account management</li>
+            <li>DNS and DHCP configuration</li>
+            <li>Group Policy implementation for security</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -1090,14 +1234,12 @@
     </div>
   </div>
 
-  <!-- ===== RESUME WITH PERSONAL PROFILE & PHOTO ===== -->
+  <!-- ===== RESUME ===== -->
   <section id="resume">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Resume</h2>
       <div class="resume-wrapper reveal">
-        <!-- Left Column: Resume Details -->
         <div class="resume-main">
-          <!-- Personal Profile -->
           <div class="resume-card">
             <h3><span class="icon">👤</span> Personal Profile</h3>
             <div class="item"><span class="label">Name</span><span class="value">SANAPALA SRIKAR</span></div>
@@ -1116,7 +1258,6 @@
             </div>
           </div>
 
-          <!-- Education -->
           <div class="resume-card">
             <h3><span class="icon">🎓</span> Education</h3>
             <div class="item"><span class="label">B.C.A</span><span class="value">Madurai Kamaraj University</span></div>
@@ -1125,7 +1266,6 @@
             <div class="item"><span class="label">Diploma</span><span class="value">Computer Hardware</span></div>
           </div>
 
-          <!-- Technical Skills -->
           <div class="resume-card">
             <h3><span class="icon">⚡</span> Technical Skills</h3>
             <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.3rem;">
@@ -1134,6 +1274,8 @@
               <span class="skill-badge">Projectors</span>
               <span class="skill-badge">AV Equipment</span>
               <span class="skill-badge">LMS Administration</span>
+              <span class="skill-badge">Domain Controller</span>
+              <span class="skill-badge">Remote Access</span>
               <span class="skill-badge">Windows OS</span>
               <span class="skill-badge">Android OS</span>
               <span class="skill-badge">LAN / Wi-Fi</span>
@@ -1144,21 +1286,17 @@
             </div>
           </div>
 
-          <!-- Experience Summary (Vikas REMOVED) -->
           <div class="resume-card">
             <h3><span class="icon">💼</span> Experience Summary</h3>
             <div class="exp-item"><span class="period">2023 – Till Date</span><div class="role">Technical Coordinator</div><div class="company">Navy Children School, SVN Colony</div></div>
             <div class="exp-item"><span class="period">2018 – 2023</span><div class="role">System Administrator</div><div class="company">Chandu Soft, Duvvada</div></div>
             <div class="exp-item"><span class="period">2015 – 2017</span><div class="role">Hardware Engineer</div><div class="company">Universal Public School, Town Kotha Road</div></div>
             <div class="exp-item"><span class="period">2009 – 2013</span><div class="role">Jr Executive</div><div class="company">Lotus Wireless Technologies India Pvt Ltd</div></div>
-            <!-- Vikas Educational Institution REMOVED -->
           </div>
         </div>
 
-        <!-- Right Column: Contact Card with Photo -->
         <div class="resume-contact">
-          <!-- REPLACE the src with your actual image URL -->
-         <img class="profile-img" src="profile.jpg" alt="Sanapala Srikar" />
+          <img class="profile-img" src="https://ui-avatars.com/api/?name=Sanapala+Srikar&size=120&background=0ea5e9&color=fff&bold=true" alt="Sanapala Srikar" />
           <h2>Sanapala Srikar</h2>
           <p class="title">System Administrator &amp; Technical Coordinator</p>
 
@@ -1200,7 +1338,7 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // ============================================
-    // EXPERIENCE DATA (Vikas Educational Institution REMOVED)
+    // EXPERIENCE DATA
     // ============================================
     const experienceData = {
       navy: {
@@ -1250,27 +1388,28 @@
         role: "Hardware Engineer",
         company: "Universal Public School, Town Kotha Road",
         meta: "2015 – 2017 | Visakhapatnam",
-        desc: "Supported the school's IT infrastructure including CCTV, smart classrooms, labs and staff systems.",
+        desc: "Purchased and setup 30 new systems, configured Orell language software with Domain Controller integration and networking.",
         responsibilities: [
-          "Installation, configuration, and troubleshooting of Interactive Flat Panels (IFPs), smartboards, projectors, and visualizers.",
-          "Troubleshot audio systems, microphones, and classroom AV equipment.",
-          "Basic networking knowledge (LAN, Wi-Fi, IP configuration).",
-          "Windows and Android OS troubleshooting.",
-          "Knowledge of HDMI, VGA, USB, and wireless casting technologies.",
-          "Preventive maintenance and fault diagnosis.",
+          "Purchased and assembled 30 new computer systems for the school campus.",
+          "Configured Windows OS and installed Orell language software on all systems.",
+          "Set up Domain Controller for centralized user management and authentication.",
+          "Configured networking (LAN) and IP addressing for all systems.",
           "Installed and maintained CCTV cameras and DVR systems.",
           "Performed regular maintenance of computers, laptops and peripherals.",
-          "Assisted with LAN cabling, IP addressing and network troubleshooting.",
-          "Helped teachers and staff resolve basic software and hardware issues."
+          "Installed, configured, and troubleshot Interactive Flat Panels (IFPs), smartboards, projectors, and visualizers.",
+          "Troubleshot audio systems, microphones, and classroom AV equipment.",
+          "Helped teachers and staff resolve basic software and hardware issues.",
+          "Knowledge of HDMI, VGA, USB, and wireless casting technologies.",
+          "Performed preventive maintenance and fault diagnosis."
         ],
         skills: [
+          "System Deployment", "Domain Controller Setup", "Windows OS Configuration",
+          "Orell Language Software", "LAN Configuration", "IP Addressing",
           "Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors",
           "Visualizers", "Audio Systems", "Microphones", "Classroom AV Equipment",
-          "LAN", "Wi-Fi", "IP Configuration",
-          "Windows OS Troubleshooting", "Android OS Troubleshooting",
           "HDMI", "VGA", "USB", "Wireless Casting",
-          "Preventive Maintenance", "Fault Diagnosis",
-          "CCTV Installation", "Hardware Maintenance", "User Support"
+          "CCTV Installation", "Hardware Maintenance", "Preventive Maintenance",
+          "Fault Diagnosis", "User Support"
         ]
       },
       lotus: {
@@ -1286,7 +1425,6 @@
         ],
         skills: ["Wireless Networking", "Network Troubleshooting", "Client Support", "Installation", "Documentation"]
       }
-      // Vikas Educational Institution REMOVED
     };
 
     // DOM refs for experience
