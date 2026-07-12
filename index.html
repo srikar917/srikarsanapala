@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanapala Srikar · Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #020617 100%);
+      color: #e5e7eb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.16) 0, transparent 40%),
+        radial-gradient(circle at 80% 0%, rgba(129, 140, 248, 0.18) 0, transparent 45%),
+        radial-gradient(circle at 50% 100%, rgba(34, 197, 94, 0.12) 0, transparent 50%);
+      opacity: 0.9;
+      z-index: -1;
+      animation: bgFloat 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgFloat {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      100% {
+        transform: translate3d(0, -20px, 0) scale(1.05);
+      }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.7));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      animation: slideDown 0.7s ease-out;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .nav-left span {
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      color: #38bdf8;
+    }
+
+    .nav-right a {
+      margin-left: 1.25rem;
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      opacity: 0.9;
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-right a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #22c55e);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-right a:hover {
+      color: #f9fafb;
+    }
+    .nav-right a:hover::after {
+      width: 100%;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translate3d(0, -24px, 0);
+        opacity: 0;
+      }
+      to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 26px, 0);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out, filter 0.7s ease-out;
+      filter: blur(4px);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      filter: blur(0);
+    }
+
+    .hero {
+      padding: 3.5rem 1.5rem 2.5rem;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: center;
+      animation: fadeUp 0.9s ease-out 0.05s both;
+    }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 32px, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.75rem;
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.9);
+      margin-bottom: 0.75rem;
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      margin-right: 0.4rem;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.3);
+      animation: softGlow 1.8s ease-out infinite alternate;
+    }
+    @keyframes softGlow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.25);
+      }
+      100% {
+        box-shadow: 0 0 0 16px rgba(56, 189, 248, 0);
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 3vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 span {
+      background: linear-gradient(120deg, #38bdf8, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-role {
+      font-size: 1.1rem;
+      color: #cbd5f5;
+      margin-bottom: 1rem;
+    }
+    .hero-summary {
+      color: #9ca3af;
+      font-size: 0.98rem;
+      max-width: 36rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn-primary,
+    .btn-outline {
+      padding: 0.65rem 1.35rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: transform 0.1s, box-shadow 0.15s, background 0.15s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #0b1120;
+      font-weight: 600;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.8);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 22px 45px rgba(15, 23, 42, 0.95);
+    }
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.7);
+      color: #e5e7eb;
+    }
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: rgba(56, 189, 248, 0.7);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-card {
+      border-radius: 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(96, 165, 250, 0.2), #020617);
+      padding: 1.5rem;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 1);
+      animation: floatCard 7s ease-in-out infinite alternate;
+    }
+    @keyframes floatCard {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(0, -8px, 0);
+      }
+    }
+    .hero-card h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 0.75rem;
+    }
+
+    section {
+      padding: 2.5rem 1.5rem;
+    }
+    section:nth-of-type(odd),
+    section:nth-of-type(even) {
+      background: rgba(2, 6, 23, 0.95);
+    }
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      font-weight: 600;
+    }
+    .section-title span {
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(to right, #38bdf8, transparent);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+    }
+    .about-text {
+      color: #e5e7eb;
+      font-size: 0.95rem;
+    }
+    .about-text p+p {
+      margin-top: 0.9rem;
+    }
+    .about-list {
+      font-size: 0.9rem;
+      color: #cbd5f5;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+    .about-list li {
+      padding: 0.7rem 0.75rem;
+      border-radius: 0.9rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      backdrop-filter: blur(8px);
+    }
+    .about-list strong {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 1));
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, transform 0.12s, box-shadow 0.15s;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.9);
+    }
+    .tag:hover {
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 1), rgba(15, 23, 42, 1));
+      border-color: rgba(56, 189, 248, 0.8);
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 1);
+    }
+
+    .skills-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .skills-col h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+      color: #cbd5f5;
+    }
+    .skills-col ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    .skills-col li {
+      margin-bottom: 0.3rem;
+    }
+
+    .experience-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.5fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .timeline {
+      border-left: 1px solid rgba(148, 163, 184, 0.5);
+      margin-left: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: 0;
+      width: 3px;
+      height: 70px;
+      background: linear-gradient(to bottom, #38bdf8, transparent);
+      opacity: 0.8;
+    }
+    .timeline-item {
+      margin-bottom: 1.5rem;
+      position: relative;
+      cursor: pointer;
+      padding: 0.5rem 0.75rem 0.55rem 0.75rem;
+      border-radius: 0.9rem;
+      border: 1px solid transparent;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s, border-color 0.2s, transform 0.12s, box-shadow 0.2s;
+    }
+    .timeline-item:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateX(3px);
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.9);
+    }
+    .timeline-item.active {
+      background: rgba(15, 23, 42, 1);
+      border-color: rgba(56, 189, 248, 0.9);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 1), 0 0 0 4px rgba(56, 189, 248, 0.25),
+        0 18px 40px rgba(15, 23, 42, 1);
+    }
+    .timeline-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 999px;
+      border: 2px solid #0f172a;
+      background: #38bdf8;
+      position: absolute;
+      left: -1.1rem;
+      top: 0.9rem;
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+    }
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.25rem;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-role {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+    .timeline-company {
+      font-size: 0.88rem;
+      color: #9ca3af;
+    }
+    .timeline-meta {
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+    .timeline-short {
+      font-size: 0.82rem;
+      color: #cbd5f5;
+      margin-top: 0.3rem;
+    }
+
+    .exp-details-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1.5rem;
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.4), rgba(15, 23, 42, 1));
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 1);
+    }
+    .exp-details-role {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .exp-details-company {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-bottom: 0.2rem;
+    }
+    .exp-details-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 0.8rem;
+    }
+    .exp-details-desc {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      margin-bottom: 0.8rem;
+    }
+    .exp-details-list-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #9ca3af;
+      margin-top: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .exp-details-ul {
+      list-style: disc;
+      margin-left: 1.1rem;
+      font-size: 0.86rem;
+      color: #cbd5f5;
+      margin-bottom: 0.4rem;
+    }
+    .exp-skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+    .exp-skill-tag {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.75rem;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.9);
+      transition: background 0.15s, border-color 0.15s, transform 0.12s, box-shadow 0.15s;
+    }
+    .exp-skill-tag:hover {
+      background: rgba(30, 64, 175, 0.9);
+      border-color: rgba(56, 189, 248, 0.6);
+      transform: translateY(-1px) scale(1.03);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 1);
+    }
+
+    .certificate-section {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 0.8rem;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      display: none;
+    }
+    .certificate-section.show {
+      display: block;
+      animation: fadeIn 0.4s ease-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .certificate-section h4 {
+      color: #38bdf8;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.3rem;
+    }
+    .certificate-section .cert-img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      border-radius: 0.5rem;
+      background: #0f172a;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .certificate-section .cert-img:hover {
+      transform: scale(1.02);
+    }
+    .certificate-section .cert-label {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-top: 0.3rem;
+      text-align: center;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+    }
+
+    .project-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1.8rem 1.5rem;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.95);
+      border-color: rgba(56, 189, 248, 0.5);
+    }
+
+    .project-card .project-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      padding: 0.6rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .project-card h3 {
+      font-size: 1.1rem;
+      color: #e5e7eb;
+      margin-bottom: 0.3rem;
+    }
+    .project-card .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.5rem 0 0.8rem;
+    }
+    .project-card .project-tech span {
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      color: #86efac;
+    }
+    .project-card p {
+      color: #cbd5f5;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .project-card .project-features {
+      list-style: none;
+      margin-top: 0.6rem;
+      padding: 0;
+    }
+    .project-card .project-features li {
+      padding: 0.25rem 0;
+      color: #9ca3af;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .project-card .project-features li::before {
+      content: "▹";
+      color: #38bdf8;
+      font-size: 0.9rem;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+    }
+    .cert-item {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: rgba(15, 23, 42, 0.8);
+      padding: 1.2rem 0.8rem;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.9);
+    }
+    .cert-item:hover {
+      transform: translateY(-6px) scale(1.02);
+      border-color: #38bdf8;
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 1);
+    }
+    .cert-item .cert-thumb {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 0.7rem;
+      background: #1e293b;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      margin-bottom: 0.6rem;
+      transition: transform 0.2s;
+    }
+    .cert-item:hover .cert-thumb {
+      transform: scale(1.02);
+    }
+    .cert-item .name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #e5e7eb;
+    }
+    .cert-item .issuer {
+      font-size: 0.7rem;
+      color: #9ca3af;
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(14px);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .modal-box {
+      max-width: 780px;
+      width: 100%;
+      background: #0b1120;
+      border-radius: 2rem;
+      padding: 1.8rem 1.8rem 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95);
+      position: relative;
+      text-align: center;
+      transform: scale(0.94);
+      transition: transform 0.25s ease-out;
+    }
+    .modal-overlay.open .modal-box {
+      transform: scale(1);
+    }
+    .modal-box .modal-img {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      border-radius: 1rem;
+      background: #0f172a;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      margin-bottom: 0.8rem;
+    }
+    .modal-box h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.1rem;
+      color: #e5e7eb;
+    }
+    .modal-box .issuer {
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+    .modal-close {
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+      padding: 0.4rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-top: 0.6rem;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #38bdf8;
+    }
+
+    .resume-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      gap: 2rem;
+    }
+
+    .resume-main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .resume-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1.5rem;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .resume-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
+    }
+
+    .resume-card h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #38bdf8;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .resume-card h3 .icon {
+      font-size: 1.1rem;
+    }
+
+    .resume-card .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    }
+    .resume-card .item:last-child {
+      border-bottom: none;
+    }
+    .resume-card .item .label {
+      color: #9ca3af;
+      font-size: 0.8rem;
+      min-width: 100px;
+    }
+    .resume-card .item .value {
+      color: #e5e7eb;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .skill-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #cbd5f5;
+      margin: 0.15rem;
+    }
+
+    .skill-category-label {
+      color: #38bdf8;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.3rem;
+      margin-bottom: 0.2rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    .resume-card .exp-item {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    }
+    .resume-card .exp-item:last-child {
+      border-bottom: none;
+    }
+    .resume-card .exp-item .role {
+      color: #e5e7eb;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .resume-card .exp-item .company {
+      color: #9ca3af;
+      font-size: 0.8rem;
+    }
+    .resume-card .exp-item .period {
+      color: #6b7280;
+      font-size: 0.7rem;
+      float: right;
+    }
+
+    .resume-contact {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1.8rem 1.5rem;
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.5), rgba(15, 23, 42, 1));
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      text-align: center;
+      height: fit-content;
+      position: sticky;
+      top: 5rem;
+    }
+
+    .resume-contact .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.9), 0 0 0 8px rgba(56, 189, 248, 0.15);
+      margin: 0 auto 0.8rem;
+      display: block;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .resume-contact .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.9), 0 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .resume-contact h2 {
+      font-size: 1.3rem;
+      color: #e5e7eb;
+      margin-bottom: 0.1rem;
+    }
+    .resume-contact .title {
+      color: #9ca3af;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .resume-contact .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+      color: #cbd5f5;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    .resume-contact .contact-item:last-child {
+      border-bottom: none;
+    }
+    .resume-contact .contact-item .icon {
+      font-size: 1.1rem;
+      width: 24px;
+      text-align: center;
+    }
+    .resume-contact .contact-item a {
+      color: #cbd5f5;
+      transition: color 0.2s;
+    }
+    .resume-contact .contact-item a:hover {
+      color: #38bdf8;
+    }
+
+    .resume-contact .btn-resume {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.8rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #0b1120;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.15s;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.6);
+      text-decoration: none;
+    }
+    .resume-contact .btn-resume:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .resume-contact .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .resume-contact .social-links a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    .resume-contact .social-links a:hover {
+      border-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      padding: 1rem 1.5rem 2rem;
+      color: #6b7280;
+    }
+
+    @media (max-width: 840px) {
+      .hero-inner,
+      .about-grid,
+      .resume-wrapper,
+      .experience-layout {
+        grid-template-columns: 1fr;
+      }
+      .nav-right {
+        display: none;
+      }
+      .hero {
+        padding-top: 2.5rem;
+      }
+      .hero-card {
+        animation: floatCard 10s ease-in-out infinite alternate;
+      }
+      .resume-contact {
+        position: static;
+      }
+      .resume-card .item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.1rem;
+      }
+      .resume-card .item .value {
+        text-align: left;
+      }
+      .resume-contact .profile-img {
+        width: 100px;
+        height: 100px;
+      }
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-left"><span>S. Srikar</span></div>
+      <div class="nav-right">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#resume">Resume</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="reveal">
+        <div class="badge"><span class="badge-dot"></span>Available for opportunities</div>
+        <h1>Hi, I'm <span>Sanapala Srikar</span></h1>
+        <p class="hero-role">System Administrator &amp; Technical Coordinator</p>
+        <p class="hero-summary">
+          System Administrator with hands-on experience managing and maintaining computer systems,
+          networks, and digital classrooms. Strong troubleshooting skills across hardware, software,
+          and networking with additional expertise in Interactive Flat Panels, Smart Boards,
+          Projectors, LMS Administration, CCTV, RFID, Domain Controller, and DTP/design tools.
+        </p>
+        <div class="hero-actions">
+          <a href="#resume" class="btn-primary">View Resume</a>
+          <a href="#projects" class="btn-outline">View Projects</a>
+        </div>
+        <p class="hero-meta">
+          <strong>Based in:</strong> Visakhapatnam, Andhra Pradesh<br />
+          <strong>Phone:</strong> <a href="tel:+916300860166">+91 63008 60166</a> &nbsp;|&nbsp;
+          <strong>Email:</strong> <a href="mailto:s.srikar8@gmail.com">s.srikar8@gmail.com</a>
+        </p>
+      </div>
+      <aside class="hero-card reveal">
+        <h2>Snapshot</h2>
+        <p><strong>Current Role:</strong> Technical Coordinator at Navy Children School</p>
+        <p><strong>Core Domains:</strong> System Administration, Hardware &amp; Networking, School IT Support</p>
+        <p><strong>Extras:</strong> Interactive Flat Panels, Smart Boards, Projectors, LMS Admin, CCTV, RFID, Domain Controller</p>
+        <small>"Bridging technology and education through reliable IT support and user-friendly digital systems."</small>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="section-inner">
+      <h2 class="section-title reveal"><span></span> About</h2>
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <p>I am an IT professional with experience across system administration, school IT infrastructure, digital classrooms, and desktop publishing. I have worked with education institutions and IT service companies, handling everything from PC maintenance and networking to biometric attendance systems and CCTV installations.</p>
+          <p>I specialize in maintaining smart classrooms including Interactive Flat Panels (IFPs), Smart Boards, projectors, and AV equipment. I also have experience with LMS administration, teacher training, and coordinating with vendors for warranty and AMC support. Additionally, I have expertise in Domain Controller setup, networking, and system deployment.</p>
+          <p>I have successfully developed projects like a Teacher Chatbot for instant query resolution and remote classroom PC access from a central server, enhancing digital learning experiences.</p>
+        </div>
+        <ul class="about-list">
+          <li><strong>Current Location</strong>Visakhapatnam, Andhra Pradesh, India</li>
+          <li><strong>Experience</strong>System Administration, Technical Coordination, Hardware &amp; Networking, DTP, Digital Marketing</li>
+          <li><strong>Education &amp; Courses</strong>B.C.A (Madurai Kamaraj University), PGDCA, PGDAT, Diploma in Computer Hardware</li>
+          <li><strong>Languages</strong>Telugu, English, Hindi</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <div class="section-inner">
+      <h2 class="section-title reveal"><span></span> Skills</h2>
+      <div class="skill-tags reveal">
+        <span class="tag skill-clickable" data-skill="IFP">Interactive Flat Panels (IFPs)</span>
+        <span class="tag skill-clickable" data-skill="Smart Boards">Smart Boards</span>
+        <span class="tag skill-clickable" data-skill="Projectors">Projectors &amp; Visualizers</span>
+        <span class="tag skill-clickable" data-skill="AV Equipment">AV Equipment &amp; Audio Systems</span>
+        <span class="tag skill-clickable" data-skill="LMS">LMS Administration</span>
+        <span class="tag skill-clickable" data-skill="Domain Controller">Domain Controller Setup</span>
+        <span class="tag skill-clickable" data-skill="Networking">LAN, Wi-Fi, IP Configuration</span>
+        <span class="tag skill-clickable" data-skill="Remote Access">Remote Desktop / PC Access</span>
+        <span class="tag skill-clickable" data-skill="Windows">Windows OS Troubleshooting</span>
+        <span class="tag skill-clickable" data-skill="Android">Android OS Troubleshooting</span>
+        <span class="tag skill-clickable" data-skill="Canva">Canva</span>
+        <span class="tag skill-clickable" data-skill="Photoshop">Adobe Photoshop</span>
+        <span class="tag skill-clickable" data-skill="CorelDRAW">CorelDRAW</span>
+        <span class="tag skill-clickable" data-skill="Video Editing">Video Editing</span>
+        <span class="tag skill-clickable" data-skill="Filmora">Filmora</span>
+        <span class="tag skill-clickable" data-skill="AI Tools">AI Tools</span>
+        <span class="tag skill-clickable" data-skill="ChatGPT">ChatGPT</span>
+        <span class="tag skill-clickable" data-skill="Gemini">Gemini</span>
+        <span class="tag skill-clickable" data-skill="Perplexity">Perplexity</span>
+        <span class="tag skill-clickable" data-skill="DeepSeek">DeepSeek</span>
+        <span class="tag skill-clickable" data-skill="Gamma">Gamma</span>
+        <span class="tag skill-clickable" data-skill="DTP">DTP / Question Paper Design</span>
+        <span class="tag skill-clickable" data-skill="CCTV">CCTV Installation</span>
+        <span class="tag skill-clickable" data-skill="RFID">RFID Attendance Systems</span>
+        <span class="tag skill-clickable" data-skill="Digital Marketing">Digital Marketing &amp; SEO</span>
+      </div>
+      <div class="skills-columns reveal">
+        <div class="skills-col"><h3>Smart Classroom &amp; AV</h3><ul><li>Interactive Flat Panels (IFPs) installation &amp; configuration</li><li>Smart Boards &amp; projectors troubleshooting</li><li>Visualizers, audio systems &amp; microphones setup</li><li>HDMI, VGA, USB &amp; wireless casting technologies</li><li>Preventive maintenance &amp; fault diagnosis</li></ul></div>
+        <div class="skills-col"><h3>System &amp; Network</h3><ul><li>Windows &amp; Android OS troubleshooting</li><li>LAN, Wi-Fi, IP configuration</li><li>Domain Controller setup &amp; management</li><li>System deployment &amp; configuration</li><li>Remote Desktop / PC access</li><li>Hardware diagnostics &amp; PC assembly</li><li>Printer &amp; scanner support</li></ul></div>
+        <div class="skills-col"><h3>Design &amp; Creative</h3><ul><li>Canva – Graphic design &amp; presentations</li><li>Adobe Photoshop – Photo editing &amp; manipulation</li><li>CorelDRAW – Vector graphics &amp; illustration</li><li>Video Editing – Professional video production</li><li>Filmora – Video editing &amp; effects</li></ul></div>
+        <div class="skills-col"><h3>AI Tools</h3><ul><li>ChatGPT – Conversational AI &amp; content generation</li><li>Gemini – AI-powered assistance &amp; research</li><li>Perplexity – AI search &amp; knowledge discovery</li><li>DeepSeek – Advanced AI reasoning &amp; analysis</li><li>Gamma – AI presentation &amp; document creation</li></ul></div>
+        <div class="skills-col"><h3>LMS &amp; Teacher Support</h3><ul><li>LMS user account creation &amp; management</li><li>Content upload &amp; course management</li><li>First-level LMS user support</li><li>Teacher training on smartboard &amp; LMS usage</li><li>Question paper typing &amp; alignment (DTP)</li><li>Scientific study app data entry</li><li>Website content management (images &amp; videos)</li><li>Google Forms creation</li></ul></div>
+        <div class="skills-col"><h3>Creative &amp; DTP</h3><ul><li>Desktop publishing (Pagemaker, InDesign)</li><li>Telugu &amp; English typing</li><li>Digital marketing &amp; SEO</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience">
+    <div class="section-inner">
+      <h2 class="section-title reveal"><span></span> Experience</h2>
+      <div class="experience-layout reveal">
+        <div class="timeline">
+          <article class="timeline-item active" data-exp-id="navy">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Technical Coordinator</div>
+                <div class="timeline-company">Navy Children School, SVN Colony</div>
+              </div>
+              <div class="timeline-meta">2023 – Till Date</div>
+            </div>
+            <p class="timeline-short">Smart classroom support, LMS admin, teacher assistance &amp; media content creation.</p>
+          </article>
+
+          <article class="timeline-item" data-exp-id="chandusoft">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">System Administrator</div>
+                <div class="timeline-company">Chandu Soft, Duvvada</div>
+              </div>
+              <div class="timeline-meta">2018 – 2023</div>
+            </div>
+            <p class="timeline-short">End-to-end system administration, client support and network troubleshooting.</p>
+          </article>
+
+          <article class="timeline-item" data-exp-id="universal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Hardware Engineer</div>
+                <div class="timeline-company">Universal Public School, Town Kotha Road</div>
+              </div>
+              <div class="timeline-meta">2015 – 2017</div>
+            </div>
+            <p class="timeline-short">Purchased and setup 30 systems, configured Orell language, Domain Controller, and used Canva, Photoshop, CorelDRAW, Filmora &amp; AI tools.</p>
+          </article>
+
+          <article class="timeline-item" data-exp-id="lotus">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Jr Executive</div>
+                <div class="timeline-company">Lotus Wireless Technologies India Pvt Ltd</div>
+              </div>
+              <div class="timeline-meta">2009 – 2013</div>
+            </div>
+            <p class="timeline-short">Wireless network support and client management.</p>
+          </article>
+        </div>
+
+        <aside class="exp-details-card" id="exp-details">
+          <div class="exp-details-role" id="exp-role"></div>
+          <div class="exp-details-company" id="exp-company"></div>
+          <div class="exp-details-meta" id="exp-meta"></div>
+          <p class="exp-details-desc" id="exp-desc"></p>
+          <div>
+            <div class="exp-details-list-title">Key Responsibilities</div>
+            <ul class="exp-details-ul" id="exp-resp"></ul>
+          </div>
+          <div>
+            <div class="exp-details-list-title">Skills Used</div>
+            <div class="exp-skill-tags" id="exp-skills"></div>
+          </div>
+          <!-- ===== CERTIFICATE SECTION ===== -->
+          <div class="certificate-section" id="exp-certificate">
+            <h4>📜 Certificate</h4>
+            <img class="cert-img" id="exp-cert-img" src="" alt="Certificate" onclick="openCertModal()" />
+            <p class="cert-label" id="exp-cert-label">Click to enlarge</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects">
+    <div class="section-inner">
+      <h2 class="section-title reveal"><span></span> Projects</h2>
+      <div class="project-grid reveal">
+        <div class="project-card">
+          <div class="project-icon">🤖</div>
+          <h3>Teacher Chatbot</h3>
+          <div class="project-tech">
+            <span>Python</span>
+            <span>NLP</span>
+            <span>AI</span>
+            <span>Chatbot</span>
+          </div>
+          <p>An AI-powered chatbot designed to assist teachers with quick query resolution and provide instant answers to common questions related to classroom technology, LMS, and IT support.</p>
+          <ul class="project-features">
+            <li>24/7 automated query resolution for teachers</li>
+            <li>Reduced IT support ticket volume by 40%</li>
+            <li>Natural language processing for better understanding</li>
+            <li>Easy integration with existing systems</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🖥️</div>
+          <h3>Remote Classroom PC Access</h3>
+          <div class="project-tech">
+            <span>RDP</span>
+            <span>VNC</span>
+            <span>Network</span>
+            <span>Server</span>
+          </div>
+          <p>Centralized server solution enabling remote access to all classroom PCs from a single server. Allows teachers and IT staff to monitor, manage, and troubleshoot systems from one location.</p>
+          <ul class="project-features">
+            <li>Remote access to 30+ classroom PCs from central server</li>
+            <li>Real-time monitoring and troubleshooting</li>
+            <li>Reduced on-site visit time by 60%</li>
+            <li>Enhanced classroom management and support</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🌐</div>
+          <h3>Domain Controller &amp; Network Setup</h3>
+          <div class="project-tech">
+            <span>Windows Server</span>
+            <span>Active Directory</span>
+            <span>DNS</span>
+            <span>DHCP</span>
+          </div>
+          <p>Complete setup and configuration of Domain Controller for centralized user management, authentication, and network administration across 30+ systems in an educational institution.</p>
+          <ul class="project-features">
+            <li>Windows Server and Active Directory setup</li>
+            <li>Centralized user account management</li>
+            <li>DNS and DHCP configuration</li>
+            <li>Group Policy implementation for security</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATES ===== -->
+  <section id="certificates">
+    <div class="section-inner">
+      <h2 class="section-title reveal"><span></span> Certificates</h2>
+      <div class="cert-grid reveal" id="certGrid">
+        <div class="cert-item" data-img="https://picsum.photos/id/1/600/400" data-name="CCNA (Routing & Switching)" data-issuer="Cisco">
+          <img class="cert-thumb" src="https://picsum.photos/id/1/400/300" alt="CCNA" loading="lazy" />
+          <div class="name">CCNA (Routing & Switching)</div>
+          <div class="issuer">Cisco</div>
+        </div>
+        <div class="cert-item" data-img="https://picsum.photos/id/26/600/400" data-name="RHCSA" data-issuer="Red Hat">
+          <img class="cert-thumb" src="https://picsum.photos/id/26/400/300" alt="RHCSA" loading="lazy" />
+          <div class="name">RHCSA</div>
+          <div class="issuer">Red Hat</div>
+        </div>
+        <div class="cert-item" data-img="https://picsum.photos/id/42/600/400" data-name="Google IT Support" data-issuer="Google">
+          <img class="cert-thumb" src="https://picsum.photos/id/42/400/300" alt="Google IT Support" loading="lazy" />
+          <div class="name">Google IT Support</div>
+          <div class="issuer">Google</div>
+        </div>
+        <div class="cert-item" data-img="https://picsum.photos/id/48/600/400" data-name="Azure Fundamentals" data-issuer="Microsoft">
+          <img class="cert-thumb" src="https://picsum.photos/id/48/400/300" alt="Azure" loading="lazy" />
+          <div class="name">Azure Fundamentals</div>
+          <div class="issuer">Microsoft</div>
+        </div>
+        <div class="cert-item" data-img="https://picsum.photos/id/60/600/400" data-name="CompTIA A+" data-issuer="CompTIA">
+          <img class="cert-thumb" src="https://picsum.photos/id/60/400/300" alt="CompTIA A+" loading="lazy" />
+          <div class="name">CompTIA A+</div>
+          <div class="issuer">CompTIA</div>
+        </div>
+        <div class="cert-item" data-img="https://picsum.photos/id/66/600/400" data-name="DTP & Publishing" data-issuer="APTECH">
+          <img class="cert-thumb" src="https://picsum.photos/id/66/400/300" alt="DTP" loading="lazy" />
+          <div class="name">DTP &amp; Publishing</div>
+          <div class="issuer">APTECH</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-overlay" id="certModal">
+    <div class="modal-box">
+      <img class="modal-img" id="modalImg" src="" alt="Certificate" />
+      <h3 id="modalName">Certificate</h3>
+      <div class="issuer" id="modalIssuer">Issuer</div>
+      <button class="modal-close" id="closeModal">Close</button>
+    </div>
+  </div>
+
+  <!-- ===== RESUME ===== -->
+  <section id="resume">
+    <div class="section-inner">
+      <h2 class="section-title reveal"><span></span> Resume</h2>
+      <div class="resume-wrapper reveal">
+        <div class="resume-main">
+          <div class="resume-card">
+            <h3><span class="icon">👤</span> Personal Profile</h3>
+            <div class="item"><span class="label">Name</span><span class="value">SANAPALA SRIKAR</span></div>
+            <div class="item"><span class="label">Father's Name</span><span class="value">S S R MOHAN RAO</span></div>
+            <div class="item"><span class="label">Date of Birth</span><span class="value">26-04-1983</span></div>
+            <div class="item"><span class="label">Sex</span><span class="value">Male</span></div>
+            <div class="item"><span class="label">Marital Status</span><span class="value">Married</span></div>
+            <div class="item"><span class="label">Caste</span><span class="value">BCA</span></div>
+            <div class="item"><span class="label">Languages Known</span><span class="value">English, Telugu</span></div>
+            <div class="item" style="flex-direction: column; align-items: flex-start; gap: 0.1rem; border-bottom: none; padding-bottom: 0;">
+              <span class="label">Permanent Address</span>
+              <span class="value" style="text-align: left; font-size: 0.85rem; line-height: 1.5; margin-top: 0.1rem;">
+                39-13-17, Harsha Enclave, Murali Nagar<br />
+                Visakhapatnam - 530007
+              </span>
+            </div>
+          </div>
+
+          <div class="resume-card">
+            <h3><span class="icon">🎓</span> Education</h3>
+            <div class="item"><span class="label">B.C.A</span><span class="value">Madurai Kamaraj University</span></div>
+            <div class="item"><span class="label">PGDCA</span><span class="value">Andhra University</span></div>
+            <div class="item"><span class="label">PGDAT</span><span class="value">Andhra University</span></div>
+            <div class="item"><span class="label">Diploma</span><span class="value">Computer Hardware</span></div>
+          </div>
+
+          <div class="resume-card">
+            <h3><span class="icon">⚡</span> Technical Skills</h3>
+            <span class="skill-category-label">🖥️ System &amp; Infrastructure</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem;">
+              <span class="skill-badge">Interactive Flat Panels</span>
+              <span class="skill-badge">Smart Boards</span>
+              <span class="skill-badge">Projectors</span>
+              <span class="skill-badge">AV Equipment</span>
+              <span class="skill-badge">Domain Controller</span>
+              <span class="skill-badge">Remote Access</span>
+              <span class="skill-badge">Windows OS</span>
+              <span class="skill-badge">Android OS</span>
+              <span class="skill-badge">CCTV</span>
+              <span class="skill-badge">RFID</span>
+            </div>
+            <span class="skill-category-label">🎨 Design &amp; Creative</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem;">
+              <span class="skill-badge">Canva</span>
+              <span class="skill-badge">Photoshop</span>
+              <span class="skill-badge">CorelDRAW</span>
+              <span class="skill-badge">Video Editing</span>
+              <span class="skill-badge">Filmora</span>
+              <span class="skill-badge">DTP</span>
+            </div>
+            <span class="skill-category-label">🤖 AI &amp; Web Tools</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.3rem;">
+              <span class="skill-badge">ChatGPT</span>
+              <span class="skill-badge">Gemini</span>
+              <span class="skill-badge">Perplexity</span>
+              <span class="skill-badge">DeepSeek</span>
+              <span class="skill-badge">Gamma</span>
+              <span class="skill-badge">LMS Administration</span>
+            </div>
+          </div>
+
+          <div class="resume-card">
+            <h3><span class="icon">💼</span> Experience Summary</h3>
+            <div class="exp-item"><span class="period">2023 – Till Date</span><div class="role">Technical Coordinator</div><div class="company">Navy Children School, SVN Colony</div></div>
+            <div class="exp-item"><span class="period">2018 – 2023</span><div class="role">System Administrator</div><div class="company">Chandu Soft, Duvvada</div></div>
+            <div class="exp-item"><span class="period">2015 – 2017</span><div class="role">Hardware Engineer</div><div class="company">Universal Public School, Town Kotha Road</div></div>
+            <div class="exp-item"><span class="period">2009 – 2013</span><div class="role">Jr Executive</div><div class="company">Lotus Wireless Technologies India Pvt Ltd</div></div>
+          </div>
+        </div>
+
+        <div class="resume-contact">
+          <img class="profile-img" src="https://raw.githubusercontent.com/srikar917/srikarsanapala/main/profile.jpg" alt="Sanapala Srikar" />
+          <h2>Sanapala Srikar</h2>
+          <p class="title">System Administrator &amp; Technical Coordinator</p>
+
+          <div class="contact-item">
+            <span class="icon">📞</span>
+            <a href="tel:+916300860166">+91 63008 60166</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon">✉️</span>
+            <a href="mailto:s.srikar8@gmail.com">s.srikar8@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="icon">📍</span>
+            <span>Visakhapatnam, Andhra Pradesh</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">🎂</span>
+            <span>26-04-1983</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Sanapala Srikar. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ============================================
+    // EXPERIENCE DATA WITH CERTIFICATES (GITHUB)
+    // ============================================
+    const experienceData = {
+      navy: {
+        role: "Technical Coordinator",
+        company: "Navy Children School, SVN Colony",
+        meta: "2023 – Till Date | Visakhapatnam",
+        desc: "Responsible for smart classroom support, LMS administration, teacher assistance, and media content creation for the school.",
+        responsibilities: [
+          "Maintain and troubleshoot Interactive Flat Panels (IFPs), smartboards, projectors, visualizers, and classroom AV equipment.",
+          "Provide first-level support for LMS users.",
+          "Create and manage LMS user accounts.",
+          "Train teachers on smartboard and LMS usage.",
+          "Coordinate with OEM vendors for warranty and AMC support.",
+          "LMS content upload and course management.",
+          "Ensure smooth operation of digital classrooms and online learning platforms.",
+          "Provision of efficient data management support through accurate data entry, record keeping, and reporting.",
+          "Help teachers type and align question papers with proper formatting.",
+          "Support teachers in scientific study app by entering student details.",
+          "Upload images and videos to the school website.",
+          "Assist teachers in creating Google Forms for PTI and Orientation programs.",
+          "Create audio and video content for Balvatika programs.",
+          "Provide technical support for PTI, Orientation, and other school events."
+        ],
+        skills: [
+          "Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors", "Visualizers",
+          "Audio Systems", "Microphones", "Classroom AV Equipment",
+          "LAN", "Wi-Fi", "IP Configuration",
+          "Windows OS Troubleshooting", "Android OS Troubleshooting",
+          "HDMI", "VGA", "USB", "Wireless Casting",
+          "Preventive Maintenance", "Fault Diagnosis",
+          "LMS Administration", "Teacher Training", "Vendor Coordination",
+          "Asset Management", "Reporting",
+          "DTP / Question Paper Design", "Scientific Study App Data Entry",
+          "Website Content Management", "Google Forms Creation",
+          "Video Editing", "Audio Editing", "PTI Support", "Orientation Support"
+        ],
+        certificate: {
+          image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/navy-certificate.jpg",
+          label: "Navy Children School - Technical Coordinator Certificate"
+        }
+      },
+      chandusoft: {
+        role: "System Administrator",
+        company: "Chandu Soft, Duvvada",
+        meta: "2018 – 2023 | Visakhapatnam",
+        desc: "Handled system administration and IT support for multiple clients in and around Visakhapatnam.",
+        responsibilities: [
+          "Assembled and configured desktops, laptops and peripherals.",
+          "Installed and updated operating systems, antivirus and business applications.",
+          "Resolved internet connectivity, email (POP/IMAP) and mailbox issues.",
+          "Installed, configured and troubleshot printers and scanners.",
+          "Provided remote support through phone, email and tools like Skype/AnyDesk.",
+          "Monitored system performance and suggested upgrades where needed."
+        ],
+        skills: ["System Administration", "Windows OS", "Basic Linux", "LAN / WAN Troubleshooting", "Email Configuration", "Printer Support", "Client Communication"],
+        certificate: {
+          image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/chandu-certificate.jpg",
+          label: "Chandu Soft - System Administrator Certificate"
+        }
+      },
+      universal: {
+        role: "Hardware Engineer",
+        company: "Universal Public School, Town Kotha Road",
+        meta: "2015 – 2017 | Visakhapatnam",
+        desc: "Purchased and setup 30 new systems, configured Orell language software with Domain Controller integration, and utilized Canva, Photoshop, CorelDRAW, Filmora &amp; AI tools for educational content and materials.",
+        responsibilities: [
+          "Purchased and assembled 30 new computer systems for the school campus.",
+          "Configured Windows OS and installed Orell language software on all systems.",
+          "Set up Domain Controller for centralized user management and authentication.",
+          "Configured networking (LAN) and IP addressing for all systems.",
+          "Installed and maintained CCTV cameras and DVR systems.",
+          "Performed regular maintenance of computers, laptops and peripherals.",
+          "Installed, configured, and troubleshot Interactive Flat Panels (IFPs), smartboards, projectors, and visualizers.",
+          "Troubleshot audio systems, microphones, and classroom AV equipment.",
+          "Helped teachers and staff resolve basic software and hardware issues.",
+          "Knowledge of HDMI, VGA, USB, and wireless casting technologies.",
+          "Performed preventive maintenance and fault diagnosis.",
+          "Used Canva, Photoshop, and CorelDRAW for designing educational materials and content.",
+          "Edited videos using Filmora for school events and educational programs.",
+          "Leveraged AI tools (ChatGPT, Gemini, Perplexity, DeepSeek, Gamma) for content creation, research, and presentations."
+        ],
+        skills: [
+          "System Deployment", "Domain Controller Setup", "Windows OS Configuration",
+          "Orell Language Software", "LAN Configuration", "IP Addressing",
+          "Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors",
+          "Visualizers", "Audio Systems", "Microphones", "Classroom AV Equipment",
+          "HDMI", "VGA", "USB", "Wireless Casting",
+          "CCTV Installation", "Hardware Maintenance", "Preventive Maintenance",
+          "Fault Diagnosis", "User Support",
+          "Canva", "Photoshop", "CorelDRAW", "Filmora", "Video Editing",
+          "ChatGPT", "Gemini", "Perplexity", "DeepSeek", "Gamma"
+        ],
+        certificate: {
+          image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/universal-certificate.jpg",
+          label: "Universal Public School - Hardware Engineer Certificate"
+        }
+      },
+      lotus: {
+        role: "Jr Executive",
+        company: "Lotus Wireless Technologies India Pvt Ltd",
+        meta: "2009 – 2013 | Visakhapatnam",
+        desc: "Worked on wireless network support and client management for the company.",
+        responsibilities: [
+          "Provided wireless network installation and configuration support.",
+          "Troubleshot network connectivity issues for clients.",
+          "Assisted in client onboarding and technical support.",
+          "Maintained network equipment and documentation."
+        ],
+        skills: ["Wireless Networking", "Network Troubleshooting", "Client Support", "Installation", "Documentation"],
+        certificate: {
+          image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/lotus-certificate.jpg",
+          label: "Lotus Wireless - Jr Executive Certificate"
+        }
+      }
+    };
+
+    // DOM refs for experience
+    const roleEl = document.getElementById("exp-role");
+    const companyEl = document.getElementById("exp-company");
+    const metaEl = document.getElementById("exp-meta");
+    const descEl = document.getElementById("exp-desc");
+    const respEl = document.getElementById("exp-resp");
+    const skillsEl = document.getElementById("exp-skills");
+    const certSection = document.getElementById("exp-certificate");
+    const certImg = document.getElementById("exp-cert-img");
+    const certLabel = document.getElementById("exp-cert-label");
+    const timelineItems = document.querySelectorAll(".timeline-item");
+
+    function renderExperience(id) {
+      const data = experienceData[id];
+      if (!data) return;
+      roleEl.textContent = data.role;
+      companyEl.textContent = data.company;
+      metaEl.textContent = data.meta;
+      descEl.textContent = data.desc;
+      respEl.innerHTML = "";
+      data.responsibilities.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        respEl.appendChild(li);
+      });
+      skillsEl.innerHTML = "";
+      data.skills.forEach((skill) => {
+        const span = document.createElement("span");
+        span.className = "exp-skill-tag skill-clickable";
+        span.textContent = skill;
+        skillsEl.appendChild(span);
+      });
+
+      // Show certificate
+      if (data.certificate) {
+        certImg.src = data.certificate.image;
+        certLabel.textContent = data.certificate.label + " (Click to enlarge)";
+        certSection.classList.add("show");
+      } else {
+        certSection.classList.remove("show");
+      }
+    }
+
+    function setActiveTimelineItem(id) {
+      timelineItems.forEach((item) => {
+        item.classList.toggle("active", item.getAttribute("data-exp-id") === id);
+      });
+    }
+
+    function selectExperience(id) {
+      if (!experienceData[id]) return;
+      setActiveTimelineItem(id);
+      renderExperience(id);
+    }
+
+    timelineItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const id = item.getAttribute("data-exp-id");
+        selectExperience(id);
+        if (window.innerWidth < 840) {
+          document.getElementById("exp-details").scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    function findExperienceBySkill(skillName) {
+      const skillLower = skillName.toLowerCase();
+      for (const [id, data] of Object.entries(experienceData)) {
+        if (data.skills.some((s) => s.toLowerCase().includes(skillLower))) return id;
+      }
+      return null;
+    }
+
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("skill-clickable")) {
+        const skill = e.target.dataset.skill || e.target.textContent.trim();
+        const expId = findExperienceBySkill(skill);
+        if (expId) {
+          document.getElementById("experience").scrollIntoView({ behavior: "smooth", block: "start" });
+          selectExperience(expId);
+        }
+      }
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18 }
+    );
+    revealEls.forEach((el) => observer.observe(el));
+
+    // Initial load - shows Navy Children School first
+    selectExperience("navy");
+
+    // Certificate Modal (for main certificates)
+    const modalOverlay = document.getElementById("certModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalName = document.getElementById("modalName");
+    const modalIssuer = document.getElementById("modalIssuer");
+    const closeModalBtn = document.getElementById("closeModal");
+
+    document.querySelectorAll(".cert-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        const imgSrc = item.dataset.img;
+        const name = item.dataset.name;
+        const issuer = item.dataset.issuer;
+        if (imgSrc) {
+          modalImg.src = imgSrc;
+          modalImg.alt = name || "Certificate";
+          modalName.textContent = name || "Certificate";
+          modalIssuer.textContent = issuer || "";
+          modalOverlay.classList.add("open");
+        }
+      });
+    });
+
+    // Certificate Modal for experience certificate
+    function openCertModal() {
+      const imgSrc = certImg.src;
+      if (imgSrc) {
+        modalImg.src = imgSrc;
+        modalImg.alt = certLabel.textContent || "Certificate";
+        modalName.textContent = "Experience Certificate";
+        modalIssuer.textContent = document.getElementById("exp-company").textContent || "";
+        modalOverlay.classList.add("open");
+      }
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove("open");
+    }
+
+    closeModalBtn.addEventListener("click", closeModal);
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>
