@@ -371,10 +371,11 @@
 
     .experience-layout {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.5fr);
       gap: 2rem;
       align-items: flex-start;
     }
+
     .timeline {
       border-left: 1px solid rgba(148, 163, 184, 0.5);
       margin-left: 0.5rem;
@@ -514,7 +515,55 @@
       box-shadow: 0 14px 28px rgba(15, 23, 42, 1);
     }
 
-    /* ===== PROJECTS SECTION ===== */
+    .certificate-section {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 0.8rem;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      display: none;
+    }
+    .certificate-section.show {
+      display: block;
+      animation: fadeIn 0.4s ease-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .certificate-section h4 {
+      color: #38bdf8;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.3rem;
+    }
+    .certificate-section .cert-img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      border-radius: 0.5rem;
+      background: #0f172a;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .certificate-section .cert-img:hover {
+      transform: scale(1.02);
+    }
+    .certificate-section .cert-label {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-top: 0.3rem;
+      text-align: center;
+    }
+
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -698,7 +747,6 @@
       border-color: #38bdf8;
     }
 
-    /* ===== RESUME / CONTACT LAYOUT ===== */
     .resume-wrapper {
       display: grid;
       grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
@@ -772,6 +820,17 @@
       margin: 0.15rem;
     }
 
+    .skill-category-label {
+      color: #38bdf8;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.3rem;
+      margin-bottom: 0.2rem;
+      display: block;
+      font-weight: 600;
+    }
+
     .resume-card .exp-item {
       padding: 0.5rem 0;
       border-bottom: 1px solid rgba(148, 163, 184, 0.08);
@@ -792,18 +851,6 @@
       color: #6b7280;
       font-size: 0.7rem;
       float: right;
-    }
-
-    /* Category labels in skills */
-    .skill-category-label {
-      color: #38bdf8;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-top: 0.3rem;
-      margin-bottom: 0.2rem;
-      display: block;
-      font-weight: 600;
     }
 
     .resume-contact {
@@ -1070,136 +1117,90 @@
     </div>
   </section>
 
-  // ============================================
-// EXPERIENCE DATA WITH CERTIFICATES
-// ============================================
-const experienceData = {
-  navy: {
-    role: "Technical Coordinator",
-    company: "Navy Children School, SVN Colony",
-    meta: "2023 – Till Date | Visakhapatnam",
-    desc: "Responsible for smart classroom support, LMS administration, teacher assistance, and media content creation for the school.",
-    responsibilities: [
-      "Maintain and troubleshoot Interactive Flat Panels (IFPs), smartboards, projectors, visualizers, and classroom AV equipment.",
-      "Provide first-level support for LMS users.",
-      "Create and manage LMS user accounts.",
-      "Train teachers on smartboard and LMS usage.",
-      "Coordinate with OEM vendors for warranty and AMC support.",
-      "Maintain asset and maintenance records.",
-      "Generate monthly support and usage reports.",
-      "LMS content upload and course management.",
-      "Ensure smooth operation of digital classrooms and online learning platforms.",
-      "Provision of efficient data management support through accurate data entry, record keeping, and reporting.",
-      "Help teachers type and align question papers with proper formatting.",
-      "Support teachers in scientific study app by entering student details.",
-      "Upload images and videos to the school website.",
-      "Assist teachers in creating Google Forms for PTI and Orientation programs.",
-      "Create audio and video content for Balvatika programs.",
-      "Provide technical support for PTI, Orientation, and other school events."
-    ],
-    skills: [
-      "Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors", "Visualizers",
-      "Audio Systems", "Microphones", "Classroom AV Equipment",
-      "LAN", "Wi-Fi", "IP Configuration",
-      "Windows OS Troubleshooting", "Android OS Troubleshooting",
-      "HDMI", "VGA", "USB", "Wireless Casting",
-      "Preventive Maintenance", "Fault Diagnosis",
-      "LMS Administration", "Teacher Training", "Vendor Coordination",
-      "Asset Management", "Reporting",
-      "DTP / Question Paper Design", "Scientific Study App Data Entry",
-      "Website Content Management", "Google Forms Creation",
-      "Video Editing", "Audio Editing", "PTI Support", "Orientation Support"
-    ],
-    certificate: {
-      // CHANGE THIS TO YOUR ACTUAL FILENAME
-      image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/YOUR_NAVY_CERTIFICATE.jpg",
-      label: "Navy Children School - Technical Coordinator Certificate"
-    }
-  },
-  chandusoft: {
-    role: "System Administrator",
-    company: "Chandu Soft, Duvvada",
-    meta: "2018 – 2023 | Visakhapatnam",
-    desc: "Handled system administration and IT support for multiple clients in and around Visakhapatnam.",
-    responsibilities: [
-      "Assembled and configured desktops, laptops and peripherals.",
-      "Installed and updated operating systems, antivirus and business applications.",
-      "Resolved internet connectivity, email (POP/IMAP) and mailbox issues.",
-      "Installed, configured and troubleshot printers and scanners.",
-      "Provided remote support through phone, email and tools like Skype/AnyDesk.",
-      "Monitored system performance and suggested upgrades where needed."
-    ],
-    skills: ["System Administration", "Windows OS", "Basic Linux", "LAN / WAN Troubleshooting", "Email Configuration", "Printer Support", "Client Communication"],
-    certificate: {
-      // CHANGE THIS TO YOUR ACTUAL FILENAME
-      image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/YOUR_CHANDU_CERTIFICATE.jpg",
-      label: "Chandu Soft - System Administrator Certificate"
-    }
-  },
-  universal: {
-    role: "Hardware Engineer",
-    company: "Universal Public School, Town Kotha Road",
-    meta: "2015 – 2017 | Visakhapatnam",
-    desc: "Purchased and setup 30 new systems, configured Orell language software with Domain Controller integration, and utilized Canva, Photoshop, CorelDRAW, Filmora &amp; AI tools for educational content and materials.",
-    responsibilities: [
-      "Purchased and assembled 30 new computer systems for the school campus.",
-      "Configured Windows OS and installed Orell language software on all systems.",
-      "Set up Domain Controller for centralized user management and authentication.",
-      "Configured networking (LAN) and IP addressing for all systems.",
-      "Installed and maintained CCTV cameras and DVR systems.",
-      "Performed regular maintenance of computers, laptops and peripherals.",
-      "Installed, configured, and troubleshot Interactive Flat Panels (IFPs), smartboards, projectors, and visualizers.",
-      "Troubleshot audio systems, microphones, and classroom AV equipment.",
-      "Helped teachers and staff resolve basic software and hardware issues.",
-      "Knowledge of HDMI, VGA, USB, and wireless casting technologies.",
-      "Performed preventive maintenance and fault diagnosis.",
-      "Used Canva, Photoshop, and CorelDRAW for designing educational materials and content.",
-      "Edited videos using Filmora for school events and educational programs.",
-      "Leveraged AI tools (ChatGPT, Gemini, Perplexity, DeepSeek, Gamma) for content creation, research, and presentations."
-    ],
-    skills: [
-      "System Deployment", "Domain Controller Setup", "Windows OS Configuration",
-      "Orell Language Software", "LAN Configuration", "IP Addressing",
-      "Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors",
-      "Visualizers", "Audio Systems", "Microphones", "Classroom AV Equipment",
-      "HDMI", "VGA", "USB", "Wireless Casting",
-      "CCTV Installation", "Hardware Maintenance", "Preventive Maintenance",
-      "Fault Diagnosis", "User Support",
-      "Canva", "Photoshop", "CorelDRAW", "Filmora", "Video Editing",
-      "ChatGPT", "Gemini", "Perplexity", "DeepSeek", "Gamma"
-    ],
-    certificate: {
-      // CHANGE THIS TO YOUR ACTUAL FILENAME
-      image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/YOUR_UNIVERSAL_CERTIFICATE.jpg",
-      label: "Universal Public School - Hardware Engineer Certificate"
-    }
-  },
-  lotus: {
-    role: "Jr Executive",
-    company: "Lotus Wireless Technologies India Pvt Ltd",
-    meta: "2009 – 2013 | Visakhapatnam",
-    desc: "Worked on wireless network support and client management for the company.",
-    responsibilities: [
-      "Provided wireless network installation and configuration support.",
-      "Troubleshot network connectivity issues for clients.",
-      "Assisted in client onboarding and technical support.",
-      "Maintained network equipment and documentation."
-    ],
-    skills: ["Wireless Networking", "Network Troubleshooting", "Client Support", "Installation", "Documentation"],
-    certificate: {
-      // CHANGE THIS TO YOUR ACTUAL FILENAME
-      image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/YOUR_LOTUS_CERTIFICATE.jpg",
-      label: "Lotus Wireless - Jr Executive Certificate"
-    }
-  }
-};
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience">
+    <div class="section-inner">
+      <h2 class="section-title reveal"><span></span> Experience</h2>
+      <div class="experience-layout reveal">
+        <div class="timeline">
+          <article class="timeline-item active" data-exp-id="navy">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Technical Coordinator</div>
+                <div class="timeline-company">Navy Children School, SVN Colony</div>
+              </div>
+              <div class="timeline-meta">2023 – Till Date</div>
+            </div>
+            <p class="timeline-short">Smart classroom support, LMS admin, teacher assistance &amp; media content creation.</p>
+          </article>
+
+          <article class="timeline-item" data-exp-id="chandusoft">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">System Administrator</div>
+                <div class="timeline-company">Chandu Soft, Duvvada</div>
+              </div>
+              <div class="timeline-meta">2018 – 2023</div>
+            </div>
+            <p class="timeline-short">End-to-end system administration, client support and network troubleshooting.</p>
+          </article>
+
+          <article class="timeline-item" data-exp-id="universal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Hardware Engineer</div>
+                <div class="timeline-company">Universal Public School, Town Kotha Road</div>
+              </div>
+              <div class="timeline-meta">2015 – 2017</div>
+            </div>
+            <p class="timeline-short">Purchased and setup 30 systems, configured Orell language, Domain Controller, and used Canva, Photoshop, CorelDRAW, Filmora &amp; AI tools.</p>
+          </article>
+
+          <article class="timeline-item" data-exp-id="lotus">
+            <div class="timeline-dot"></div>
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Jr Executive</div>
+                <div class="timeline-company">Lotus Wireless Technologies India Pvt Ltd</div>
+              </div>
+              <div class="timeline-meta">2009 – 2013</div>
+            </div>
+            <p class="timeline-short">Wireless network support and client management.</p>
+          </article>
+        </div>
+
+        <aside class="exp-details-card" id="exp-details">
+          <div class="exp-details-role" id="exp-role"></div>
+          <div class="exp-details-company" id="exp-company"></div>
+          <div class="exp-details-meta" id="exp-meta"></div>
+          <p class="exp-details-desc" id="exp-desc"></p>
+          <div>
+            <div class="exp-details-list-title">Key Responsibilities</div>
+            <ul class="exp-details-ul" id="exp-resp"></ul>
+          </div>
+          <div>
+            <div class="exp-details-list-title">Skills Used</div>
+            <div class="exp-skill-tags" id="exp-skills"></div>
+          </div>
+          <!-- ===== CERTIFICATE SECTION ===== -->
+          <div class="certificate-section" id="exp-certificate">
+            <h4>📜 Certificate</h4>
+            <img class="cert-img" id="exp-cert-img" src="" alt="Certificate" onclick="openCertModal()" />
+            <p class="cert-label" id="exp-cert-label">Click to enlarge</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== PROJECTS SECTION ===== -->
   <section id="projects">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Projects</h2>
       <div class="project-grid reveal">
-        <!-- Project 1: Teacher Chatbot -->
         <div class="project-card">
           <div class="project-icon">🤖</div>
           <h3>Teacher Chatbot</h3>
@@ -1218,7 +1219,6 @@ const experienceData = {
           </ul>
         </div>
 
-        <!-- Project 2: Remote Classroom PC Access -->
         <div class="project-card">
           <div class="project-icon">🖥️</div>
           <h3>Remote Classroom PC Access</h3>
@@ -1237,7 +1237,6 @@ const experienceData = {
           </ul>
         </div>
 
-        <!-- Project 3: Domain Controller & Network Setup -->
         <div class="project-card">
           <div class="project-icon">🌐</div>
           <h3>Domain Controller &amp; Network Setup</h3>
@@ -1308,7 +1307,7 @@ const experienceData = {
     </div>
   </div>
 
-  <!-- ===== RESUME WITH CATEGORIZED SKILLS ===== -->
+  <!-- ===== RESUME ===== -->
   <section id="resume">
     <div class="section-inner">
       <h2 class="section-title reveal"><span></span> Resume</h2>
@@ -1340,11 +1339,8 @@ const experienceData = {
             <div class="item"><span class="label">Diploma</span><span class="value">Computer Hardware</span></div>
           </div>
 
-          <!-- ===== CATEGORIZED TECHNICAL SKILLS ===== -->
           <div class="resume-card">
             <h3><span class="icon">⚡</span> Technical Skills</h3>
-
-            <!-- Category 1: System & Infrastructure -->
             <span class="skill-category-label">🖥️ System &amp; Infrastructure</span>
             <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem;">
               <span class="skill-badge">Interactive Flat Panels</span>
@@ -1358,8 +1354,6 @@ const experienceData = {
               <span class="skill-badge">CCTV</span>
               <span class="skill-badge">RFID</span>
             </div>
-
-            <!-- Category 2: Design & Creative -->
             <span class="skill-category-label">🎨 Design &amp; Creative</span>
             <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem;">
               <span class="skill-badge">Canva</span>
@@ -1369,8 +1363,6 @@ const experienceData = {
               <span class="skill-badge">Filmora</span>
               <span class="skill-badge">DTP</span>
             </div>
-
-            <!-- Category 3: AI & Web Tools -->
             <span class="skill-category-label">🤖 AI &amp; Web Tools</span>
             <div style="display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.3rem;">
               <span class="skill-badge">ChatGPT</span>
@@ -1392,7 +1384,7 @@ const experienceData = {
         </div>
 
         <div class="resume-contact">
-          <img class="profile-img" src="https://raw.githubusercontent.com/srikar917/srikarsanapala/main/profile.jpg" alt="Sanapala Srikar" />
+          <img class="profile-img" src="https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/profile.jpeg" alt="Sanapala Srikar" />
           <h2>Sanapala Srikar</h2>
           <p class="title">System Administrator &amp; Technical Coordinator</p>
 
@@ -1434,7 +1426,7 @@ const experienceData = {
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // ============================================
-    // EXPERIENCE DATA
+    // EXPERIENCE DATA WITH CERTIFICATES (GITHUB)
     // ============================================
     const experienceData = {
       navy: {
@@ -1472,7 +1464,11 @@ const experienceData = {
           "DTP / Question Paper Design", "Scientific Study App Data Entry",
           "Website Content Management", "Google Forms Creation",
           "Video Editing", "Audio Editing", "PTI Support", "Orientation Support"
-        ]
+        ],
+        certificate: {
+          image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/navy-certificate.jpg",
+          label: "Navy Children School - Technical Coordinator Certificate"
+        }
       },
       chandusoft: {
         role: "System Administrator",
@@ -1487,7 +1483,11 @@ const experienceData = {
           "Provided remote support through phone, email and tools like Skype/AnyDesk.",
           "Monitored system performance and suggested upgrades where needed."
         ],
-        skills: ["System Administration", "Windows OS", "Basic Linux", "LAN / WAN Troubleshooting", "Email Configuration", "Printer Support", "Client Communication"]
+        skills: ["System Administration", "Windows OS", "Basic Linux", "LAN / WAN Troubleshooting", "Email Configuration", "Printer Support", "Client Communication"],
+        certificate: {
+          image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/chandu-certificate.jpg",
+          label: "Chandu Soft - System Administrator Certificate"
+        }
       },
       universal: {
         role: "Hardware Engineer",
@@ -1520,7 +1520,11 @@ const experienceData = {
           "Fault Diagnosis", "User Support",
           "Canva", "Photoshop", "CorelDRAW", "Filmora", "Video Editing",
           "ChatGPT", "Gemini", "Perplexity", "DeepSeek", "Gamma"
-        ]
+        ],
+        certificate: {
+          image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/universal-certificate.jpg",
+          label: "Universal Public School - Hardware Engineer Certificate"
+        }
       },
       lotus: {
         role: "Jr Executive",
@@ -1533,7 +1537,11 @@ const experienceData = {
           "Assisted in client onboarding and technical support.",
           "Maintained network equipment and documentation."
         ],
-        skills: ["Wireless Networking", "Network Troubleshooting", "Client Support", "Installation", "Documentation"]
+        skills: ["Wireless Networking", "Network Troubleshooting", "Client Support", "Installation", "Documentation"],
+        certificate: {
+          image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/lotus-certificate.jpg",
+          label: "Lotus Wireless - Jr Executive Certificate"
+        }
       }
     };
 
@@ -1544,6 +1552,9 @@ const experienceData = {
     const descEl = document.getElementById("exp-desc");
     const respEl = document.getElementById("exp-resp");
     const skillsEl = document.getElementById("exp-skills");
+    const certSection = document.getElementById("exp-certificate");
+    const certImg = document.getElementById("exp-cert-img");
+    const certLabel = document.getElementById("exp-cert-label");
     const timelineItems = document.querySelectorAll(".timeline-item");
 
     function renderExperience(id) {
@@ -1566,6 +1577,15 @@ const experienceData = {
         span.textContent = skill;
         skillsEl.appendChild(span);
       });
+
+      // Show certificate
+      if (data.certificate) {
+        certImg.src = data.certificate.image;
+        certLabel.textContent = data.certificate.label + " (Click to enlarge)";
+        certSection.classList.add("show");
+      } else {
+        certSection.classList.remove("show");
+      }
     }
 
     function setActiveTimelineItem(id) {
@@ -1626,7 +1646,7 @@ const experienceData = {
     // Initial load - shows Navy Children School first
     selectExperience("navy");
 
-    // Certificate Modal
+    // Certificate Modal (for main certificates)
     const modalOverlay = document.getElementById("certModal");
     const modalImg = document.getElementById("modalImg");
     const modalName = document.getElementById("modalName");
@@ -1647,6 +1667,18 @@ const experienceData = {
         }
       });
     });
+
+    // Certificate Modal for experience certificate
+    function openCertModal() {
+      const imgSrc = certImg.src;
+      if (imgSrc) {
+        modalImg.src = imgSrc;
+        modalImg.alt = certLabel.textContent || "Certificate";
+        modalName.textContent = "Experience Certificate";
+        modalIssuer.textContent = document.getElementById("exp-company").textContent || "";
+        modalOverlay.classList.add("open");
+      }
+    }
 
     function closeModal() {
       modalOverlay.classList.remove("open");
