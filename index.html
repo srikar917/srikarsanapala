@@ -1070,78 +1070,129 @@
     </div>
   </section>
 
-  <!-- ===== EXPERIENCE ===== -->
-  <section id="experience">
-    <div class="section-inner">
-      <h2 class="section-title reveal"><span></span> Experience</h2>
-      <div class="experience-layout reveal">
-        <div class="timeline">
-          <article class="timeline-item active" data-exp-id="navy">
-            <div class="timeline-dot"></div>
-            <div class="timeline-header">
-              <div>
-                <div class="timeline-role">Technical Coordinator</div>
-                <div class="timeline-company">Navy Children School, SVN Colony</div>
-              </div>
-              <div class="timeline-meta">2023 – Till Date</div>
-            </div>
-            <p class="timeline-short">Smart classroom support, LMS admin, teacher assistance &amp; media content creation.</p>
-          </article>
-
-          <article class="timeline-item" data-exp-id="chandusoft">
-            <div class="timeline-dot"></div>
-            <div class="timeline-header">
-              <div>
-                <div class="timeline-role">System Administrator</div>
-                <div class="timeline-company">Chandu Soft, Duvvada</div>
-              </div>
-              <div class="timeline-meta">2018 – 2023</div>
-            </div>
-            <p class="timeline-short">End-to-end system administration, client support and network troubleshooting.</p>
-          </article>
-
-          <article class="timeline-item" data-exp-id="universal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-header">
-              <div>
-                <div class="timeline-role">Hardware Engineer</div>
-                <div class="timeline-company">Universal Public School, Town Kotha Road</div>
-              </div>
-              <div class="timeline-meta">2015 – 2017</div>
-            </div>
-            <p class="timeline-short">Purchased and setup 30 systems, configured Orell language, Domain Controller, and used Canva, Photoshop, CorelDRAW, Filmora &amp; AI tools.</p>
-          </article>
-
-          <article class="timeline-item" data-exp-id="lotus">
-            <div class="timeline-dot"></div>
-            <div class="timeline-header">
-              <div>
-                <div class="timeline-role">Jr Executive</div>
-                <div class="timeline-company">Lotus Wireless Technologies India Pvt Ltd</div>
-              </div>
-              <div class="timeline-meta">2009 – 2013</div>
-            </div>
-            <p class="timeline-short">Wireless network support and client management.</p>
-          </article>
-        </div>
-
-        <aside class="exp-details-card" id="exp-details">
-          <div class="exp-details-role" id="exp-role"></div>
-          <div class="exp-details-company" id="exp-company"></div>
-          <div class="exp-details-meta" id="exp-meta"></div>
-          <p class="exp-details-desc" id="exp-desc"></p>
-          <div>
-            <div class="exp-details-list-title">Key Responsibilities</div>
-            <ul class="exp-details-ul" id="exp-resp"></ul>
-          </div>
-          <div>
-            <div class="exp-details-list-title">Skills Used</div>
-            <div class="exp-skill-tags" id="exp-skills"></div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
+  // ============================================
+// EXPERIENCE DATA WITH CERTIFICATES
+// ============================================
+const experienceData = {
+  navy: {
+    role: "Technical Coordinator",
+    company: "Navy Children School, SVN Colony",
+    meta: "2023 – Till Date | Visakhapatnam",
+    desc: "Responsible for smart classroom support, LMS administration, teacher assistance, and media content creation for the school.",
+    responsibilities: [
+      "Maintain and troubleshoot Interactive Flat Panels (IFPs), smartboards, projectors, visualizers, and classroom AV equipment.",
+      "Provide first-level support for LMS users.",
+      "Create and manage LMS user accounts.",
+      "Train teachers on smartboard and LMS usage.",
+      "Coordinate with OEM vendors for warranty and AMC support.",
+      "Maintain asset and maintenance records.",
+      "Generate monthly support and usage reports.",
+      "LMS content upload and course management.",
+      "Ensure smooth operation of digital classrooms and online learning platforms.",
+      "Provision of efficient data management support through accurate data entry, record keeping, and reporting.",
+      "Help teachers type and align question papers with proper formatting.",
+      "Support teachers in scientific study app by entering student details.",
+      "Upload images and videos to the school website.",
+      "Assist teachers in creating Google Forms for PTI and Orientation programs.",
+      "Create audio and video content for Balvatika programs.",
+      "Provide technical support for PTI, Orientation, and other school events."
+    ],
+    skills: [
+      "Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors", "Visualizers",
+      "Audio Systems", "Microphones", "Classroom AV Equipment",
+      "LAN", "Wi-Fi", "IP Configuration",
+      "Windows OS Troubleshooting", "Android OS Troubleshooting",
+      "HDMI", "VGA", "USB", "Wireless Casting",
+      "Preventive Maintenance", "Fault Diagnosis",
+      "LMS Administration", "Teacher Training", "Vendor Coordination",
+      "Asset Management", "Reporting",
+      "DTP / Question Paper Design", "Scientific Study App Data Entry",
+      "Website Content Management", "Google Forms Creation",
+      "Video Editing", "Audio Editing", "PTI Support", "Orientation Support"
+    ],
+    certificate: {
+      // CHANGE THIS TO YOUR ACTUAL FILENAME
+      image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/YOUR_NAVY_CERTIFICATE.jpg",
+      label: "Navy Children School - Technical Coordinator Certificate"
+    }
+  },
+  chandusoft: {
+    role: "System Administrator",
+    company: "Chandu Soft, Duvvada",
+    meta: "2018 – 2023 | Visakhapatnam",
+    desc: "Handled system administration and IT support for multiple clients in and around Visakhapatnam.",
+    responsibilities: [
+      "Assembled and configured desktops, laptops and peripherals.",
+      "Installed and updated operating systems, antivirus and business applications.",
+      "Resolved internet connectivity, email (POP/IMAP) and mailbox issues.",
+      "Installed, configured and troubleshot printers and scanners.",
+      "Provided remote support through phone, email and tools like Skype/AnyDesk.",
+      "Monitored system performance and suggested upgrades where needed."
+    ],
+    skills: ["System Administration", "Windows OS", "Basic Linux", "LAN / WAN Troubleshooting", "Email Configuration", "Printer Support", "Client Communication"],
+    certificate: {
+      // CHANGE THIS TO YOUR ACTUAL FILENAME
+      image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/YOUR_CHANDU_CERTIFICATE.jpg",
+      label: "Chandu Soft - System Administrator Certificate"
+    }
+  },
+  universal: {
+    role: "Hardware Engineer",
+    company: "Universal Public School, Town Kotha Road",
+    meta: "2015 – 2017 | Visakhapatnam",
+    desc: "Purchased and setup 30 new systems, configured Orell language software with Domain Controller integration, and utilized Canva, Photoshop, CorelDRAW, Filmora &amp; AI tools for educational content and materials.",
+    responsibilities: [
+      "Purchased and assembled 30 new computer systems for the school campus.",
+      "Configured Windows OS and installed Orell language software on all systems.",
+      "Set up Domain Controller for centralized user management and authentication.",
+      "Configured networking (LAN) and IP addressing for all systems.",
+      "Installed and maintained CCTV cameras and DVR systems.",
+      "Performed regular maintenance of computers, laptops and peripherals.",
+      "Installed, configured, and troubleshot Interactive Flat Panels (IFPs), smartboards, projectors, and visualizers.",
+      "Troubleshot audio systems, microphones, and classroom AV equipment.",
+      "Helped teachers and staff resolve basic software and hardware issues.",
+      "Knowledge of HDMI, VGA, USB, and wireless casting technologies.",
+      "Performed preventive maintenance and fault diagnosis.",
+      "Used Canva, Photoshop, and CorelDRAW for designing educational materials and content.",
+      "Edited videos using Filmora for school events and educational programs.",
+      "Leveraged AI tools (ChatGPT, Gemini, Perplexity, DeepSeek, Gamma) for content creation, research, and presentations."
+    ],
+    skills: [
+      "System Deployment", "Domain Controller Setup", "Windows OS Configuration",
+      "Orell Language Software", "LAN Configuration", "IP Addressing",
+      "Interactive Flat Panels (IFPs)", "Smart Boards", "Projectors",
+      "Visualizers", "Audio Systems", "Microphones", "Classroom AV Equipment",
+      "HDMI", "VGA", "USB", "Wireless Casting",
+      "CCTV Installation", "Hardware Maintenance", "Preventive Maintenance",
+      "Fault Diagnosis", "User Support",
+      "Canva", "Photoshop", "CorelDRAW", "Filmora", "Video Editing",
+      "ChatGPT", "Gemini", "Perplexity", "DeepSeek", "Gamma"
+    ],
+    certificate: {
+      // CHANGE THIS TO YOUR ACTUAL FILENAME
+      image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/YOUR_UNIVERSAL_CERTIFICATE.jpg",
+      label: "Universal Public School - Hardware Engineer Certificate"
+    }
+  },
+  lotus: {
+    role: "Jr Executive",
+    company: "Lotus Wireless Technologies India Pvt Ltd",
+    meta: "2009 – 2013 | Visakhapatnam",
+    desc: "Worked on wireless network support and client management for the company.",
+    responsibilities: [
+      "Provided wireless network installation and configuration support.",
+      "Troubleshot network connectivity issues for clients.",
+      "Assisted in client onboarding and technical support.",
+      "Maintained network equipment and documentation."
+    ],
+    skills: ["Wireless Networking", "Network Troubleshooting", "Client Support", "Installation", "Documentation"],
+    certificate: {
+      // CHANGE THIS TO YOUR ACTUAL FILENAME
+      image: "https://raw.githubusercontent.com/srikarsanapala/srikarsanapala/main/YOUR_LOTUS_CERTIFICATE.jpg",
+      label: "Lotus Wireless - Jr Executive Certificate"
+    }
+  }
+};
 
   <!-- ===== PROJECTS SECTION ===== -->
   <section id="projects">
